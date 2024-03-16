@@ -1,0 +1,79 @@
+/* Reset and basic styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 160;
+}
+body {
+    margin: auto;
+    font-family: brother-1816,sans-serif;
+    letter-spacing: 1.2px;
+    line-height: 1.6em;
+    font-size: 0.9em;
+    color: #4A4A4A;
+}
+
+.title{
+    font-weight: lighter;
+    letter-spacing: 3px;
+}
+.header-title{
+    font-size: 20px;
+    grid-area: title;
+    justify-self: center;
+}
+
+.cart-icon{
+    grid-area: cart-icon;
+    justify-self: end;
+}
+
+.header{
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: auto 30px;
+    grid-template-rows: 2;
+    align-items: center;
+    justify-items: center;
+    background-color: rgb(251, 239, 229);
+    grid-template-areas:
+    "title cart-icon"
+    "nav nav";
+}
+/* navigation */
+.navigation{
+    grid-area: nav;
+}
+.menu{
+    margin: 0.2rem;
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.menu-item{
+    flex-grow: 1;
+    text-align: center;
+    height: 100%;
+    font-size: 10px;
+}
+.menu-item:hover{
+    background-color: hsl(201, 11%, 66%);
+    transition-duration: 0.7s;
+    text-decoration: underline;
+    background-color: rgb(251, 239, 229);
+}
+.menu-item a{
+        text-decoration: none;
+        color: #4A4A4A;
+        text-align: center;
+}
+/* footer */
+footer{
+    text-align: center;
+    background-color: rgb(251, 239, 229);
+    padding: 0.5rem;
+    place-items: center;
+}
