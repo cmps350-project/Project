@@ -17,8 +17,6 @@ body {
     text-align: center;
 
 }
-
-/* CSS */
 .button {
   background-color: #fff;
   border: 1px solid #d5d9d9;
@@ -80,17 +78,24 @@ body {
     justify-self: end;
 }
 
+.user-icon{
+    grid-area: user-icon;
+    justify-self: start;
+}
+
 .header{
     display: grid;
     padding: 1rem;
-    grid-template-columns: auto 30px;
+    grid-template-columns: 30px auto 30px;
     grid-template-rows: 2;
     align-items: center;
     justify-items: center;
-    background-color: rgb(235, 225, 216);
+    background-color: rgb(235, 225, 216, 0.8);
+    position: sticky;
+    top: 1px;
     grid-template-areas:
-    "title cart-icon"
-    "nav nav";
+    "user-icon title cart-icon"
+    "nav nav nav";
 }
 /* navigation */
 .navigation{
@@ -120,57 +125,36 @@ body {
         color: #4A4A4A;
         text-align: center;
 }
-/* main */
-.section{
-    margin: 2rem 0rem;
-    outline: auto;
-}
-/* home section */
-.home-section{
-    height: 30vh;
-    background-image: url(../images/placeholder.png);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-style: italic;
-}
-
-/* featured artwork section */
-
-/* all artwork display section */
-.artwork-section{
-    padding: 1rem 0rem;
-}
-
-.products-container{
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 40px 8px;
-}
-
-.search-form{
-    padding: 1rem;
-    display: flex;
-    justify-content: space-around;
-}
-/* artwork */
-.art-title{
-    font-size: clamp(0.8rem, 2.5vw, 1rem); 
-}
-.artwork-item{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    height: 450px;
-    width: 350px;
-    img{
-        height:80%;
-        width:90%;
-    }
-}
 /* footer */
-footer{
+.footer{
     text-align: center;
     background-color: rgb(235, 225, 216);
     padding: 0.5rem;
     place-items: center;
+    grid-area: footer;
+}
+
+@media screen and (min-width: 575px){
+
+
+.user-icon{
+    justify-self: end;
+}
+.header{
+    grid-template-columns: 1fr 300px 1fr;
+    grid-gap: 0px 20px;
+    grid-template-areas:
+    "nav title user-icon cart-icon"
+}
+/* navigation */
+.navigation{
+    width:100%;
+}
+.menu{
+    flex-direction: row;
+}
+.menu-item{
+    text-align: start;
+}
+
 }
