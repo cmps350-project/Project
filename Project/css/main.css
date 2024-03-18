@@ -5,6 +5,7 @@
     "page-head"
     "page-body"
     "page-bottom"
+    "social-media"
     "footer";
     grid-gap: 2rem;
 }
@@ -14,12 +15,15 @@
 /* home section */
 .home-section{
     height: 30vh;
-    background-image: url(../images/header.jpg);
-    background-size: contain;
+    background-image: url(../images/panorama.jpg);
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     font-style: italic;
+}
+.tag{
+    color: rgba(251, 241, 203, 0.598);
 }
 /* body */
 .page-body{
@@ -64,5 +68,29 @@
 /*bottom*/
 .page-bottom{
     grid-area: page-bottom;
+    margin: 1rem;
+    ul{
+        text-align:center;
+        list-style-type: none;
+        li{
+            margin:1.5rem 0.7rem;
+        }
+    }
+    img{
+        margin:1rem;
+    }
 }
+
+@media screen and (min-width: 500px){
+
+    .header{
+        grid-template-columns: 1fr 300px 1fr;
+        grid-gap: 0px 20px;
+        grid-template-areas:
+        "nav title user-icon cart-icon"
+    }
+
+    
+    }
+    
 

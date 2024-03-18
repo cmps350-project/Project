@@ -66,11 +66,14 @@ body {
     font-weight: lighter;
     text-transform: uppercase;
     font-size: clamp(1rem, 2.5vw, 1.5rem); 
+    text-align: center;
+    margin: 0.7rem;
 }
 .header-title{
     grid-area: title;
     justify-self: center;
     letter-spacing: 3px;
+    margin: 0rem;
 }
 
 .cart-icon{
@@ -125,6 +128,9 @@ body {
         color: #4A4A4A;
         text-align: center;
 }
+.social-media{
+    grid-area: social-media;
+}
 /* footer */
 .footer{
     text-align: center;
@@ -132,20 +138,16 @@ body {
     padding: 0.5rem;
     place-items: center;
     grid-area: footer;
+
 }
 
-@media screen and (min-width: 575px){
+@media screen and (min-width: 500px){
 
 
 .user-icon{
     justify-self: end;
 }
-.header{
-    grid-template-columns: 1fr 300px 1fr;
-    grid-gap: 0px 20px;
-    grid-template-areas:
-    "nav title user-icon cart-icon"
-}
+
 /* navigation */
 .navigation{
     width:100%;
