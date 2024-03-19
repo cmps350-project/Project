@@ -41,7 +41,6 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333;
     font-size: 0.8rem;
-    padding: 1rem;
     border-radius: 0.2rem;
     background-color: rgb(255, 255, 255);
     border: none;
@@ -54,7 +53,6 @@ body {
     outline:none;
 }
   
-
 .button:focus {
   border-color: #008296;
   box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
@@ -67,7 +65,7 @@ body {
     text-transform: uppercase;
     font-size: clamp(1rem, 2.5vw, 1.5rem); 
     text-align: center;
-    margin: 0.7rem;
+    margin: 0.5rem;
 }
 .header-title{
     grid-area: title;
@@ -143,7 +141,12 @@ body {
 
 @media screen and (min-width: 500px){
 
-
+.header{
+    grid-template-columns: 1fr 300px 1fr;
+    grid-gap: 0px 20px;
+    grid-template-areas:
+    "nav title user-icon cart-icon"
+}
 .user-icon{
     justify-self: end;
 }
