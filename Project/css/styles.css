@@ -138,6 +138,21 @@ body {
     grid-area: footer;
 
 }
+.page-bottom{
+    grid-area: page-bottom;
+    margin: 1rem;
+
+    ul{
+        text-align:center;
+        list-style-type: none;
+        li{
+            margin:1.5rem 0.7rem;
+        }
+    }
+    img{
+        margin:1rem;
+    }
+}
 
 @media screen and (min-width: 500px){
 
