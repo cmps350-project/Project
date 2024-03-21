@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 quantity--;
                 quantityValue.textContent = quantity;
                 updatePrice(quantity, initialPrice, priceElement);
+            } else {
+                item.remove();
             }
         });
     });
