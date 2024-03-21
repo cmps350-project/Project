@@ -1,0 +1,82 @@
+
+ .container{
+    display: grid;
+    grid-template-areas:
+    "page-head"
+    "page-body"
+    "page-bottom"
+    "social-media"
+    "footer";
+    grid-gap: 2rem;
+ }
+ 
+ .artwork-item {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    height: auto; 
+    width: 400px; 
+    margin: auto;
+    font-size: 0.7rem;
+    line-height: 0.9rem;
+    display: flex;
+    align-items: center;
+    padding: 20px; 
+}
+
+.artwork-item img {
+    height: 150px; 
+    width: 150px; 
+    margin-right: 20px;
+}
+
+.artwork-details {
+    flex-grow: 1;
+}
+
+.art-title {
+    font-size: clamp(0.8rem, 2.5vw, 1rem); 
+}
+
+.artist, .price, .category {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.quantity {
+    margin-top: 10px;
+    display: flex; 
+    align-items: center;
+}
+
+.quantity button {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+}
+
+.quantity button:hover {
+    background-color: #ccc;
+}
+
+.quantity .quantity-value {
+    margin: 0 10px;
+}
+
+.checkout-btn {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    color: #4A4A4A;
+    font-family: "brother-1816", sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    text-align: center;
+    width: 150px; 
+    margin-top: 20px; }
+
+.checkout-btn:hover {
+    background-color: #f7fafa;
+}
+
