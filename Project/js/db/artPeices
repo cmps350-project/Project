@@ -3,6 +3,7 @@ const artworks = [
       id: 1,
       title: "The Starry Night",
       artist: "Vincent van Gogh",
+      category: "Post-Impressionism",
       medium: "Oil on canvas",
       year: 1889,
       price: 1000000000,
@@ -13,6 +14,7 @@ const artworks = [
       id: 2,
       title: "The Persistence of Memory",
       artist: "Salvador Dalí",
+      category: "Surrealism",
       medium: "Oil painting",
       year: 1931,
       price: 20000000,
@@ -24,6 +26,7 @@ const artworks = [
       id: 3,
       title: "Guernica",
       artist: "Pablo Picasso",
+      category: "Cubism",
       medium: "Oil on canvas",
       year: 1937,
       price: 400000000,
@@ -34,6 +37,7 @@ const artworks = [
       id: 4,
       title: "Water Lilies",
       artist: "Claude Monet",
+      category: "Impressionism",
       medium: "Oil on canvas",
       year: 1899,
       price: 30000000,
@@ -44,6 +48,7 @@ const artworks = [
       id: 5,
       title: "The Scream",
       artist: "Edvard Munch",
+      category: "Expressionism",
       medium: "Tempera on cardboard",
       year: 1893,
       price: 120000000,
@@ -55,6 +60,7 @@ const artworks = [
       id: 6,
       title: "The Great Wave off Kanagawa",
       artist: "Hokusai",
+      category: "Ukiyo-e",
       medium: "Woodblock print",
       year: 1830,
       price: 500000, 
@@ -62,8 +68,19 @@ const artworks = [
       imageUrl: "https://images.metmuseum.org/CRDImages/as/original/DP130155.jpg",
 
     },
+    {
+      id: 8,
+      title: "The Son of Man",
+      artist: "René Magritte",
+      category: "Surrealism",
+      medium: "Oil on canvas",
+      year: 1964,
+      price: 25000000,
+      description: "A man in a bowler hat with an apple obscuring his face, creating a sense of mystery and identity exploration.",
+      imageUrl: "https://www.singulart.com/blog/wp-content/uploads/2024/03/The-Son-of-Man.jpg",
+    },
     
   ];
   
-  export default artworks;
-  
+
+export default artworks;
