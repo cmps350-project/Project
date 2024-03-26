@@ -74,16 +74,6 @@ body {
     margin: 0rem;
 }
 
-.cart-icon{
-    grid-area: cart-icon;
-    justify-self: end;
-    
-}
-
-.user-icon{
-    grid-area: user-icon;
-    justify-self: start;
-}
 
 .header{
     display: grid;
@@ -161,10 +151,11 @@ body {
     grid-template-columns: 1fr 300px 1fr;
     grid-gap: 0px 20px;
     grid-template-areas:
-    "nav title user-icon cart-icon"
+    "nav title icons"
 }
-.user-icon{
+.icons{
     justify-self: end;
+    margin: 0 1.5rem;
 }
 
 /* navigation */

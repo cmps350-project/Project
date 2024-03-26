@@ -59,8 +59,8 @@ function artworkEvents() {
     
         //when hovered over, change the image and display the buy button
         card.addEventListener('mouseover', () => {
-          if (artwork && artwork.images.bordered) { //check if hover image exists
-            imageElement.src = artwork.images.bordered;
+          if (artwork && artwork.images.alternate) { //check if hover image exists
+            imageElement.src = artwork.images.alternate;
             imageBTN.style.display = 'block';
           }
           console.log("Hovering over card:", typeof(cardID), typeof(artworkId));
