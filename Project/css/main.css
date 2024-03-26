@@ -37,11 +37,13 @@
 }
 
 .art-container{
+    margin: 3rem;
+
     padding: 2rem;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 40px 8px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 40px 20px;
     align-items: center;
 }
 
@@ -56,14 +58,14 @@
 }
 .artwork-item{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    height: 450px;
+    height: 500px;
+    margin: 2rem 0;
     width: 350px;
-    margin: auto;
     font-size: 0.7rem;
     line-height: 0.9rem;
     .img{
-        height:80%;
-        width:90%;
+        height:100%;
+        width:100%;
         object-fit: cover;
     }
     .category{
@@ -76,6 +78,7 @@
 .page-bottom{
     grid-area: page-bottom;
     margin: 1rem;
+    font-size: 0.7rem;
 
     ul{
         text-align:center;
