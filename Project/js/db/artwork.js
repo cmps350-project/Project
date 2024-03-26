@@ -83,7 +83,6 @@ const artworks = [
   ];
   
 
-export default artworks;
 
 export function getArtworks(){
     return artworks

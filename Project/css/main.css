@@ -36,7 +36,7 @@
     padding: 1rem 0rem;
 }
 
-.products-container{
+.art-container{
     padding: 2rem;
     display: grid;
     justify-content: center;
@@ -64,6 +64,7 @@
     .img{
         height:80%;
         width:90%;
+        object-fit: cover;
     }
     .category{
         font-size: smaller;

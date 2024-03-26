@@ -36,11 +36,8 @@
         <main class = "page-body">
             <!--Featured Paintings Section-->
             <section id="featured-paintings section">
-                <h1 class = "title">Artworks of the season</h1>
-                <img src="./images/placeholder.png" alt="Descriptive Painting Title" width="150" height="150">
-                <img src="./images/placeholder.png" alt="Descriptive Painting Title" width="150" height="150">
-                <img src="./images/placeholder.png" alt="Descriptive Painting Title" width="150" height="150">
-                <img src="./images/placeholder.png" alt="Descriptive Painting Title" width="150" height="150">
+                <h1 class = "title">Featured Artwork</h1>
+                <img src="./images/placeholder.png" alt="Descriptive Painting Title" width="200" height="200">
 
 
             </section>
@@ -48,46 +45,12 @@
             <!--All Painting Section-->
             <section id="all-artwork" class="section artwork-section">
                 <h2 class = "title">All Artwork</h2>
-                <form class = "search-form">
-                    <input type="text" placeholder="Search Item" class= "form-input">
-                    <button type="button" class = "button">Search</button>
+                <form class = "search-form" id = "search-form">
+                    <input type="text" placeholder="Search by Title, Asrtist Name, or Category" class= "form-input" id = "search-tf">
+                    <button type="submit" class = "button" id = "search-btn">Search</button>
                 </form>
-                <div class = "products-container">
-                    <article class = "artwork-item">
-                        <img class = "img" src="./images/placeholder.png" alt="Descriptive Painting Title">
-                        <h3 class = "title art-title">Painting Title</h3> 
-                        <p class="artist">Artist Name</p>
-                        <p class="price">$999.99</p>
-                        <p class = "category">Realism</p>
-                    </article>
-                    <article class = "artwork-item">
-                        <img class = "img" src="./images/placeholder.png" alt="Descriptive Painting Title">
-                        <h3 class = "title art-title">Painting Title</h3> 
-                        <p class="artist">Artist Name</p>
-                        <p class="price">$999.99</p>
-                        <p class = "category">Realism</p>
-                    </article>
-                    <article class = "artwork-item">
-                        <img class = "img" src="./images/placeholder.png" alt="Descriptive Painting Title">
-                        <h3 class = "title art-title">Painting Title</h3> 
-                        <p class="artist">Artist Name</p>
-                        <p class="price">$999.99</p>
-                        <p class = "category">Realism</p>
-                    </article>
-                    <article class = "artwork-item">
-                        <img class = "img" src="./images/placeholder.png" alt="Descriptive Painting Title">
-                        <h3 class = "title art-title">Painting Title</h3> 
-                        <p class="artist">Artist Name</p>
-                        <p class="price">$999.99</p>
-                        <p class = "category">Realism</p>
-                    </article>
-                    <article class = "artwork-item">
-                        <img class = "img" src="./images/placeholder.png" alt="Descriptive Painting Title">
-                        <h3 class = "title art-title">Painting Title</h3> 
-                        <p class="artist">Artist Name</p>
-                        <p class="price">$999.99</p>
-                        <p class = "category">Realism</p>
-                    </article>
+                <div class = "art-container" id = "art-container">
+                    <!-- paintings go here -->
                 </div>
             </section>
         </main>
