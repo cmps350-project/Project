@@ -51,7 +51,8 @@ function artworkToHTML(artwork){
     `
 }
 
-function searchAndFilter(){
+function searchAndFilter(event){
+    event.preventDefault()
     filtering = true;
     const search = searchTF.value.toLowerCase()
     filteredArtworks = artworks.filter((artwork) => 
