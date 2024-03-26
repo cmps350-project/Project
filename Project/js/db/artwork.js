@@ -7,8 +7,12 @@ const artworks = [
       medium: "Oil on canvas",
       year: 1889,
       price: 1000000000,
+      quantity: 8,
       description: "A swirling post-impressionist landscape depicting a vibrant night sky with crescent moon and large stars, overlooking a village with church steeple.",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      images: {
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+        bordered: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      }
     },
     {
       id: 2,
@@ -18,8 +22,12 @@ const artworks = [
       medium: "Oil painting",
       year: 1931,
       price: 20000000,
+      quantity: 8,
       description: "A surrealist masterpiece featuring melting clocks draped over barren tree branches on a desolate landscape.",
-      imageUrl: "https://www.reproduction-gallery.com/catalogue/uploads/1522662218_large-image_dali-persistence-of-memory-lg.jpg",
+      images: {
+        url: "https://www.reproduction-gallery.com/catalogue/uploads/1522662218_large-image_dali-persistence-of-memory-lg.jpg",
+        bordered: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      }
     },
     // Added 6 more artworks
     {
@@ -30,8 +38,12 @@ const artworks = [
       medium: "Oil on canvas",
       year: 1937,
       price: 400000000,
+      quantity: 8,
       description: "A large, powerful anti-war piece in greyscale cubist style, portraying the chaos and suffering of a bombed city.",
-      imageUrl: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtd35hlaQS94eu8MfZaOh2BpnmPPVQ4H7kzfz1kNoNW3ZfK3Eua0d-Yhbt_CfOfRAppyoD2mIQPSEr-FFVvCSya51wZPsmZRK-duXgbumZVsLeXSoV0-76Lti8oHtjkZfy17GZRJ_wTdLm/s1600/guernica.jpg",
+      images: {
+        url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtd35hlaQS94eu8MfZaOh2BpnmPPVQ4H7kzfz1kNoNW3ZfK3Eua0d-Yhbt_CfOfRAppyoD2mIQPSEr-FFVvCSya51wZPsmZRK-duXgbumZVsLeXSoV0-76Lti8oHtjkZfy17GZRJ_wTdLm/s1600/guernica.jpg",
+        bordered: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      }
     },
     {
       id: 4,
@@ -41,8 +53,12 @@ const artworks = [
       medium: "Oil on canvas",
       year: 1899,
       price: 30000000,
+      quantity: 8,
       description: "An impressionist painting capturing a peaceful garden pond with colorful water lilies and a Japanese bridge.",
-      imageUrl: "https://www.artic.edu/iiif/2/3c27b499-af56-f0d5-93b5-a7f2f1ad5813/full/843,/0/default.jpg",
+      images: {
+        url: "https://www.artic.edu/iiif/2/3c27b499-af56-f0d5-93b5-a7f2f1ad5813/full/843,/0/default.jpg",
+        bordered: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      }
     },
     {
       id: 5,
@@ -52,8 +68,12 @@ const artworks = [
       medium: "Tempera on cardboard",
       year: 1893,
       price: 120000000,
+      quantity: 8,
       description: "An expressionist work featuring a lone figure with an anguished face and open mouth, standing on a bridge with a swirling blood-red sky.",
-      imageUrl: "https://i.ebayimg.com/images/g/I1kAAOSwO4pj8kvW/s-l1200.webp",
+      images: {
+        url: "https://i.ebayimg.com/images/g/I1kAAOSwO4pj8kvW/s-l1200.webp",
+        bordered: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      }
     },
 
     {
@@ -64,8 +84,12 @@ const artworks = [
       medium: "Woodblock print",
       year: 1830,
       price: 500000, 
+      quantity: 8,
       description: "A Japanese woodblock print depicting a massive wave threatening boats near Mount Fuji, known for its dynamic composition and bold use of color.",
-      imageUrl: "https://images.metmuseum.org/CRDImages/as/original/DP130155.jpg",
+      images: {
+        url: "https://images.metmuseum.org/CRDImages/as/original/DP130155.jpg",
+        bordered: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      }
 
     },
     {
@@ -76,8 +100,12 @@ const artworks = [
       medium: "Oil on canvas",
       year: 1964,
       price: 25000000,
+      quantity: 8,
       description: "A man in a bowler hat with an apple obscuring his face, creating a sense of mystery and identity exploration.",
-      imageUrl: "https://www.singulart.com/blog/wp-content/uploads/2024/03/The-Son-of-Man.jpg",
+      images: {
+        url: "https://www.singulart.com/blog/wp-content/uploads/2024/03/The-Son-of-Man.jpg",
+        bordered: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1200px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      }
     },
     
   ];

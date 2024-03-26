@@ -8,15 +8,17 @@ let artworks = []
 let filteredArtworks = []
 let filtering = false
 
-//events
 searchBTN.addEventListener('click', searchAndFilter)
 document.addEventListener('DOMContentLoaded', () => {
+    //functions
+    window.addToCart = addToCart;
     try {
         if(!localStorage.artworks) {
             artworks = getArtworks()
             console.log("no artworks exist in storage, fetching artworks..")
             localStorage.artworks = JSON.stringify(artworks) //save books in local storage as string
             showArtworks() //display books from local storage
+
         }
         else{
             console.log('artworks exist in storage, fetching from local storage..')
@@ -26,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Failed to load artworks:", error);
     }
 });
+
+
+
 
 function showArtworks(){
     if (!filtering){
@@ -37,21 +42,60 @@ function showArtworks(){
         const artworksString = filteredArtworks.map((artwork) => artworkToHTML(artwork)).join(' ')
         artContainer.innerHTML = artworksString;
     }
+    artworkEvents()
+
+}
+
+function artworkEvents() {
+    const artworkCard = document.querySelectorAll(".artwork-item");
+  
+    artworkCard.forEach(card => {
+        const cardID = card.id
+        const artworkId = parseInt(cardID); 
+        const artwork = artworks.find(artwork => artwork.id === artworkId); //find the artwork were hovering over from card id
+    
+        const imageElement = card.querySelector('.artwork-image'); //get the image form the card
+        const imageBTN = card.querySelector('.image-btn'); //get the button
+    
+        //when hovered over, change the image and display the buy button
+        card.addEventListener('mouseover', () => {
+          if (artwork && artwork.images.bordered) { //check if hover image exists
+            imageElement.src = artwork.images.bordered;
+            imageBTN.style.display = 'block';
+          }
+          console.log("Hovering over card:", typeof(cardID), typeof(artworkId));
+        });
+    
+        //mouse out, go back to normal image
+        card.addEventListener('mouseout', () => {
+          imageElement.src = artwork.images.url;
+          imageBTN.style.display = 'none';
+
+          
+          console.log("Unhovered card:", card);
+        });
+      });
+    }
+
+function addToCart(artworkID){
+    alert(artworkID)
 }
 
 function artworkToHTML(artwork){
     return`
     <article class = "artwork-item" id = "${artwork.id}">
-    <img class = "img" src= ${artwork.imageUrl} alt="Descriptive Painting Title">
+    <div class="img-container">
+        <img class = "img artwork-image" src= ${artwork.images.url} alt="${artwork.description}">
+        <button class="image-btn button" onclick = "addToCart(${artwork.id})">Add to Cart</button>
+    </div>
     <h3 class = "title art-title">${artwork.title}</h3> 
     <p class="artist">${artwork.artist}</p>
-    <p class="price">${artwork.price}$</p>
-    <p class = "category">${artwork.category}</p>
     </article>
     `
 }
 
-function searchAndFilter(){
+function searchAndFilter(e){
+    e.preventDefault()
     filtering = true;
     const search = searchTF.value.toLowerCase()
     filteredArtworks = artworks.filter((artwork) => 

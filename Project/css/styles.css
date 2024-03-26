@@ -18,7 +18,7 @@ body {
 
 }
 .button {
-  background-color: #fff;
+  background-color: rgb(244, 242, 239);
   border: 1px solid #d5d9d9;
   border-radius: 8px;
   box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
@@ -54,7 +54,7 @@ body {
 }
   
 .button:focus {
-  border-color: #008296;
+  border-color: #b86807;
   box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
   outline: 0;
 }
