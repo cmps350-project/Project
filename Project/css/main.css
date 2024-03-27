@@ -18,7 +18,8 @@
 /* home section */
 .home-section{
     height: 30vh;
-    background-image: url(../images/panorama.jpg);
+    /*background-image: url(../images/panorama.jpg);*/
+    background-image: url(../images/paintstroke.png);
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -26,13 +27,35 @@
     font-style: italic;
 }
 .tag{
-    color: rgba(251, 241, 203, 0.598);
+    color: rgb(70, 42, 24);
 }
 /* body */
 .page-body{
     grid-area: page-body;
 }
 /* featured artwork section */
+.featured-card{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    align-self: center;
+    justify-self: center;
+    .featured-text{
+        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+    }
+}
+.featured-img{
+    height: 100%;
+    width: 30%;
+    border:auto;
+} 
 
 /* all artwork display section */
 .artwork-section{

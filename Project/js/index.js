@@ -3,6 +3,7 @@ import {getArtworks} from "./db/artwork.js"; // Import the artwork data
 const artContainer = document.querySelector("#art-container")
 const searchBTN = document.querySelector("#search-btn")
 const searchTF = document.querySelector("#search-tf")
+const featuredArtDiv = document.querySelector("#featured-card")
 
 let artworks = []
 let filteredArtworks = []
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function showArtworks(){
     if (!filtering){
         artworks = JSON.parse(localStorage.artworks) //convert it back from string to json obj
+        featureArtwork(artworks[3])// feature an artwork
         const artworksString = artworks.map((artwork) => artworkToHTML(artwork)).join(' ') //map book to html
         artContainer.innerHTML = artworksString; //add it in html code
     }
@@ -44,6 +46,10 @@ function showArtworks(){
     }
     artworkEvents()
 
+}
+
+function featureArtwork(artwork){
+    featuredArtDiv.innerHTML = featuredArtToHTML(artwork)
 }
 
 function artworkEvents() {
@@ -59,13 +65,13 @@ function artworkEvents() {
     
         //when hovered over, change the image and display the buy button
         card.addEventListener('mouseover', () => {
+            imageBTN.style.display = 'block';
           if (artwork && artwork.images.alternate) { //check if hover image exists
             imageElement.style.opacity = 0;
             setTimeout(() => {
               imageElement.src = artwork.images.alternate;
-            }, 40);
+            }, 50);
             imageElement.style.opacity = 1; 
-            imageBTN.style.display = 'block';
           }
           console.log("Hovering over card:", typeof(cardID), typeof(artworkId));
         });
@@ -98,6 +104,18 @@ function artworkToHTML(artwork){
     `
 }
 
+
+function featuredArtToHTML(artwork){
+    return `
+    <img class = "featured-img" src="${artwork.images.url}" alt="Descriptive Painting Title">
+    <div class = "featured-text">
+        <h3 class = "title art-title">${artwork.title}</h3> 
+        <p class="artist">${artwork.artist}</p>
+        <p class="descrciption">${artwork.description}</p>
+    </div>
+    `
+}
+
 function searchAndFilter(e){
     e.preventDefault()
     filtering = true;
@@ -111,3 +129,6 @@ function searchAndFilter(e){
     }
     showArtworks()
 }
+
+
+
