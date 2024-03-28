@@ -1,4 +1,3 @@
-import {getArtworks} from "./db/artwork.js"; // Import the artwork data
 const filePath = 'js/db/artwork.json';
 
 const artContainer = document.querySelector("#art-container")
@@ -20,6 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(!localStorage.artworks) {
             const data = await fetch(filePath);
             const artworks = await data.json();
+            console.log(artworks)
             console.log("no artworks exist in storage, fetching artworks..")
             localStorage.artworks = JSON.stringify(artworks) //save books in local storage as string
             showArtworks() //display books from local storage
