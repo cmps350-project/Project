@@ -107,23 +107,26 @@ function artworkEvents() {
       });
     }
 
-function addToCart(artworkID){
-    if (!isLoggedIn()){
-        window.location.href = "login.html"
-        alert("You must be logged in as a customer to add to cart")
-    }
-    else {
-        const artwork = artworks.find((artwork) => artwork.id == artworkID)
-        if (shoppingCart.includes(artwork.id))
-            alert(`${artwork.title} already exists in your cart. Manage the Quantity in your shopping basket`)
-        else{
-            alert(`added ${artwork.title} to cart successfully`)
-            shoppingCart.push(artwork.id)
-            localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))        
+
+    function addToCart(artworkID){
+        if (!isLoggedIn()){
+            alert("You must be logged in as a customer to add to cart")
+            window.location.href = "login.html"
+        }
+        else {
+            const artwork = artworks.find((artwork) => artwork.id == artworkID)
+            const quantity = 1
+            const cartItemIndex = shoppingCart.findIndex(item => item.artworkID === artworkID);
+            if (cartItemIndex !== -1) {
+                alert(`${artwork.title} already exists in your cart. Manage the Quantity in your shopping basket`)
+            } else {
+                alert(`added ${artwork.title} to cart successfully`)
+                shoppingCart.push({ artworkID: artwork.id, quantity: quantity })
+                localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+            }
         }
     }
-
-}
+    
 
 function artworkToHTML(artwork){
     return`
