@@ -5,6 +5,9 @@ const searchBTN = document.querySelector("#search-btn")
 const searchTF = document.querySelector("#search-tf")
 const featuredArtDiv = document.querySelector("#featured-card")
 const basketIcon = document.querySelector("#basket-icon")
+const sellPageLI = document.querySelector("#sell-page")
+const accountPageLI = document.querySelector("#acc-page")
+
 
 let artworks = []
 let filteredArtworks = []
@@ -57,6 +60,26 @@ basketIcon.addEventListener('click', () => {
         window.location.href = "basket.html"
     }
 });
+accountPageLI.addEventListener('click', () => {
+    const loggedInUser = getLoggedInUser();
+    if (!loggedInUser) {
+        alert ("You must log in to view account information")
+        window.location.href = "login.html"
+    } else {
+        window.location.href = "purchaseHistory.html"
+    }
+});
+// CHANGE THE HREF
+sellPageLI.addEventListener('click', () => {
+    const loggedInUser = getLoggedInUser();
+    if (!loggedInUser || loggedInUser.type !== 'seller') {
+        alert ("You must be logged in as a seller to sell your art")
+        window.location.href = "login.html"
+    } else {
+        window.location.href = "main.html"
+    }
+});
+
 
 
 function showArtworks(){
@@ -109,7 +132,7 @@ function artworkEvents() {
 
 
     function addToCart(artworkID){
-        if (!isLoggedIn()){
+        if (!isLoggedIn() || getLoggedInUser().type != "Customer"){
             alert("You must be logged in as a customer to add to cart")
             window.location.href = "login.html"
         }
