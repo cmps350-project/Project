@@ -4,7 +4,7 @@ const users = [
       password: "password1",
       fullName: "Ahmed Omar",
       email: "user1@example.com",
-      type: "seller",
+      type: "customer",
       currentBasket: [1, 3],
       purchaseHistory: [],
       currentSelling: [],
@@ -26,7 +26,7 @@ const users = [
       password: "password3",
       email: "user3@example.com",
       fullName: "John Smith",
-      type: "seller",
+      type: "customer",
       currentBasket: [],
       purchaseHistory: [],
       currentSelling: [],
@@ -64,7 +64,66 @@ const users = [
         purchaseHistory: [],
         currentSelling: [],
         soldHistory: []
-      }
+      },
+
+      // artists
+      {
+        username: "rene_brown",
+        password: "123",
+        email: "rene@example.com",
+        fullName: "René Brown",
+        type: "seller",
+        currentBasket: [],
+        purchaseHistory: [],
+        currentSelling: [],
+        soldHistory: []
+      },
+      {
+        username: "dan_fink",
+        password: "123",
+        email: "dan@example.com",
+        fullName: "Dan Fink",
+        type: "seller",
+        currentBasket: [],
+        purchaseHistory: [],
+        currentSelling: [],
+        soldHistory: []
+      },
+      {
+        username: "claude_monet",
+        password: "123",
+        email: "claude@example.com",
+        fullName: "Claude Monet",
+        type: "seller",
+        currentBasket: [],
+        purchaseHistory: [],
+        currentSelling: [],
+        soldHistory: []
+      },
+      {
+        username: "edvard_munch",
+        password: "123",
+        email: "edvard@example.com",
+        fullName: "Edvard Munch",
+        type: "seller",
+        currentBasket: [],
+        purchaseHistory: [],
+        currentSelling: [],
+        soldHistory: []
+      },
+      {
+        username: "hokusai",
+        password: "123",
+        email: "hokusai@example.com",
+        fullName: "Hokusai",
+        type: "seller",
+        currentBasket: [],
+        purchaseHistory: [],
+        currentSelling: [],
+        soldHistory: []
+      },
+      // ---------
+      
   ]
 
  export function getUsers(){
