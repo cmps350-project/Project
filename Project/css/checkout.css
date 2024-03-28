@@ -1,0 +1,53 @@
+.page-body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 2rem;
+    margin: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    font-size: 1rem;
+    color: #555;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    outline: none;
+}
+
+button.checkout-btn {
+    background-color: #b9ac92;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    grid-column: 2;
+}
+
+button.checkout-btn:hover {
+    background-color: #d9ceb8;
+}
