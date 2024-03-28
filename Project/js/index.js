@@ -11,7 +11,6 @@ let filteredArtworks = []
 let filtering = false
 let shoppingCart = []
 
-// basketIcon.addEventListener('click', goToBasket)
 searchBTN.addEventListener('click', searchAndFilter)
 document.addEventListener('DOMContentLoaded', async () => {
     //functions
@@ -22,17 +21,24 @@ document.addEventListener('DOMContentLoaded', async () => {
             const artworks = await data.json();
             console.log("no artworks exist in storage, fetching artworks..")
             localStorage.artworks = JSON.stringify(artworks) //save books in local storage as string
+            let featuredArt = artworks[3].id //default artwork to feature
+            localStorage.featuredArt = featuredArt
             showArtworks() //display books from local storage
 
         }else{
             console.log('artworks exist in storage, fetching from local storage..')
             showArtworks()
         }
+        if (localStorage.user){
+            let currUser = JSON.parse(localStorage.user)
+            if (currUser.type == "admin"){
+                adminView();
+            }
+        }
     } catch (error) {
         console.error("Failed to load artworks:", error);
     }
 })
-
 function getLoggedInUser() {
     const userString = localStorage.getItem('user');
     if (userString) {
@@ -52,13 +58,9 @@ basketIcon.addEventListener('click', () => {
 });
 
 
-
-
-
 function showArtworks(){
     if (!filtering){
         artworks = JSON.parse(localStorage.artworks) //convert it back from string to json obj
-        featureArtwork(artworks[3])// feature an artwork
         const artworksString = artworks.map((artwork) => artworkToHTML(artwork)).join(' ') //map book to html
         artContainer.innerHTML = artworksString; //add it in html code
     }
@@ -66,13 +68,11 @@ function showArtworks(){
         const artworksString = filteredArtworks.map((artwork) => artworkToHTML(artwork)).join(' ')
         artContainer.innerHTML = artworksString;
     }
+    featureArtwork(localStorage.featuredArt)
     artworkEvents()
 
 }
 
-function featureArtwork(artwork){
-    featuredArtDiv.innerHTML = featuredArtToHTML(artwork)
-}
 
 function artworkEvents() {
     const artworkCard = document.querySelectorAll(".artwork-item");
@@ -87,7 +87,7 @@ function artworkEvents() {
     
         //when hovered over, change the image and display the buy button
         card.addEventListener('mouseover', () => {
-            imageBTN.style.display = 'block';
+            imageBTN.classList.toggle("hidden");
           if (artwork && artwork.images.alternate) { //check if hover image exists
             imageElement.style.opacity = 0;
             setTimeout(() => {
@@ -100,8 +100,7 @@ function artworkEvents() {
         //mouse out, go back to normal image
         card.addEventListener('mouseout', () => {
           imageElement.src = artwork.images.url;
-          imageBTN.style.display = 'none';
-
+          imageBTN.classList.toggle("hidden");
           
         });
       });
@@ -133,7 +132,7 @@ function artworkToHTML(artwork){
     <article class = "artwork-item" id = "${artwork.id}">
     <div class="img-container">
         <img class = "img artwork-image" src= ${artwork.images.url} alt="${artwork.description}">
-        <button class="image-btn button" onclick = "addToCart(${artwork.id})">Add to Cart</button>
+        <button class="image-btn hidden button" onclick = "addToCart(${artwork.id})">Add to Cart</button>
     </div>
     <h3 class = "title art-title">${artwork.title}</h3> 
     <p class="artist">${artwork.artist}</p>
@@ -142,20 +141,6 @@ function artworkToHTML(artwork){
     `
 }
 
-
-function featuredArtToHTML(artwork){
-    return `
-    <div class = "ft-image-container">
-        <
-        <img class = "featured-img" src="${artwork.images.url}" alt="Descriptive Painting Title">
-    </div>
-    <div class = "featured-text">
-        <h3 class = "title art-title">${artwork.title}</h3> 
-        <p class="artist">${artwork.artist}</p>
-        <p class="descrciption">${artwork.description}</p>
-    </div>
-    `
-}
 
 function searchAndFilter(e){
     e.preventDefault()
@@ -188,6 +173,40 @@ function isLoggedIn(){
         return true
 }
 
+function adminView(){
+
+    //featured artwork
+    const ftArtworkDD = document.querySelector("#artwork-select")
+    ftArtworkDD.classList.toggle("hidden")
+    const artworkOptions = artworks.map((artwork) => `<option value="${artwork.title}">${artwork.title}</option>`).join(' ')
+    ftArtworkDD.innerHTML = artworkOptions;
+    ftArtworkDD.addEventListener('change', () => {
+        const artwork = artworks.find((artwork) => artwork.title == ftArtworkDD.value)
+        featuredArtDiv.innerHTML = featuredArtToHTML(artwork)
+        localStorage.featuredArt = artwork.id;
+    })
+    //trash icon
+
+
+}
+function featureArtwork(artworkID){
+    const artworkIndex = artworks.findIndex((artwork) => artwork.id == artworkID)
+    featuredArtDiv.innerHTML = featuredArtToHTML(artworks[artworkIndex])
+}
+
+function featuredArtToHTML(artwork){
+    return `
+    <div class = "ft-img-container">
+        <select id="artwork-select" class = "artwork-select hidden" placeholder = "Choose Artwork" name="artwork-select"></select>
+        <img class = "featured-img" src="${artwork.images.url}" alt="Descriptive Painting Title">
+    </div>
+    <div class = "featured-text">
+        <h3 class = "title art-title">${artwork.title}</h3> 
+        <p class="artist">${artwork.artist}</p>
+        <p class="descrciption">${artwork.description}</p>
+    </div>
+    `
+}
 
 
 
