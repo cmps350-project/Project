@@ -2,7 +2,6 @@
     {
         "username": "ahmed_omar",
         "password": "password1",
-        "fullName": "Ahmed Omar",
         "email": "user1@example.com",
         "type": "customer",
         "name": "Ahmed",
@@ -15,7 +14,6 @@
     {
         "username": "sara_ali",
         "password": "password2",
-        "fullName": "Sara Ali",
         "email": "user2@example.com",
         "type": "customer",
         "name": "Sara",
@@ -28,7 +26,6 @@
     {
         "username": "john_smith",
         "password": "password3",
-        "fullName": "John Smith",
         "email": "user3@example.com",
         "type": "customer",
         "name": "John",
@@ -41,7 +38,6 @@
     {
         "username": "jane_brown",
         "password": "password4",
-        "fullName": "Jane Brown",
         "email": "user4@example.com",
         "type": "customer",
         "name": "Jane",
