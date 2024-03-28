@@ -9,6 +9,7 @@ const basketIcon = document.querySelector("#basket-icon")
 let artworks = []
 let filteredArtworks = []
 let filtering = false
+let shoppingCart = []
 
 // basketIcon.addEventListener('click', goToBasket)
 searchBTN.addEventListener('click', searchAndFilter)
@@ -19,7 +20,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if(!localStorage.artworks) {
             const data = await fetch(filePath);
             const artworks = await data.json();
-            console.log(artworks)
             console.log("no artworks exist in storage, fetching artworks..")
             localStorage.artworks = JSON.stringify(artworks) //save books in local storage as string
             showArtworks() //display books from local storage
@@ -110,8 +110,16 @@ function artworkEvents() {
 function addToCart(artworkID){
     if (!isLoggedIn())
         window.location.href = "login.html"
-    else
-        alert(artworkID)
+    else{
+        const artwork = artworks.find((artwork) => artwork.id == artworkID)
+        if (shoppingCart.includes(artwork))
+            alert(`${artwork.title} already exists in your cart. Manage the Quantity in your shopping basket`)
+        else{
+            alert(`added ${artwork.title} to cart successfully`)
+            shoppingCart.push(artwork)
+            localStorage.shoppingCart = shoppingCart;
+        }
+    }
 
 }
 
