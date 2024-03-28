@@ -53,8 +53,17 @@
     }
     .featured-img{
         width: 50vh;
+        object-fit: contain;
+        height: 50vh;
         border:auto;
     } 
+}
+.ft-img-container{
+    display:flex;
+    flex-direction: column;
+    .artwork-select{
+        height:4vh;
+    }
 }
 
 /* all artwork display section */
@@ -107,7 +116,6 @@
         top: 500px;
         left: 50%; 
         transform: translate(-50%, -50%);
-        display: none;
         opacity: 0.9;
       }
     .category, .price{
@@ -132,6 +140,9 @@
     img{
         margin:1rem;
     }
+}
+.hidden{
+    display:none
 }
 
 @media screen and (min-width: 500px){

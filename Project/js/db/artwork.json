@@ -83,6 +83,7 @@
         "year": 2012,
         "price": 5000,
         "quantity": 2,
+        "description": "The sky appearance if world peace existed",
         "images": {
             "url": "https://i.pinimg.com/564x/d3/85/c9/d385c9264b48dd0557865e2b3edadab5.jpg",
             "alternate": "https://i.postimg.cc/mkPPBsNz/peacebirds-alternate.png"
