@@ -116,7 +116,7 @@ function addToCart(artworkID){
             alert(`${artwork.title} already exists in your cart. Manage the Quantity in your shopping basket`)
         else{
             alert(`added ${artwork.title} to cart successfully`)
-            shoppingCart.push(artwork)
+            shoppingCart.push(artwork.id)
             localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))        
         }
     }
