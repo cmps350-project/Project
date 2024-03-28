@@ -1,4 +1,5 @@
 import {getArtworks} from "./db/artwork.js"; // Import the artwork data
+const filePath = 'js/db/artwork.json';
 
 const artContainer = document.querySelector("#art-container")
 const searchBTN = document.querySelector("#search-btn")
@@ -12,18 +13,18 @@ let filtering = false
 
 basketIcon.addEventListener('click', goToBasket)
 searchBTN.addEventListener('click', searchAndFilter)
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     //functions
     window.addToCart = addToCart;
     try {
         if(!localStorage.artworks) {
-            artworks = getArtworks()
+            const data = await fetch(filePath);
+            const artworks = await data.json();
             console.log("no artworks exist in storage, fetching artworks..")
             localStorage.artworks = JSON.stringify(artworks) //save books in local storage as string
             showArtworks() //display books from local storage
 
-        }
-        else{
+        }else{
             console.log('artworks exist in storage, fetching from local storage..')
             showArtworks()
         }
@@ -75,7 +76,6 @@ function artworkEvents() {
             }, 50);
             imageElement.style.opacity = 1; 
           }
-          console.log("Hovering over card:", typeof(cardID), typeof(artworkId));
         });
     
         //mouse out, go back to normal image
@@ -84,7 +84,6 @@ function artworkEvents() {
           imageBTN.style.display = 'none';
 
           
-          console.log("Unhovered card:", card);
         });
       });
     }
