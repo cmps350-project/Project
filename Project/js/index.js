@@ -4,11 +4,13 @@ const artContainer = document.querySelector("#art-container")
 const searchBTN = document.querySelector("#search-btn")
 const searchTF = document.querySelector("#search-tf")
 const featuredArtDiv = document.querySelector("#featured-card")
+const basketIcon = document.querySelector("#basket-icon")
 
 let artworks = []
 let filteredArtworks = []
 let filtering = false
 
+basketIcon.addEventListener('click', goToBasket)
 searchBTN.addEventListener('click', searchAndFilter)
 document.addEventListener('DOMContentLoaded', () => {
     //functions
@@ -88,7 +90,11 @@ function artworkEvents() {
     }
 
 function addToCart(artworkID){
-    alert(artworkID)
+    if (!isLoggedIn())
+        window.location.href = "login.html"
+    else
+        alert(artworkID)
+
 }
 
 function artworkToHTML(artwork){
@@ -130,6 +136,24 @@ function searchAndFilter(e){
     }
     showArtworks()
 }
+
+function goToBasket(){
+    if (!isLoggedIn())
+        window.location.href = "login.html"
+    else
+        window.location.href = "basket.html"
+}
+
+
+// user related functions
+function isLoggedIn(){
+    console.log(localStorage.user)
+    if (!localStorage.user)
+        return false
+    else
+        return true
+}
+
 
 
 
