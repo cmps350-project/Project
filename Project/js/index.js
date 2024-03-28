@@ -117,7 +117,7 @@ function addToCart(artworkID){
         else{
             alert(`added ${artwork.title} to cart successfully`)
             shoppingCart.push(artwork)
-            localStorage.shoppingCart = shoppingCart;
+            localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))        
         }
     }
 
