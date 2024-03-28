@@ -11,7 +11,7 @@ let artworks = []
 let filteredArtworks = []
 let filtering = false
 
-basketIcon.addEventListener('click', goToBasket)
+// basketIcon.addEventListener('click', goToBasket)
 searchBTN.addEventListener('click', searchAndFilter)
 document.addEventListener('DOMContentLoaded', async () => {
     //functions
@@ -31,7 +31,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error("Failed to load artworks:", error);
     }
+})
+
+function getLoggedInUser() {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+        return JSON.parse(userString);
+    } else {
+        return null;
+    }
+}
+basketIcon.addEventListener('click', () => {
+    const loggedInUser = getLoggedInUser();
+    if (!loggedInUser || loggedInUser.type !== 'customer') {
+        alert ("You must be logged in as a customer to access your basket")
+        window.location.href = "login.html"
+    } else {
+        window.location.href = "basket.html"
+    }
 });
+
 
 
 

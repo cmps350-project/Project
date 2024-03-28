@@ -1,33 +1,36 @@
-import { getUsers } from "./db/users.js"
 
 const loginForm = document.querySelector(".login-form")
 const usernameInput = document.querySelector("#username")
 const passwordInput = document.querySelector("#password")
 
-console.log("loginForm:", loginForm)
+document.addEventListener('DOMContentLoaded', async () => {
+    loginForm.addEventListener("submit", async (event) => {
+        event.preventDefault()
 
-loginForm.addEventListener("submit", function(event) {
-    event.preventDefault() 
+        const username = usernameInput.value.trim()
+        const password = passwordInput.value.trim()
 
-    login(usernameInput, passwordInput)
+        try {
+            const response = await fetch('./js/db/users.json')
+            if (!response.ok) {
+                throw new Error('Failed to fetch user data')
+            }
+
+            const users = await response.json()
+            const user = users.find(user => user.username === username && user.password === password)
+            
+            if (user) {
+                alert("Login successful!")
+                console.log("User found:", user)
+                localStorage.setItem('user', JSON.stringify(user))
+                window.location.href = "main.html"
+            } else {
+                alert("Invalid username or password.")
+                console.log("Invalid username or password.")
+            }
+        } catch (error) {
+            console.error("Error fetching user data:", error)
+        }
+    })
 })
 
-async function login(usernameInput, passwordInput) {
-    try {
-        const username = usernameInput.value
-        const password = passwordInput.value
-        const users = getUsers()
-
-        const user = users.find(user => user.username === username && user.password === password)
-        if (user) {
-            alert("Login successful!")
-            console.log("User found:", user)
-            window.location.href = "main.html"
-        } else {
-            alert("Invalid username or password.")
-            console.log("Invalid username or password.")
-        }
-    } catch (error) {
-        console.error("Error fetching user data:", error)
-    }
-}
