@@ -109,12 +109,12 @@ function artworkEvents() {
 
 function addToCart(artworkID){
     if (!isLoggedIn()){
-        window.location.href = "login.html"
         alert("You must be logged in as a customer to add to cart")
+        window.location.href = "login.html"
     }
     else {
         const artwork = artworks.find((artwork) => artwork.id == artworkID)
-        if (shoppingCart.includes(artwork))
+        if (shoppingCart.includes(artwork.id))
             alert(`${artwork.title} already exists in your cart. Manage the Quantity in your shopping basket`)
         else{
             alert(`added ${artwork.title} to cart successfully`)
@@ -123,7 +123,6 @@ function addToCart(artworkID){
 
         }
     }
-
 }
 
 function artworkToHTML(artwork){
