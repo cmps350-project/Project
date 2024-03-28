@@ -1,0 +1,111 @@
+[
+    {
+        "username": "ahmed_omar",
+        "password": "password1",
+        "fullName": "Ahmed Omar",
+        "email": "user1@example.com",
+        "type": "customer",
+        "name": "Ahmed",
+        "surname": "Omar",
+        "shippingAddress": "123 Street, City, Country",
+        "moneyBalance": 1000,
+        "currentBasket": [],
+        "purchaseHistory": []
+    },
+    {
+        "username": "sara_ali",
+        "password": "password2",
+        "fullName": "Sara Ali",
+        "email": "user2@example.com",
+        "type": "customer",
+        "name": "Sara",
+        "surname": "Ali",
+        "shippingAddress": "456 Street, City, Country",
+        "moneyBalance": 1500,
+        "currentBasket": [],
+        "purchaseHistory": []
+    },
+    {
+        "username": "john_smith",
+        "password": "password3",
+        "fullName": "John Smith",
+        "email": "user3@example.com",
+        "type": "customer",
+        "name": "John",
+        "surname": "Smith",
+        "shippingAddress": "789 Street, City, Country",
+        "moneyBalance": 2000,
+        "currentBasket": [],
+        "purchaseHistory": []
+    },
+    {
+        "username": "jane_brown",
+        "password": "password4",
+        "fullName": "Jane Brown",
+        "email": "user4@example.com",
+        "type": "customer",
+        "name": "Jane",
+        "surname": "Brown",
+        "shippingAddress": "1011 Street, City, Country",
+        "moneyBalance": 1200,
+        "currentBasket": [],
+        "purchaseHistory": []
+    },
+    {
+        "username": "maryam_amer",
+        "password": "password5",
+        "email": "user5@example.com",
+        "type": "admin"
+    },
+    {
+        "username": "saif_osama",
+        "password": "password6",
+        "email": "user6@example.com",
+        "type": "admin"
+    },
+    {
+        "username": "rene_brown",
+        "password": "123",
+        "fullName": "René Brown",
+        "email": "rene@example.com",
+        "type": "seller",
+        "companyName": "Brown Enterprises",
+        "bankAccount": "123456789"
+    },
+    {
+        "username": "dan_fink",
+        "password": "123",
+        "fullName": "Dan Fink",
+        "email": "dan@example.com",
+        "type": "seller",
+        "companyName": "Fink Co.",
+        "bankAccount": "987654321"
+    },
+    {
+        "username": "claude_monet",
+        "password": "123",
+        "fullName": "Claude Monet",
+        "email": "claude@example.com",
+        "type": "seller",
+        "companyName": "Monet Artworks",
+        "bankAccount": "456789123"
+    },
+    {
+        "username": "edvard_munch",
+        "password": "123",
+        "fullName": "Edvard Munch",
+        "email": "edvard@example.com",
+        "type": "seller",
+        "companyName": "Munch Gallery",
+        "bankAccount": "789123456"
+    },
+    {
+        "username": "hokusai",
+        "password": "123",
+        "fullName": "Hokusai",
+        "email": "hokusai@example.com",
+        "type": "seller",
+        "companyName": "Hokusai Art",
+        "bankAccount": "321654987"
+    }
+]
