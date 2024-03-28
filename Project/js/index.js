@@ -15,6 +15,7 @@ searchBTN.addEventListener('click', searchAndFilter)
 document.addEventListener('DOMContentLoaded', async () => {
     //functions
     window.addToCart = addToCart;
+    window.deleteArtwork = deleteArtwork;
     try {
         if(!localStorage.artworks) {
             const data = await fetch(filePath);
@@ -137,8 +138,21 @@ function artworkToHTML(artwork){
     <h3 class = "title art-title">${artwork.title}</h3> 
     <p class="artist">${artwork.artist}</p>
     <p class = "price">${artwork.price}$</p>
+    <img class = "img hidden trash-icon" src= "/images/trash.png" alt="Trash Icon height = "50" width = "50" onclick = "deleteArtwork(${artwork.id})">
     </article>
     `
+}
+
+function deleteArtwork(artworkID){
+    const artworkIndex = artworks.findIndex((artwork) => artwork.id == artworkID)
+    if (artworkID != localStorage.featuredArt){
+        artworks.splice(artworkIndex, 1)
+        localStorage.artworks = JSON.stringify(artworks)
+        showArtworks();
+        toggleTrashVisibility();
+    }
+    else
+        alert("Cannot delete featured Artwork")
 }
 
 
@@ -174,7 +188,6 @@ function isLoggedIn(){
 }
 
 function adminView(){
-
     //featured artwork
     const ftArtworkDD = document.querySelector("#artwork-select")
     ftArtworkDD.classList.toggle("hidden")
@@ -184,11 +197,19 @@ function adminView(){
         const artwork = artworks.find((artwork) => artwork.title == ftArtworkDD.value)
         featuredArtDiv.innerHTML = featuredArtToHTML(artwork)
         localStorage.featuredArt = artwork.id;
+        refreshPage();
     })
     //trash icon
-
-
+    toggleTrashVisibility();
 }
+
+function toggleTrashVisibility() {
+    const trashIcons = document.querySelectorAll(".trash-icon");
+    trashIcons.forEach(icon => {
+      icon.classList.toggle("hidden");
+    });
+  }
+
 function featureArtwork(artworkID){
     const artworkIndex = artworks.findIndex((artwork) => artwork.id == artworkID)
     featuredArtDiv.innerHTML = featuredArtToHTML(artworks[artworkIndex])
@@ -207,6 +228,10 @@ function featuredArtToHTML(artwork){
     </div>
     `
 }
+
+function refreshPage() {
+    window.location.reload();
+  }
 
 
 

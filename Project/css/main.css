@@ -56,7 +56,8 @@
         object-fit: contain;
         height: 50vh;
         border:auto;
-    } 
+    }
+
 }
 .ft-img-container{
     display:flex;
@@ -121,6 +122,9 @@
     .category, .price{
         font-size: smaller;
         color:grey;
+    }
+    .trash-icon{
+        margin: 1rem;
     }
 }
 
