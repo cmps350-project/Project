@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (user) {
                 alert("Login successful!")
                 console.log("User found:", user)
+                localStorage.setItem('user', JSON.stringify(user))
                 window.location.href = "main.html"
             } else {
                 alert("Invalid username or password.")
