@@ -114,13 +114,12 @@ function addToCart(artworkID){
     }
     else {
         const artwork = artworks.find((artwork) => artwork.id == artworkID)
-        if (shoppingCart.includes(artwork))
+        if (shoppingCart.includes(artwork.id))
             alert(`${artwork.title} already exists in your cart. Manage the Quantity in your shopping basket`)
         else{
             alert(`added ${artwork.title} to cart successfully`)
             shoppingCart.push(artwork.id)
             localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))        
-
         }
     }
 
@@ -143,7 +142,10 @@ function artworkToHTML(artwork){
 
 function featuredArtToHTML(artwork){
     return `
-    <img class = "featured-img" src="${artwork.images.url}" alt="Descriptive Painting Title">
+    <div class = "ft-image-container">
+        <
+        <img class = "featured-img" src="${artwork.images.url}" alt="Descriptive Painting Title">
+    </div>
     <div class = "featured-text">
         <h3 class = "title art-title">${artwork.title}</h3> 
         <p class="artist">${artwork.artist}</p>

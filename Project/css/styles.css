@@ -73,7 +73,12 @@ body {
     letter-spacing: 3px;
     margin: 0rem;
 }
-
+.icons{
+    display: flex;
+    grid-area: icons;
+    justify-self: end;
+    margin: 0 1.5rem;
+}
 
 .header{
     display: grid;
@@ -86,7 +91,7 @@ body {
     position: sticky;
     top: 1px;
     grid-template-areas:
-    "user-icon title cart-icon"
+    "title title icons"
     "nav nav nav";
 }
 /* navigation */
@@ -152,10 +157,6 @@ body {
     grid-gap: 0px 20px;
     grid-template-areas:
     "nav title icons"
-}
-.icons{
-    justify-self: end;
-    margin: 0 1.5rem;
 }
 
 /* navigation */
