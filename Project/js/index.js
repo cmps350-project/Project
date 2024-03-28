@@ -132,7 +132,7 @@ function artworkEvents() {
 
 
     function addToCart(artworkID){
-        if (!isLoggedIn() || getLoggedInUser().type != "Customer"){
+        if (!isLoggedIn() || getLoggedInUser().type != "customer"){
             alert("You must be logged in as a customer to add to cart")
             window.location.href = "login.html"
         }
