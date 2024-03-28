@@ -49,10 +49,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 80%;
     }
     .featured-img{
-        width: 30%;
+        width: 50vh;
         border:auto;
     } 
 }
@@ -116,14 +116,11 @@
     }
 }
 
-
-
-
 /*bottom*/
 .page-bottom{
     grid-area: page-bottom;
-    margin: 1rem;
-    font-size: 0.7rem;
+    margin: 3rem;
+    font-size: 1rem;
 
     ul{
         text-align:center;
