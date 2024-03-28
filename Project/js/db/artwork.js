@@ -198,7 +198,7 @@ const artworks = [
     },
     {
       id: 14,
-      title: "Falling Mist Waterfall at Mount Kurokami",
+      title: "Falling Mist Waterfall",
       artist: "Hokusai",
       category: "Ukiyo-e",
       medium: "Woodblock print",

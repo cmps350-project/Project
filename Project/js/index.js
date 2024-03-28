@@ -100,6 +100,7 @@ function artworkToHTML(artwork){
     </div>
     <h3 class = "title art-title">${artwork.title}</h3> 
     <p class="artist">${artwork.artist}</p>
+    <p class = "price">${artwork.price}$</p>
     </article>
     `
 }
