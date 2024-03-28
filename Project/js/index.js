@@ -108,16 +108,25 @@ function artworkEvents() {
     }
 
 function addToCart(artworkID){
-    if (!isLoggedIn())
+    if (!isLoggedIn()){
         window.location.href = "login.html"
-    else{
+        alert("You must be logged in as a customer to add to cart")
+    }
+    else {
         const artwork = artworks.find((artwork) => artwork.id == artworkID)
-        if (shoppingCart.includes(artwork))
-            alert(`${artwork.title} already exists in your cart. Manage the Quantity in your shopping basket`)
-        else{
-            alert(`added ${artwork.title} to cart successfully`)
-            shoppingCart.push(artwork)
-            localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))        
+        const existingCartItem = shoppingCart.find((item) => item.id === artwork.id)
+        if (existingCartItem) {
+            if (existingCartItem.quantity < artwork.quantity) {
+                existingCartItem.quantity++
+                localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+                alert(`Added 1 ${artwork.title} to cart. Total: ${existingCartItem.quantity}`)
+            } else {
+                alert(`${artwork.title} is out of stock`)
+            }
+        } else {
+            shoppingCart.push({ ...artwork, quantity: 1 });
+            localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+            alert(`Added 1 ${artwork.title} to cart.`)
         }
     }
 
