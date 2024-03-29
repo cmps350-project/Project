@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return
         }
 
+        user.moneyBalance -= totalPrice;
+        localStorage.setItem('user', JSON.stringify(user))
+        
         localStorage.setItem('shippingAddress', shippingAddressInput.value)
         localStorage.setItem('cardNumber', cardNumberInput.value)
         localStorage.setItem('expiryDate', expiryDateInput.value)
