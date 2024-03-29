@@ -32,6 +32,7 @@
         <main class="page-body">
             <section id="checkout" class="section checkout-section">
                 <h2 class="title">Checkout</h2>
+                <form id="checkout-form" action="#" method="post" class="checkout-form">
                 <div class="form-container">
                     <label for="shipping-address">Shipping Address:</label>
                     <textarea id="shipping-address" name="shipping-address" class="form-input" placeholder="Enter your shipping address" required></textarea>
@@ -47,6 +48,7 @@
                     
                     <button type="submit" class="checkout-btn">Confirm Order</button>
                 </div>
+            </form>
             </section>
         </main>
         
@@ -79,5 +81,6 @@
             <p class = "copy">&copy; 2024 Artfully Yours</p>
         </footer> 
     </div>
+    <script src="/js/checkout.js"></script> 
 </body>
 </html>
