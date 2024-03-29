@@ -12,36 +12,49 @@
  
  .artwork-item {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    height: auto; 
-    width: 400px; 
-    margin: auto;
+    height: 50vh; 
+    width: auto; 
+    margin: 1rem;
+    padding: 1rem;
     font-size: 0.7rem;
-    line-height: 0.9rem;
-    display: flex;
+    line-height: 0.7rem;
+    justify-content: center;
     align-items: center;
-    padding: 20px; 
+    display: flex;
 }
 
-.artwork-item img {
-    height: 150px; 
-    width: 150px; 
+.artwork-item .img {
+    height: 90%; 
     margin-right: 20px;
 }
 
 .artwork-details {
-    flex-grow: 1;
+    display: flex;
+    height: 80%; 
+    width: 40%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
 }
 
 .art-title {
-    font-size: clamp(0.8rem, 2.5vw, 1rem); 
+    margin-bottom: 1rem;
+    font-size: clamp(0.7rem, 2vw, 1.5rem); 
 }
 
-.artist, .price, .category {
+.artist, .price, .category, .description, .year, .medium{
+    color: gray;
+    margin: 1rem;
     margin-bottom: 5px;
     font-size: 0.9em;
 }
+.description{
+    text-align: start;
+    margin-bottom: 10px;
+}
 
 .quantity {
+    align-self: center;
     margin-top: 10px;
     display: flex; 
     align-items: center;

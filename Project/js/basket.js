@@ -26,9 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
             <img class="img" src="${artwork.images.url}" alt="${artwork.description}">
             <div class="artwork-details">
                 <h3 class="title art-title">${artwork.title}</h3> 
-                <p class="artist">${artwork.artist}</p>
-                <p class="price">$${(artwork.price * quantity).toFixed(2)}</p>
-                <p class="category">${artwork.category}</p>
+                <p class="description">${artwork.description}</p>
+                <p class="artist">By Artist: ${artwork.artist}</p>
+                <p class="category">Category: ${artwork.category}</p>
+                <p class="year">Year: ${artwork.year}</p>
+                <p class="medium">Medium: ${artwork.medium}</p>
+                <p class="price">Price: $${(artwork.price * quantity).toFixed(2)}</p>
                 <div class="quantity">
                     <button class="decrement-btn">-</button>
                     <span class="quantity-value">${quantity}</span>
