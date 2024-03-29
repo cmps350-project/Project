@@ -95,4 +95,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
     }
+    const checkoutBtn = document.querySelector('.checkout-btn')
+    checkoutBtn.addEventListener('click', function() {
+        if (shoppingCart.length === 0) {
+            alert('Your shopping cart is empty! Add some items to checkout')
+            window.location.href = 'main.html'
+        } else {
+            window.location.href = 'checkout.html'
+        }
+    })
 })
