@@ -7,9 +7,7 @@
         "name": "Ahmed",
         "surname": "Omar",
         "shippingAddress": "123 Street, City, Country",
-        "moneyBalance": 1000,
-        "currentBasket": [],
-        "purchaseHistory": []
+        "moneyBalance": 1000
     },
     {
         "username": "sara_ali",
@@ -19,9 +17,7 @@
         "name": "Sara",
         "surname": "Ali",
         "shippingAddress": "456 Street, City, Country",
-        "moneyBalance": 1500,
-        "currentBasket": [],
-        "purchaseHistory": []
+        "moneyBalance": 1500
     },
     {
         "username": "john_smith",
@@ -31,9 +27,7 @@
         "name": "John",
         "surname": "Smith",
         "shippingAddress": "789 Street, City, Country",
-        "moneyBalance": 2000,
-        "currentBasket": [],
-        "purchaseHistory": []
+        "moneyBalance": 20000
     },
     {
         "username": "jane_brown",
@@ -43,9 +37,7 @@
         "name": "Jane",
         "surname": "Brown",
         "shippingAddress": "1011 Street, City, Country",
-        "moneyBalance": 1200,
-        "currentBasket": [],
-        "purchaseHistory": []
+        "moneyBalance": 12000
     },
     {
         "username": "maryam_amer",
