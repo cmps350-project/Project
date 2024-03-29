@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('cardNumber', cardNumberInput.value)
         localStorage.setItem('expiryDate', expiryDateInput.value)
         localStorage.setItem('cvv', cvvInput.value)
+        const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
+        const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || []
+        purchaseHistory.push(...shoppingCart)
+        localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory))
+        localStorage.removeItem('shoppingCart');
         alert('Your order has been accepted! Thank you for shopping with us.')
         window.location.href = 'main.html'
     })
