@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Art</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sellart.css">
+</head>
+<body>
+    <div class="container">
+        <div class = "page-head">
+            <!--header-->
+            <header class = "header">
+                <!--navigation-->
+                <nav class = "navigation">
+                    <ul class = "menu">
+                        <li class = "menu-item"><a href="main.html">Home</a></li>
+                        <li class = "menu-item"><a href="main.html">Browse</a></li>
+                        <li class = "menu-item"><a href="#">Sell Your Art</a></li> 
+                        <li class = "menu-item"><a href="#ethical-commitment">About Us</a></li>
+                    </ul>
+                </nav>
+                <h1 class = "title header-title">Artfully Yours</h1>
+                <div class = "icons">
+                    <a href="basket.html"><img src="./images/bag_icon.png" alt="Shopping Cart" width="30" height="30" class = "cart-icon"></a>
+                    <a href="login.html"><img src="./images/user.png" alt="User" width="30" height="30" class = "user-icon"></a>
+                </div>
+            </header>
+        </div>
+
+        <main class="page-body">
+            <section id="sellart" class="section sellart-section">
+                <h2 class="title">Sell Your Art</h2>
+              <div class="form-container">
+
+                    <label for="title">Title:</label>
+                    <textarea id="title" name="title" class="piece-name form-input"  placeholder="Enter your art piece title" required></textarea>
+
+                    <label>Category:</label>
+                    <select name="category" id="category" class="form-input">
+                        <option value="" disabled selected>Choose a category </option>
+                        <option value="Abstract">Abstract</option>
+                        <option value="Expressionism">Expressionism</option>
+                        <option value="Impressionism">Impressionism</option>
+                        <option value="Minimalism">Minimalism</option>
+                        <option value="Realism">Realism</option>
+                        <option value="Ukiyo-e">Ukiyo-e</option>
+                        <option value="Visual">Visual</option>
+                    </select>
+
+                    <label for="artpiece-year">Year:</label>
+                    <input type ="number" id="artpiece-year" name="artpiece-year"  class="form-input"  placeholder="Enter your price" required>
+                    
+                    <label for="artpiece-price">Price:</label>
+                    <input type ="number" id="artpiece-price" name="artpiece-price"  class="form-input"  placeholder="Enter your price" required>
+                    
+                    <label for="artpiece-quantity">Avaliable Quantity:</label>
+                    <input type="number" id="artpiece-quantity" name="artpiece-quantity" class="form-input" placeholder="Enter number of avaliable quantity" required>
+                    
+                    <label for="artpiece-image">Image:</label>
+                    <input type="file" id="artpiece-image" name="artpiece-image" class="form-input"  required>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" class="form-input"  placeholder="Enter your art piece description" required></textarea>
+
+                    <button type="submit"  onclick="handleSubmit()"  class="confirmproduct-btn" >Sell Product</button>
+                </div>
+            </section>
+        </main>
+
+        <div class = "page-bottom">
+            <section id="ethical-commitment" class = "section"> 
+                <h2 class = "title">Ethical Commitment</h2> 
+                <p>We believe in the power of art to inspire and its ability to be created responsibly.</p>
+                <div class = "ethical-certif">
+                    <img src="./images/natural.png" alt="Natural" width="150" height="200">
+                    <img src="./images/sustain.png" alt="Sustainable" width="180" height="230">
+                    <img src="./images/vegan.png" alt="Vegan" width="150" height="200">
+                </div>
+                <ul>
+                    <li><strong>Sustainable Materials:</strong> We prioritize artists and suppliers who use eco-conscious materials and minimize their environmental footprint.</li>
+                    <li><strong>Upcycled Art:</strong> We champion a growing collection of artwork that transforms and gives new life to existing materials.</li>
+                    <li><strong>Ethical Sourcing:</strong> Transparency is key. We carefully vet the origins of materials, ensuring ethical practices throughout our supply chain.</li>
+                    <li><strong>Giving Back:</strong> A portion of our proceeds supports initiatives focused on conservation and creative outreach in underrepresented communities.</li>
+                </ul>
+            </section>
+        </div>
+
+     <!-- Contact -->
+     <section class = "social-media">
+        <a href = "https://www.instagram.com/?hl=ar"><img src="./images/instagram.png" alt="Instagram" width="30" height="30"></a>
+        <a href = "https://www.tiktok.com/login"><img src="./images/tiktok.png" alt="tiktok" width="30" height="30"></a>
+        <a href = "https://www.google.com/gmail/about/"><img src="./images/email.png" alt="email" width="30" height="30"></a>
+    </section>
+    <!--Footer-->
+    <footer class = "footer">
+        <p class = "copy">&copy; 2024 Artfully Yours</p>
+    </footer> 
+</div>
+
+<script>
+    
+    const priceInput = document.getElementById('artpiece-price');
+    const quantityInput =  document.getElementById('artpiece-quantity');
+
+    //price validation
+    priceInput.addEventListener('input', function(event) {
+       
+        const inputValue = event.target.value;
+
+        if (inputValue < 0 ) {
+            alert("Please enter a valid number for Price.");
+            event.target.value = '';
+        }
+    }); 
+
+    //quanitity validation 
+    quantityInput.addEventListener('input', function(event) {
+       
+        const inputValue = event.target.value;
+
+        if (inputValue < 0) {
+            alert("Please enter a valid number for Quantity.");
+            event.target.value = '';
+        }
+    });
+    
+    function handleSubmit() {
+        const title = document.getElementById('title').value.trim();
+        const category = document.getElementById('category').value.trim();
+        const year = document.getElementById('artpiece-year').value.trim();
+        const price = document.getElementById('artpiece-price').value.trim();
+        const quantity = document.getElementById('artpiece-quantity').value.trim();
+       // const image = document.getElementById('artpiece-image').value.trim();
+        const description = document.getElementById('description').value.trim();
+    
+        //|| image === ''
+        if (title === '' || category === '' || year === '' || price === '' || quantity === ''  || description === '') {
+            alert('Please fill out all fields.');
+        } else {
+            alert('Your new masterpiece has been added successfully :)!');
+        }
+    }
+
+</script>
+
+        
+    
+</body>
+</html>
