@@ -15,6 +15,7 @@
     grid-template-rows: auto auto auto auto;
     gap: 2rem;
     margin: 1rem;
+    margin-bottom: 5rem;
 }
 
 .form-group {
@@ -58,7 +59,7 @@ button.confirmproduct-btn:hover {
     }
 }
 .display-art-container{
-    margin: 3rem 2rem;
+    margin: 2rem;
     padding: 2rem 4rem;
     display: grid;
     justify-content: center;
@@ -75,7 +76,7 @@ button.confirmproduct-btn:hover {
     flex-direction: column;
     text-align: start;
     width: 300px;
-    height: 400px;
+    height: 450px;
     line-height: 0.8rem;
     .img{
         margin-bottom: 0.3rem;
