@@ -48,6 +48,14 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        shoppingCart.forEach(item => {
+            const artwork = artworks.find(artwork => artwork.id === item.artworkID)
+            if (artwork) {
+                artwork.quantity -= item.quantity 
+            }
+        })
+        localStorage.setItem('artworks', JSON.stringify(artworks))
+
         user.moneyBalance -= totalPrice
 
         localStorage.setItem('user', JSON.stringify(user))
