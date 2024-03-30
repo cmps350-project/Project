@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const shippingAddressInput = document.querySelector('#shipping-address')
     const cardNumberInput = document.querySelector('#card-number')
@@ -52,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
             purchaseHistory: shoppingCart
         }
 
-       
         if (user.purchaseHistory) {
             user.purchaseHistory.push(purchaseDetails)
         } else {
@@ -61,6 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         localStorage.setItem('user', JSON.stringify(user))
 
+        const allItemsSold = JSON.parse(localStorage.getItem('allItemsSold')) || []
+        shoppingCart.forEach(item => {
+            allItemsSold.push({
+                artworkID: item.artworkID,
+                quantity: item.quantity
+            })
+        })
+        localStorage.setItem('allItemsSold', JSON.stringify(allItemsSold)) 
         localStorage.removeItem('shoppingCart')
 
         alert('Your order has been accepted! Thank you for shopping with us.')
