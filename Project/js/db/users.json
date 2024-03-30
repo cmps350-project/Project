@@ -105,5 +105,14 @@
         "type": "seller",
         "companyName": "Hokusai Art",
         "bankAccount": "321654987"
+    },
+    {   "id":12,
+        "username": "vangogh",
+        "password": "123",
+        "fullName": "Vincent Vangogh",
+        "email": "vangogh@example.com",
+        "type": "seller",
+        "companyName": "Vangogh Art",
+        "bankAccount": "456123456"
     }
 ]
