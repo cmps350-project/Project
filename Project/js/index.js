@@ -58,16 +58,19 @@ basketIcon.addEventListener('click', () => {
     } else {
         window.location.href = "basket.html"
     }
-});
+})
 accountPageLI.addEventListener('click', () => {
     const loggedInUser = getLoggedInUser();
     if (!loggedInUser) {
         alert ("You must log in to view account information")
         window.location.href = "login.html"
-    } else {
+    } else if (loggedInUser.type==="customer") {
+        window.location.href = "purchaseHistory.html"
+    }
+    else if (loggedInUser.type==="seller") {
         window.location.href = "saleHistory.html"
     }
-});
+})
 sellPageLI.addEventListener('click', () => {
     const loggedInUser = getLoggedInUser();
     if (!loggedInUser || loggedInUser.type !== 'seller') {
@@ -76,7 +79,7 @@ sellPageLI.addEventListener('click', () => {
     } else {
         window.location.href = "sellart.html"
     }
-});
+})
 
 
 
