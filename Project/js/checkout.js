@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const allItemsSold = JSON.parse(localStorage.getItem('allItemsSold')) || []
         shoppingCart.forEach(item => {
             allItemsSold.push({
+                username: user.username,
                 artworkID: item.artworkID,
                 quantity: item.quantity
             })

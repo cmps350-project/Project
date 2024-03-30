@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const imgCell = row.insertCell()
       const priceCell = row.insertCell()
       const quantityCell = row.insertCell()
+      const buyerCell = row.insertCell()
 
       const img = document.createElement('img')
       img.src = artwork.images.url
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
       titleCell.textContent = artwork.title
       priceCell.textContent = artwork.price
       quantityCell.textContent = itemSold.quantity
+      buyerCell.textContent = itemSold.username
     }
   })
 })
