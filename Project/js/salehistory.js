@@ -36,3 +36,19 @@ if (cart) {
     table.appendChild(tr);
   });
 }
+
+
+
+
+// const basketIcon = document.querySelector("#basket-icon")
+
+// basketIcon.addEventListener('click', () => {
+//   console.log("button pressed");
+//     const loggedInUser = localStorage.getItem("user",)
+//     if (!loggedInUser || loggedInUser.type !== 'customer') {
+//         alert ("You must be logged in as a customer to access your basket")
+//         window.location.href = "login.html"
+//     } else {
+//         window.location.href = "basket.html"
+//     }
+// })

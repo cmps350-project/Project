@@ -1,18 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
     const purchaseItemsContainer = document.querySelector(".purchase-items")
-    let purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || []
-    let artworks = JSON.parse(localStorage.getItem('artworks')) || []
 
-    purchaseHistory.forEach(function(item) {
-        const artworkID = item.artworkID
-        const quantity = item.quantity
-        const artwork = artworks.find((artwork) => artwork.id === artworkID)
+    const user = JSON.parse(localStorage.getItem('user')) || {}
+    const purchaseHistory = user.purchaseHistory || []
+    const artworks = JSON.parse(localStorage.getItem('artworks')) || []
 
-        if (artwork) {
-            const purchaseItem = createPurchaseItem(artwork, quantity)
-            purchaseItemsContainer.appendChild(purchaseItem)
-        }
-    })
+    purchaseHistory.forEach(function(purchase) {
+        purchase.purchaseHistory.forEach(function(item) {
+            const artworkID = item.artworkID
+            const quantity = item.quantity
+            const artwork = artworks.find((artwork) => artwork.id === artworkID)
+
+            if (artwork) {
+                const purchaseItem = createPurchaseItem(artwork, quantity)
+                purchaseItemsContainer.appendChild(purchaseItem)
+            }
+        });
+    });
 
     function createPurchaseItem(artwork, quantity) {
         const purchaseItem = document.createElement('article')
@@ -32,3 +36,4 @@ document.addEventListener("DOMContentLoaded", function() {
         return purchaseItem
     }
 })
+
