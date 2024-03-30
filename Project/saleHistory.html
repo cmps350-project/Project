@@ -1,63 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/salehistory.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class = "page-head">
-            <!--header-->
-            <header class = "header">
-                <!--navigation-->
-                <nav class = "navigation">
-                    <ul class = "menu">
-                        <li class = "menu-item"><a href="main.html">Home</a></li>
-                        <li class = "menu-item"><a href="main.html">Browse</a></li>
-                        <li class = "menu-item"><a href="#">Sell Your Art</a></li> 
-                        <li class = "menu-item"><a href="#ethical-commitment">About Us</a></li>
-                    </ul>
-                </nav>
-                <h1 class = "title header-title">Artfully Yours</h1>
-                <div class = "icons">
-                    <a href="basket.html"><img src="./images/bag_icon.png" alt="Shopping Cart" width="30" height="30" class = "cart-icon"></a>
-                    <a href="login.html"><img src="./images/user.png" alt="User" width="30" height="30" class = "user-icon"></a>
-                </div>
-            </header>
-        </div>
-        <div class = "page-bottom">
-            <section id="ethical-commitment" class = "section"> 
-                <h2 class = "title">Ethical Commitment</h2> 
-                <p>We believe in the power of art to inspire and its ability to be created responsibly.</p>
-                <div class = "ethical-certif">
-                    <img src="./images/natural.png" alt="Natural" width="150" height="200">
-                    <img src="./images/sustain.png" alt="Sustainable" width="180" height="230">
-                    <img src="./images/vegan.png" alt="Vegan" width="150" height="200">
-                </div>
-                <ul>
-                    <li><strong>Sustainable Materials:</strong> We prioritize artists and suppliers who use eco-conscious materials and minimize their environmental footprint.</li>
-                    <li><strong>Upcycled Art:</strong> We champion a growing collection of artwork that transforms and gives new life to existing materials.</li>
-                    <li><strong>Ethical Sourcing:</strong> Transparency is key. We carefully vet the origins of materials, ensuring ethical practices throughout our supply chain.</li>
-                    <li><strong>Giving Back:</strong> A portion of our proceeds supports initiatives focused on conservation and creative outreach in underrepresented communities.</li>
-                </ul>
-            </section>
-        </div>
+      <div class="page-head">
+        <!--header-->
+        <header class="header">
+          <!--navigation-->
+          <nav class="navigation">
+            <ul class="menu">
+              <li class="menu-item"><a href="main.html">Home</a></li>
+              <li class="menu-item"><a href="main.html">Browse</a></li>
+              <li class="menu-item">
+                <a href="saleHistory.html">Sale History</a>
+              </li>
+              <li class="menu-item">
+                <a href="sellart.html">Sell Your Art</a>
+              </li>
 
-     <!-- Contact -->
-     <section class = "social-media">
-        <a href = "https://www.instagram.com/?hl=ar"><img src="./images/instagram.png" alt="Instagram" width="30" height="30"></a>
-        <a href = "https://www.tiktok.com/login"><img src="./images/tiktok.png" alt="tiktok" width="30" height="30"></a>
-        <a href = "https://www.google.com/gmail/about/"><img src="./images/email.png" alt="email" width="30" height="30"></a>
-    </section>
-    <!--Footer-->
-    <footer class = "footer">
-        <p class = "copy">&copy; 2024 Artfully Yours</p>
-    </footer> 
-</div>
-    
-</body>
+              <li class="menu-item">
+                <a href="#ethical-commitment">About Us</a>
+              </li>
+            </ul>
+          </nav>
+          <h1 class="title header-title">Artfully Yours</h1>
+          <div class="icons">
+            <a href="basket.html"
+              ><img
+                src="./images/bag_icon.png"
+                alt="Shopping Cart"
+                width="30"
+                height="30"
+                class="cart-icon"
+            /></a>
+            <a href="login.html"
+              ><img
+                src="./images/user.png"
+                alt="User"
+                width="30"
+                height="30"
+                class="user-icon"
+            /></a>
+          </div>
+        </header>
+      </div>
+      <div class="page-bottom">
+        <section>
+          <div>
+            <h2>Sale History</h2>
+            <table id="mytable">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Image</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+        <section id="ethical-commitment" class="section">
+          <h2 class="title">Ethical Commitment</h2>
+          <p>
+            We believe in the power of art to inspire and its ability to be
+            created responsibly.
+          </p>
+          <div class="ethical-certif">
+            <img
+              src="./images/natural.png"
+              alt="Natural"
+              width="150"
+              height="200"
+            />
+            <img
+              src="./images/sustain.png"
+              alt="Sustainable"
+              width="180"
+              height="230"
+            />
+            <img
+              src="./images/vegan.png"
+              alt="Vegan"
+              width="150"
+              height="200"
+            />
+          </div>
+          <ul>
+            <li>
+              <strong>Sustainable Materials:</strong> We prioritize artists and
+              suppliers who use eco-conscious materials and minimize their
+              environmental footprint.
+            </li>
+            <li>
+              <strong>Upcycled Art:</strong> We champion a growing collection of
+              artwork that transforms and gives new life to existing materials.
+            </li>
+            <li>
+              <strong>Ethical Sourcing:</strong> Transparency is key. We
+              carefully vet the origins of materials, ensuring ethical practices
+              throughout our supply chain.
+            </li>
+            <li>
+              <strong>Giving Back:</strong> A portion of our proceeds supports
+              initiatives focused on conservation and creative outreach in
+              underrepresented communities.
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Contact -->
+      <section class="social-media">
+        <a href="https://www.instagram.com/?hl=ar"
+          ><img
+            src="./images/instagram.png"
+            alt="Instagram"
+            width="30"
+            height="30"
+        /></a>
+        <a href="https://www.tiktok.com/login"
+          ><img src="./images/tiktok.png" alt="tiktok" width="30" height="30"
+        /></a>
+        <a href="https://www.google.com/gmail/about/"
+          ><img src="./images/email.png" alt="email" width="30" height="30"
+        /></a>
+      </section>
+      <!--Footer-->
+      <footer class="footer">
+        <p class="copy">&copy; 2024 Artfully Yours</p>
+      </footer>
+    </div>
+    <script>"/js/salehistory.js"</script>
+
+
+  </body>
 </html>
