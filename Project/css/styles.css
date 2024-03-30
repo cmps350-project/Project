@@ -37,6 +37,34 @@ body {
   background-color: #f7fafa;
 }
 
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #887373;
+    margin-bottom: 7rem;
+    th, td {
+        border: 1px solid #887373;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+
+    }
+}
+
+.table-title {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
 .form-input {
     font-family: 'Roboto', sans-serif;
     color: #333;
@@ -173,3 +201,4 @@ body {
 }
 
 }
+

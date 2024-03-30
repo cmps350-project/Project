@@ -1,7 +1,6 @@
 .page-body {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-gap: 2rem;
 }
 
 .sellart-section {
@@ -50,4 +49,52 @@ button.confirmproduct-btn {
 
 button.confirmproduct-btn:hover {
     background-color: #d9ceb8;
+}
+
+.display-art{
+    .display-title{
+        font-size: smaller;
+        margin: 2rem;
+    }
+}
+.display-art-container{
+    margin: 3rem 2rem;
+    padding: 2rem 4rem;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 5rem 1rem;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+}
+.art-card{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 300px;
+    height: 400px;
+    line-height: 0.8rem;
+    .img{
+        margin-bottom: 0.3rem;
+        align-self: center;
+        width: 250px;
+        height: 200px;
+        object-fit: cover;
+    }
+    .button{
+        align-self: center;
+        margin: 0.2rem;
+    }
+    .card-text{
+        font-size: 0.5rem;
+        color:grey;
+        margin: 0rem 0.5rem;
+    }
+    .smaller{
+        font-size: 0.4rem;
+    }
+
 }

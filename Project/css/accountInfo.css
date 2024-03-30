@@ -8,6 +8,14 @@
     "footer";
     grid-gap: 2rem;
  }
+ .account-info{
+    padding: 2rem;
+    font-size: 0.8rem;
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
  
  .artwork-item {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

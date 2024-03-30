@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const allItemsSold = JSON.parse(localStorage.getItem('allItemsSold')) || []
   const localArtworks = JSON.parse(localStorage.getItem('artworks')) || []
   const tableBody = document.querySelector('#mytable tbody')
+  const accountInfo = document.querySelector("#account-info")
+  
+  accountInfo.innerHTML = accInfoToHTML(currentUser)
 
   if (currentUser.type !== 'seller') {
     alert('Access denied. You are not a seller.')
@@ -50,3 +53,15 @@ basketIcon.addEventListener('click', () => {
         window.location.href = "basket.html"
     }
 })
+
+function accInfoToHTML(artist){
+  return `
+  <p>Hello, ${artist.fullName}!</p>
+  <img class = "img" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" width = "100" height = "100">
+  <p class = "card-text">username: ${artist.username}</p>
+  <p class = "card-text">Full Name: ${artist.fullName}</p>
+  <p class = "card-text">Email: ${artist.email} </p>
+  <p class = "card-text">Company Name: ${artist.companyName}</p>
+  `
+
+}
