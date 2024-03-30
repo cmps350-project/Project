@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const purchaseItemsContainer = document.querySelector(".purchase-items")
-
+    const accountInfo = document.querySelector("#account-info")
     const user = JSON.parse(localStorage.getItem('user')) || {}
     const purchaseHistory = user.purchaseHistory || []
     const artworks = JSON.parse(localStorage.getItem('artworks')) || []
@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    accountInfo.innerHTML = accInfoToHTML(user)
 
     function createPurchaseItem(artwork, quantity) {
         const purchaseItem = document.createElement('article')
@@ -36,4 +38,16 @@ document.addEventListener("DOMContentLoaded", function() {
         return purchaseItem
     }
 })
+function accInfoToHTML(customer){
+    return `
+    <p>Hello, ${customer.name}!</p>
+    <img class = "img" src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" width = "100" height = "100">
+    <p class = "card-text">username: ${customer.username}</p>
+    <p class = "card-text">Full Name: ${customer.name + customer.username}</p>
+    <p class = "card-text">Email: ${customer.email} </p>
+    <p class = "card-text">Shipping Address: ${customer.shippingAddress}</p>
+    <p class = "card-text">Available Credit: ${customer.moneyBalance}</p>
+    `
+
+  }
 
