@@ -1,22 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Retrieve current user data from localStorage
   const currentUser = JSON.parse(localStorage.getItem('user'))
   const allItemsSold = JSON.parse(localStorage.getItem('allItemsSold')) || []
   const localArtworks = JSON.parse(localStorage.getItem('artworks')) || []
+      // Select table body and account info element
   const tableBody = document.querySelector('#mytable tbody')
   const accountInfo = document.querySelector("#account-info")
   
   accountInfo.innerHTML = accInfoToHTML(currentUser)
 
+    // Redirect if the current user is not a seller
   if (currentUser.type !== 'seller') {
     alert('Access denied. You are not a seller.')
     window.location = 'main.html'
   }
 
+  // Filter items sold by the current seller
   const sellerItemsSold = allItemsSold.filter(item => {
     const artwork = localArtworks.find(art => art.id === item.artworkID)
     return artwork && artwork.artist === currentUser.fullName
   })
 
+   // Iterate over seller's sold items and display them in the table
   sellerItemsSold.forEach(itemSold => {
     const artwork = localArtworks.find(art => art.id === itemSold.artworkID)
     if (artwork) {
@@ -34,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
       img.height = 70
 
       imgCell.appendChild(img)
+      // Populate cells with artwork details
       titleCell.textContent = artwork.title
       priceCell.textContent = artwork.price
       quantityCell.textContent = itemSold.quantity
@@ -47,6 +53,7 @@ const basketIcon = document.querySelector("#basket-icon")
 
 basketIcon.addEventListener('click', () => {
   console.log("button pressed");
+    // Retrieve logged-in user data from localStorage
     const loggedInUser = localStorage.getItem("user",)
     if (!loggedInUser || loggedInUser.type !== 'customer') {
         alert ("You must be logged in as a customer to access your basket")
@@ -56,6 +63,7 @@ basketIcon.addEventListener('click', () => {
     }
 })
 
+// Function to generate HTML for account information
 function accInfoToHTML(artist){
   return `
   <p>Hello, ${artist.fullName}!</p>
@@ -67,3 +75,4 @@ function accInfoToHTML(artist){
   `
 
 }
+
