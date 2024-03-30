@@ -66,17 +66,16 @@ accountPageLI.addEventListener('click', () => {
         alert ("You must log in to view account information")
         window.location.href = "login.html"
     } else {
-        window.location.href = "purchaseHistory.html"
+        window.location.href = "saleHistory.html"
     }
 });
-// CHANGE THE HREF
 sellPageLI.addEventListener('click', () => {
     const loggedInUser = getLoggedInUser();
     if (!loggedInUser || loggedInUser.type !== 'seller') {
         alert ("You must be logged in as a seller to sell your art")
         window.location.href = "login.html"
     } else {
-        window.location.href = "main.html"
+        window.location.href = "sellart.html"
     }
 });
 
