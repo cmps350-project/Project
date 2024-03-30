@@ -1,5 +1,4 @@
 
-
 document.addEventListener('DOMContentLoaded', function() {
     const shippingAddressInput = document.querySelector('#shipping-address')
     const cardNumberInput = document.querySelector('#card-number')
@@ -7,10 +6,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const cvvInput = document.querySelector('#cvv')
     const checkoutForm = document.querySelector('#checkout-form')
 
-    const savedShippingAddress = localStorage.getItem('shippingAddress')
-    const savedCardNumber = localStorage.getItem('cardNumber')
-    const savedExpiryDate = localStorage.getItem('expiryDate')
-    const savedCvv = localStorage.getItem('cvv')
+    const currentUser = JSON.parse(localStorage.getItem('user')) || {}
+    const savedShippingAddress = currentUser.shippingAddress || ''
+    const savedCardNumber = currentUser.purchaseHistory && currentUser.purchaseHistory.length > 0
+    ? currentUser.purchaseHistory[0].cardNumber
+    : ''
+    const savedExpiryDate = currentUser.purchaseHistory && currentUser.purchaseHistory.length > 0
+    ? currentUser.purchaseHistory[0].expiryDate
+    : ''
+    const savedCvv = currentUser.purchaseHistory && currentUser.purchaseHistory.length > 0
+    ? currentUser.purchaseHistory[0].cvv
+    : ''
 
     if (savedShippingAddress) {
         shippingAddressInput.value = savedShippingAddress
@@ -30,16 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
         const artworks = JSON.parse(localStorage.getItem('artworks')) || []
-        const user = JSON.parse(localStorage.getItem('user')) || {} 
+        const user = JSON.parse(localStorage.getItem('user')) || {}
 
         const totalPrice = shoppingCart.reduce((total, item) => {
             const artwork = artworks.find(artwork => artwork.id === item.artworkID)
             return total + artwork.price * item.quantity
-        }, 0)
+        }, 0);
 
         if (totalPrice > user.moneyBalance) {
             alert('Your order total exceeds your current balance. Please remove items from your cart or add funds to your account.')
-            return
+            return;
         }
 
         user.moneyBalance -= totalPrice
@@ -52,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             expiryDate: expiryDateInput.value,
             cvv: cvvInput.value,
             purchaseHistory: shoppingCart
-        }
+        };
 
         if (user.purchaseHistory) {
             user.purchaseHistory.push(purchaseDetails)
@@ -69,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 quantity: item.quantity
             })
         })
-        localStorage.setItem('allItemsSold', JSON.stringify(allItemsSold)) 
+        localStorage.setItem('allItemsSold', JSON.stringify(allItemsSold))
         localStorage.removeItem('shoppingCart')
 
         alert('Your order has been accepted! Thank you for shopping with us.')
