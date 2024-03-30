@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
             handleQuantityChange(artworkItem, quantityValue, initialPrice, priceElement, artworkID)
         }
     })
-
     function createArtworkItem(artwork, quantity) {
         const artworkItem = document.createElement('article')
         artworkItem.classList.add('artwork-item', 'basket-item')
@@ -41,6 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
         `
         return artworkItem
     }
+    const sellPageLI = document.querySelector("#sell-page")
+    sellPageLI.addEventListener('click', () => {
+            alert ("Customers cannot sell art. you must be logged in as artist")
+    });   
+
 
     function updatePrice(quantity, initialPrice, priceElement) {
         const totalPrice = initialPrice * quantity

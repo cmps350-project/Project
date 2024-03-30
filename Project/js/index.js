@@ -8,7 +8,6 @@ const basketIcon = document.querySelector("#basket-icon")
 const sellPageLI = document.querySelector("#sell-page")
 const accountPageLI = document.querySelector("#acc-page")
 
-
 let artworks = []
 let filteredArtworks = []
 let filtering = false

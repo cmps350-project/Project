@@ -12,29 +12,31 @@
  
  .artwork-item {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    height: 50vh; 
+    height: 90vh; 
     width: auto; 
     margin: 1rem;
     padding: 1rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     line-height: 0.7rem;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .artwork-item .img {
-    height: 90%; 
-    margin-right: 20px;
+    margin: 2rem;
+    height: 200px;
+    width: 200px;
+    object-fit:cover;
 }
 
 .artwork-details {
     display: flex;
-    height: 80%; 
-    width: 40%;
+    height: 30%; 
+    width: 100%;
     flex-direction: column;
-    justify-content: center;
-    align-items: start;
 }
 
 .art-title {
@@ -49,7 +51,7 @@
     font-size: 0.9em;
 }
 .description{
-    text-align: start;
+    text-align: center;
     margin-bottom: 10px;
 }
 
@@ -93,3 +95,24 @@
     background-color: #f7fafa;
 }
 
+@media screen and (min-width: 700px){
+
+    .artwork-item {
+        height: 55vh; 
+        justify-content: center;
+        flex-direction: row;
+    }
+    .artwork-item .img {
+        height: 300px;
+        width: 300px;
+    }
+    .artwork-details {
+        height: 80%; 
+        width: 40%;
+        align-items: start;
+    }
+    .description{
+        text-align: start;
+    }
+    
+}
