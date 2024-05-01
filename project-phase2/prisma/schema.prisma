@@ -10,20 +10,33 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Customer {
   userId          String           @id @default(cuid())
   username        String           @unique
   password        String
   email           String           @unique
-  type            String           @default("CUSTOMER")
-  name            String
-  surname         String?
-  companyName     String?
+  firstName       String
+  lastName        String?
   moneyBalance    Decimal?         @default(0)
   shippingAddress ShippingAddress?
-  bankAccount     BankAccount?
-  Artworks        Artwork[]
   Purchases       Purchase[]
+}
+
+model Seller {
+  userId      String       @id @default(cuid())
+  username    String       @unique
+  password    String
+  email       String       @unique
+  name        String
+  companyName String?
+  bankAccount BankAccount?
+  Artworks    Artwork[]
+}
+
+model Admin {
+  userId   String @id @default(cuid())
+  username String @unique
+  password String
 }
 
 model Artwork {
@@ -37,14 +50,14 @@ model Artwork {
   description String
   available   Boolean    @default(true)
   image       Image?
-  User        User?      @relation(fields: [artistId], references: [userId])
+  artist      Seller?    @relation(fields: [artistId], references: [userId])
   artistId    String?
   Purchase    Purchase[]
 }
 
 model Image {
   imageId       String  @id @default(cuid())
-  url           String
+  image_url           String
   alternate_url String
   artworkNo     String  @unique
   artwork       Artwork @relation(fields: [artworkNo], references: [artworkNo])
@@ -54,25 +67,25 @@ model BankAccount {
   accountNo String  @id @default(cuid())
   balance   Decimal @default(0)
   userId    String  @unique
-  user      User    @relation(fields: [userId], references: [userId])
+  user      Seller  @relation(fields: [userId], references: [userId])
 }
 
 model Purchase {
-  purchaseNo       String   @id @default(cuid())
-  quantity         Int
-  purchaseDate     DateTime @default(now())
-  totalPrice       Decimal
-  artworkNo        String   @unique
-  artwork          Artwork  @relation(fields: [artworkNo], references: [artworkNo])
-  customerId       String?
-  User             User?    @relation(fields: [customerId], references: [userId])
+  purchaseNo   String    @id @default(cuid())
+  quantity     Int
+  purchaseDate DateTime  @default(now())
+  totalPrice   Decimal
+  artworkNo    String    @unique
+  artwork      Artwork   @relation(fields: [artworkNo], references: [artworkNo])
+  customerId   String?
+  customer     Customer? @relation(fields: [customerId], references: [userId])
 }
 
 model ShippingAddress {
-  addressId   String @id @default(cuid())
+  addressId   String   @id @default(cuid())
   street      String
   zone        String
   houseNumber String
-  customerId  String @unique
-  user        User   @relation(fields: [customerId], references: [userId])
+  customerId  String   @unique
+  customer    Customer @relation(fields: [customerId], references: [userId])
 }
