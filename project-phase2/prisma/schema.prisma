@@ -11,25 +11,23 @@ datasource db {
 }
 
 model User {
-  id                Int              @id @default(autoincrement())
-  username          String           @unique
-  password          String
-  email             String           @unique
-  type              String           @default("CUSTOMER")
-  name              String
-  surname           String?
-  companyName       String?
-  bankAccount       BankAccount?     @relation(fields: [bankAccountId], references: [id])
-  moneyBalance      Decimal?         @default(0)
-  shippingAddress   ShippingAddress?
-  shippingAddressId Int?             @unique
-  Artworks          Artwork[]
-  Purchases         Purchase[]
-  bankAccountId     Int?
+  userId          String           @id @default(cuid())
+  username        String           @unique
+  password        String
+  email           String           @unique
+  type            String           @default("CUSTOMER")
+  name            String
+  surname         String?
+  companyName     String?
+  moneyBalance    Decimal?         @default(0)
+  shippingAddress ShippingAddress?
+  bankAccount     BankAccount?
+  Artworks        Artwork[]
+  Purchases       Purchase[]
 }
 
 model Artwork {
-  id          Int        @id @default(autoincrement())
+  artworkNo   String     @id @default(cuid())
   title       String
   category    String
   medium      String
@@ -37,44 +35,44 @@ model Artwork {
   price       Decimal
   quantity    Int
   description String
-  Available   Boolean    @default(true)
-  image       Image      @relation(fields: [imageId], references: [id])
-  seller      User       @relation(fields: [userId], references: [id])
-  imageId     Int
-  userId      Int
+  available   Boolean    @default(true)
+  image       Image?
+  User        User?      @relation(fields: [artistId], references: [userId])
+  artistId    String?
   Purchase    Purchase[]
 }
 
 model Image {
-  id            Int       @id @default(autoincrement())
+  imageId       String  @id @default(cuid())
   url           String
   alternate_url String
-  Artwork       Artwork[]
+  artworkNo     String  @unique
+  artwork       Artwork @relation(fields: [artworkNo], references: [artworkNo])
 }
 
 model BankAccount {
-  id            Int     @id @default(autoincrement())
-  accountNumber String  @unique
-  balance       Decimal @default(0)
-  User          User[]
+  accountNo String  @id @default(cuid())
+  balance   Decimal @default(0)
+  userId    String  @unique
+  user      User    @relation(fields: [userId], references: [userId])
 }
 
 model Purchase {
-  id           Int      @id @default(autoincrement())
-  artwork      Artwork  @relation(fields: [artworkId], references: [id])
-  buyer        User     @relation(fields: [userId], references: [id])
-  quantity     Int
-  purchaseDate DateTime @default(now())
-  totalPrice   Decimal
-  artworkId    Int
-  userId       Int
+  purchaseNo       String   @id @default(cuid())
+  quantity         Int
+  purchaseDate     DateTime @default(now())
+  totalPrice       Decimal
+  artworkNo        String   @unique
+  artwork          Artwork  @relation(fields: [artworkNo], references: [artworkNo])
+  customerId       String?
+  User             User?    @relation(fields: [customerId], references: [userId])
 }
 
 model ShippingAddress {
-  id          Int    @id @default(autoincrement())
+  addressId   String @id @default(cuid())
   street      String
   zone        String
   houseNumber String
-  user        User   @relation(fields: [userId], references: [id])
-  userId      Int    @unique
+  customerId  String @unique
+  user        User   @relation(fields: [customerId], references: [userId])
 }
