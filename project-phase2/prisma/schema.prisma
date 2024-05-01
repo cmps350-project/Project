@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int              @id @default(autoincrement())
+  username          String           @unique
+  password          String
+  email             String           @unique
+  type              String           @default("CUSTOMER")
+  name              String
+  surname           String?
+  companyName       String?
+  bankAccount       BankAccount?     @relation(fields: [bankAccountId], references: [id])
+  moneyBalance      Decimal?         @default(0)
+  shippingAddress   ShippingAddress?
+  shippingAddressId Int?             @unique
+  Artworks          Artwork[]
+  Purchases         Purchase[]
+  bankAccountId     Int?
+}
+
+model Artwork {
+  id          Int        @id @default(autoincrement())
+  title       String
+  category    String
+  medium      String
+  year        Int
+  price       Decimal
+  quantity    Int
+  description String
+  Available   Boolean    @default(true)
+  image       Image      @relation(fields: [imageId], references: [id])
+  seller      User       @relation(fields: [userId], references: [id])
+  imageId     Int
+  userId      Int
+  Purchase    Purchase[]
+}
+
+model Image {
+  id            Int       @id @default(autoincrement())
+  url           String
+  alternate_url String
+  Artwork       Artwork[]
+}
+
+model BankAccount {
+  id            Int     @id @default(autoincrement())
+  accountNumber String  @unique
+  balance       Decimal @default(0)
+  User          User[]
+}
+
+model Purchase {
+  id           Int      @id @default(autoincrement())
+  artwork      Artwork  @relation(fields: [artworkId], references: [id])
+  buyer        User     @relation(fields: [userId], references: [id])
+  quantity     Int
+  purchaseDate DateTime @default(now())
+  totalPrice   Decimal
+  artworkId    Int
+  userId       Int
+}
+
+model ShippingAddress {
+  id          Int    @id @default(autoincrement())
+  street      String
+  zone        String
+  houseNumber String
+  user        User   @relation(fields: [userId], references: [id])
+  userId      Int    @unique
+}
