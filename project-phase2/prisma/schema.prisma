@@ -37,6 +37,8 @@ model Admin {
   userId   String @id @default(cuid())
   username String @unique
   password String
+  email       String       @unique
+
 }
 
 model Artwork {
@@ -76,8 +78,8 @@ model Purchase {
   totalPrice   Decimal
   artworkNo    String    @unique
   artwork      Artwork   @relation(fields: [artworkNo], references: [artworkNo])
-  customerId   String?
-  customer     Customer? @relation(fields: [customerId], references: [userId])
+  customerId   String
+  customer     Customer @relation(fields: [customerId], references: [userId])
 }
 
 model ShippingAddress {

@@ -1,0 +1,39 @@
+[
+    {
+        "userId":"US01",
+        "username": "ahmed_omar",
+        "password": "password1",
+        "email": "user1@example.com",
+        "firstName": "Ahmed",
+        "lastName": "Omar",
+        "moneyBalance": 7000
+    },
+    {
+        "userId":"US02",
+        "username": "sara_ali",
+        "password": "password2",
+        "email": "user2@example.com",
+        "firstName": "Sara",
+        "lastName": "Ali",
+        "moneyBalance": 1500
+    },
+    {
+        "userId":"US03",
+        "username": "john_smith",
+        "password": "password3",
+        "email": "user3@example.com",
+        "firstName": "John",
+        "lastName": "Smith",
+        "moneyBalance": 20000
+    },
+    {
+        "userId": "US04",
+        "username": "jane_brown",
+        "password": "password4",
+        "email": "user4@example.com",
+        "firstName": "Jane",
+        "lastName": "Brown",
+        "moneyBalance": 12000
+    }
+    
+]
