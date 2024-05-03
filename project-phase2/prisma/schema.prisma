@@ -48,7 +48,6 @@ model Artwork {
   price       Decimal
   quantity    Int
   description String
-  available   Boolean    @default(true)
   image       Image?
   artist      Seller?    @relation(fields: [artistId], references: [userId])
   artistId    String?
