@@ -1,0 +1,33 @@
+[
+    {
+        "accountNo":  "ACIL10",
+        "balance": 19000,
+        "userId": "US07"
+    },
+    {
+        "accountNo":  "AC9988",
+        "balance": 1200,
+        "userId": "US08"
+    },
+    {
+        "accountNo":  "AC7766",
+        "balance": 2000,
+        "userId": "US09"
+    },
+    {
+        "accountNo":  "AC5544",
+        "balance": 3300,
+        "userId": "US10"
+    },
+    {
+        "accountNo":  "AC3322",
+        "balance": 125000,
+        "userId": "US11"
+    },
+    {
+        "accountNo":  "AC3920",
+        "balance": 200000,
+        "userId": "US12"
+    }
+]
+
