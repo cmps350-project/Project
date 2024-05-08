@@ -1,0 +1,30 @@
+[
+    {
+        "addressId": "SA001",
+        "street": "123 Main St",
+        "zone": "Downtown",
+        "houseNumber": "1A",
+        "customerId": "US01"
+    },
+    {
+        "addressId": "SA002",
+        "street": "456 Elm St",
+        "zone": "Suburbia",
+        "houseNumber": "2B",
+        "customerId": "US02"
+    },
+    {
+        "addressId": "SA003",
+        "street": "789 Oak St",
+        "zone": "Uptown",
+        "houseNumber": "3C",
+        "customerId": "US03"
+    },
+    {
+        "addressId": "SA004",
+        "street": "101 Pine St",
+        "zone": "Rural",
+        "houseNumber": "4D",
+        "customerId": "US04"
+    }
+]
