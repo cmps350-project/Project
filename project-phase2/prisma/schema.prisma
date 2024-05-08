@@ -29,7 +29,7 @@ model Seller {
   email       String       @unique
   name        String
   companyName String?
-  bankAccount BankAccount?
+  bankAccount BankAccount? 
   Artworks    Artwork[]
 }
 
