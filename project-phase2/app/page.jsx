@@ -5,7 +5,7 @@ import Artworks from '@/app/artworks/Artworks'
 
 
 export default async function Home() {
-  const artworks = await artworkRepo.getArtworksWithArtists()
+  const artworks = await artworkRepo.getArtworks()
 
   return (
     <>

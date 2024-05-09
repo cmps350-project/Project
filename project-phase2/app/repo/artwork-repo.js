@@ -14,22 +14,16 @@ class ArtworkRepo {
             }
         }
     }
-    async getArtworks() {
-        try {
-            return prisma.artwork.findMany()
-        } catch (error) {
-            return {
-                error: error.message
-            }
-        }
-    }
 
-    async getArtworksWithArtists() {
+    async getArtworks() {
         try {
           return await prisma.artwork.findMany({
             include: {
               artist: {
                 select: { name: true } 
+              },
+              image: {
+                select: { image_url: true, alternate_url: true } 
               }
             }
           });

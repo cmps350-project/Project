@@ -6,7 +6,7 @@ export default function Artwork({artwork}) {
     <>
         <article className = {styles.mainArtworkItem} id = {artwork.id}>
             <div className = {styles.mainImgContainer}>
-                <img className = {styles.mainArtworkImage} src= "https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt={artwork.description}></img>
+                <img className = {styles.mainArtworkImage} src= {artwork.image.image_url} alt={artwork.description}></img>
                 <button className = {styles.hidden} onclick = "addToCart(${artwork.id})">Add to Cart</button>
             </div>
             <h3 className = {styles.mainArtTitle}>{artwork.title}</h3> 
