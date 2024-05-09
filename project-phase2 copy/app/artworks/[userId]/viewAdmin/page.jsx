@@ -20,8 +20,10 @@ export default async function page({ params }) {
     //fetch top 3 products sold over the last 6 months
     const topProductsResult = await artworkRepo.getTop3ProductsLast6Months();
 
+    //fetch total purchases per customer
+    const totalPurchases = await purchaseRepo.getTotalPurchasesPerCustomer();
 
-  return (
+   return (
     <>
       <div className={styles.pageBody}>
         <User user={user}></User>
@@ -59,8 +61,34 @@ export default async function page({ params }) {
                 </li>
                 ))}
             </ul>
+            </div>
+        )}
+
+        {/* Display total purchases per customer */}
+        {totalPurchases.length > 0 && (
+          <div className={styles.tableContainer}>
+            <h3>Total Purchases Per Customer:</h3>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th>Customer ID</th>
+                  <th>Total Purchases</th>
+                </tr>
+              </thead>
+              <tbody>
+                {totalPurchases.map((purchase, index) => (
+                  <tr key={index}>
+                    <td>{purchase.customerId}</td>
+                    <td>{purchase._count}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
+
+
+
 
 
       </div>
