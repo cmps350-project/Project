@@ -34,6 +34,78 @@ class ArtworkRepo {
         }
       }
 
+      async getArtworksByTitle(title) {
+        try {
+          return await prisma.artwork.findMany({
+            where: {
+              OR: [
+                { title: { startsWith: title.toLocaleLowerCase() } },
+                { title: { endsWith: title.toLocaleLowerCase()  } },
+              ],
+            },
+            include: {
+                artist: {
+                    select: { name: true } 
+                  },
+                  image: {
+                    select: { image_url: true, alternate_url: true } 
+                  }
+            }
+          });
+        } catch (error) {
+          return { error: error.message };
+        }
+      }
+      
+      async getArtworksByArtist(artistName) {
+        try {
+          const normalizedName = artistName.toLocaleLowerCase();
+          return await prisma.artwork.findMany({
+            where: {
+              artist: {
+                name: { 
+                  contains: normalizedName 
+                },
+              },
+            },
+            include: {
+                artist: {
+                    select: { name: true } 
+                  },
+                  image: {
+                    select: { image_url: true, alternate_url: true } 
+                  }
+            }
+          });
+        } catch (error) {
+          return { error: error.message };
+        }
+      }
+      
+      async getArtworksByCategory(category) {
+        try {
+          return await prisma.artwork.findMany({
+            where: {
+              OR: [
+                { category: { startsWith: category.toLocaleLowerCase() } },
+                { category: { endsWith: category.toLocaleLowerCase() } },
+              ],
+            },
+            include: {
+                artist: {
+                    select: { name: true } 
+                  },
+                  image: {
+                    select: { image_url: true, alternate_url: true } 
+                  }
+            },
+          });
+        } catch (error) {
+          return { error: error.message };
+        }
+      }
+      
+
     async getImages() {
         try {
             return prisma.image.findMany()

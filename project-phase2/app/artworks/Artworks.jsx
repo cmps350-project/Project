@@ -24,18 +24,11 @@ export default function Artworks({initialArtworks}) {
                     </input>
                     <button type="submit" className = {styles.button} id = "search-btn">Search</button>
                 </form>
-        <div className={styles.mainArtContainer} id="art-container">
-            {
-                artworks.filter(artwork => {
-                const searchText = searchTerm.toLowerCase();
-                return (
-                    artwork.title.toLowerCase().includes(searchText) ||
-                    artwork.artist.name.toLowerCase().includes(searchText) ||
-                    (artwork.category && artwork.category.toLowerCase().includes(searchText))
-                );
-                }).map(artwork => <Artwork key={artwork.id} artwork={artwork} />) 
-            }
-        </div>
+                <div className = {styles.mainArtContainer} id = "art-container">
+                {
+                    artworks.map(artwork => <Artwork artwork = {artwork}></Artwork>)
+                }   
+                </div>
             </section>
         </main>
 
