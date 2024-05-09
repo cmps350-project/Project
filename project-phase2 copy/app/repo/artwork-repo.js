@@ -144,6 +144,33 @@ class ArtworkRepo {
           return { error: error.message };
       }
   }
+
+  //for statistics
+  async getTop3ProductsLast6Months() {
+    try {
+      const sixMonthsAgo = new Date();
+      sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+  
+      const topProducts = await prisma.purchase.groupBy({
+        by: ['artworkNo'],
+        where: {
+          purchaseDate: {
+            gte: sixMonthsAgo
+          }
+        },
+        orderBy: {
+          _count: {
+            totalPrice: 'desc'
+          }
+        },
+        take: 3
+      });
+      return topProducts;
+    } catch (error) {
+      console.error("Error fetching top 3 products over the last 6 months:", error);
+      throw error;
+    }
+  }
   
 }
 

@@ -84,6 +84,28 @@ class UserRepo {
         }
       }
 
+      //for statistics
+      async getTotalCustomers() {
+        try {
+          const totalCustomers = await prisma.customer.count();
+          return totalCustomers;
+        } catch (error) {
+          console.error("Error fetching total customers:", error);
+          throw error;
+        }
+      }
+      async getTotalSellers() {
+        try {
+          const totalSellers = await prisma.seller.count();
+          return totalSellers;
+        } catch (error) {
+          console.error("Error fetching total sellers:", error);
+          throw error;
+        }
+      }
+      
+      
+
       async getUserByUsernameAndPassword(username, password) {
         try {
           // Check if the user exists in the customer model
