@@ -1,26 +1,32 @@
 import React from 'react'
+import styles from '@/app/styles/page.module.css'
+
 
 export default function page() {
   return (
     <>
-                <main class="login-form">
-                <h2 class="form-title">Login</h2>
-                <form>
-                    <div class="form-group">
-                        <div class="input-container">
-                            <input type="text" id="username" name="username" required></input>
-                            <label for="username">Username</label>
+                <main>
+                    <div className ={styles.loginForm}>
+                    <h2 className = {styles.loginFormTitle}>Login</h2>
+                    <form>
+                    <div className = {styles.loginFormGroup}>
+                        <div className ={styles.loginInputContainer}>
+                            <label for="username" className = {styles.loginLabel}>Username</label>
+                            <input type="text" id="username" name="username" required className = {styles.loginInputFields}></input>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="input-container">
-                            <input type="password" id="password" name="password" required></input>
-                            <label for="password">Password</label>
+                    <div className = {styles.loginFormGroup}>
+                        <div className = {styles.loginInputContainer}>
+                            <label for="password" className = {styles.loginLabel}>Password</label>
+                            <input type="password" id="password" name="password" required className = {styles.loginInputFields}></input>
                         </div>
                     </div>
-                    <button type="submit" class="button">Login</button>
+                    <button type="submit" className = {styles.button}>Login</button>
                 </form>
+                    </div>
             </main>
     </>
   )
 }
+
+
