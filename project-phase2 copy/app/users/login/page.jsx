@@ -17,11 +17,14 @@ export default function page() {
     try{
       const response = await fetch(`/api/users/${formData.username},${formData.password}`)
       const userId = await response.json();  
-      alert("User logged in Successfully");
-      //push user to main page and the userId in url
-      router.push({
-        pathname: '/users/',
-      });
+      if (userId) {
+        localStorage.setItem('userId', userId);
+        alert("User logged in Successfully");
+        router.push('/');
+      } else {
+        alert("Login Failed");
+      }
+      router.push('/')
     }catch(error){
       alert("Login Failed");
     }
