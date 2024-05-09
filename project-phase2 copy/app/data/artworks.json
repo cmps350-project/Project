@@ -1,0 +1,156 @@
+[
+  {
+      "artworkNo": "A001",
+      "title": "Jelly Fish",
+      "category": "Visual",
+      "medium": "Water Pen",
+      "year": 2020,
+      "price": 500,
+      "quantity": 11,
+      "description": "The drawing dances on the paper, a mesmerizing interplay of blues. The main form, the jellyfish itself, is a swirling mass of cerulean, fading towards the edges into a hazy sapphire.",
+      "artistId": "US07"
+  },
+  {
+      "artworkNo": "A002",
+      "title": "Octopus",
+      "category": "Visual",
+      "medium": "Water Pen",
+      "year": 2019,
+      "price": 400,
+      "quantity": 5,
+      "description": "Eight swirling arms of cobalt blue dance across the page, a mesmerizing creature from the deep.",
+      "artistId": "US07"
+  },
+  {
+      "artworkNo": "A003",
+      "title": "Star Fish",
+      "category": "Visual",
+      "medium": "Water pen",
+      "year": 1964,
+      "price": 200,
+      "quantity": 8,
+      "description": "A mesmerizing turquoise orb pulsates on the page, trailing ethereal tendrils in shades of the sea.",
+      "artistId": "US07"
+  },
+  {
+      "artworkNo": "A004",
+      "title": "Sea Shell",
+      "category": "Visual",
+      "medium": "Water pen",
+      "year": 1964,
+      "price": 900,
+      "quantity": 8,
+      "description": "Awash in a captivating turquoise, the shell glows like a jewel unearthed from the ocean depths. Its surface isn't a flat expanse of color, but a tapestry woven with subtle variations. Lighter shades dance along its ridges, catching the light and creating a pearlescent sheen. ",
+      "artistId": "US07"
+  },
+  {
+      "artworkNo": "A005",
+      "title": "Color Merge",
+      "category": "Abstract",
+      "medium": "Oil painting",
+      "year": 2002,
+      "price": 30000,
+      "quantity": 1,
+      "description": "Showing how earth's natural colors compliment eachother",
+      "artistId": "US08"
+  },
+  {
+      "artworkNo": "A006",
+      "title": "Peacebirds",
+      "category": "Impressionism",
+      "medium": "Oil painting",
+      "year": 2012,
+      "price": 5000,
+      "quantity": 2,
+      "description": "The sky appearance if world peace existed",
+      "artistId": "US08"
+  },
+  {
+      "artworkNo": "A007",
+      "title": "Water Lilies",
+      "category": "Impressionism",
+      "medium": "Oil on canvas",
+      "year": 1899,
+      "price": 30000000,
+      "quantity": 8,
+      "description": "An impressionist painting capturing a peaceful garden pond with colorful water lilies and a Japanese bridge.",
+      "artistId": "US09"
+  },
+  {
+      "artworkNo": "A008",
+      "title": "The Artist Garden",
+      "category": "Impressionism",
+      "medium": "Oil on canvas",
+      "year": 1899,
+      "price": 30000000,
+      "quantity": 8,
+      "description": "One of his famous paintings, “The Artist's Garden at Vétheuil,” features Monet's young son and other members of his extended household. The artwork showcases a flat landscape with yellow sunflowers in the background that are emphasized by the play of light and shadows.",
+      "artistId": "US09"
+  },
+  {
+      "artworkNo": "A009",
+      "title": "Bride Over Pond Of Water Lillies",
+      "category": "Impressionism",
+      "medium": "Oil on canvas",
+      "year": 1899,
+      "price": 30000000,
+      "quantity": 8,
+      "description": " Claude Monet's The Japanese Bridge, which sits over a pond of water lilies, shares the tranquility of a man-made garden with its viewer. ",
+      "artistId": "US09"
+  },
+  {
+      "artworkNo": "A010",
+      "title": "Stary Night",
+      "category": "Expressionism",
+      "medium": "Tempera on cardboard",
+      "year": 1893,
+      "price": 120000000,
+      "quantity": 4,
+      "description": "Edvard Munch imbued the picture with psychological meaning. The moonlight bathes the woman's face in a silvery light, giving it a ghostly appearance, while also casting an ominous black shadow behind her.",
+      "artistId": "US10"
+  },
+  {
+      "artworkNo": "A011",
+      "title": "Moonlight",
+      "category": "Expressionism",
+      "medium": "Tempera on cardboard",
+      "year": 1895,
+      "price": 180000000,
+      "quantity": 4,
+      "description": "Land and sea are locked in an embrace in which each advances toward and recedes from the other.",
+      "artistId": "US10"
+  },
+  {
+      "artworkNo": "A012",
+      "title": "The Great Wave off Kanagawa",
+      "category": "Ukiyo-e",
+      "medium": "Woodblock print",
+      "year": 1830,
+      "price": 500000,
+      "quantity": 8,
+      "description": "A Japanese woodblock print depicting a massive wave threatening boats near Mount Fuji, known for its dynamic composition and bold use of color.",
+      "artistId": "US11"
+  },
+  {
+      "artworkNo": "A013",
+      "title": "TFuji from Gotenyama",
+      "category": "Ukiyo-e",
+      "medium": "Woodblock print",
+      "year": 1830,
+      "price": 500000,
+      "quantity": 8,
+      "description": "Another of the Fuji series, in this print we see the traditional festive occasion of a hanami (cherry-blossom viewing party), which to this day is a celebrated event throughout Japan. Outside a teahouse, people dance with folding fans and Mt Fuji rises into a blue sky.",
+      "artistId": "US11"
+  },
+  {
+      "artworkNo": "A014",
+      "title": "Falling Mist Waterfall",
+      "category": "Ukiyo-e",
+      "medium": "Woodblock print",
+      "year": 1830,
+      "price": 500000,
+      "quantity": 8,
+      "description": "A Japanese woodblock print depicting a massive wave threatening boats near Mount Fuji, known for its dynamic composition and bold use of color.",
+      "artistId": "US11"
+  }
+]

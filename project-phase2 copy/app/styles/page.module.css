@@ -1,0 +1,783 @@
+
+/* -------------------------- styles Css -----------------------*/
+/*general layout*/
+.container{
+  display: grid;
+  grid-template-areas:
+  "page-head"
+  "page-body"
+  "page-bottom"
+  "social-media"
+  "footer";
+  grid-gap: 2rem;
+
+}
+.body {
+  margin: auto;
+  font-family: "brother-1816", sans-serif;
+  letter-spacing: 1.2px;
+  line-height: 1.6em;
+  font-size: 0.9em;
+  color: #4A4A4A;
+  font-weight: lighter;
+  background-color: rgb(244, 242, 239);
+  text-align: center;
+
+}
+.button {
+background-color: rgb(244, 242, 239);
+border: 1px solid #d5d9d9;
+border-radius: 8px;
+box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+box-sizing: border-box;
+color: #4A4A4A;
+display: inline-block;
+font-family: "brother-1816", sans-serif;
+font-size: 13px;
+line-height: 29px;
+text-align: center;
+vertical-align: middle;
+width: 100px;
+}
+
+.button:hover {
+background-color: #f7fafa;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #887373;
+  margin-bottom: 7rem;
+  .th, .td {
+      border: 1px solid #887373;
+      text-align: left;
+      padding: 8px;
+  }
+  .th {
+      background-color: #f2f2f2;
+  }
+  .img{
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+
+  }
+}
+
+.tableTitle {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+.formInput {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 80%;
+  height: 30px;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+.formInput:focus{
+  outline:none;
+}
+
+.button:focus {
+border-color: #b86807;
+box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+outline: 0;
+}
+/* header */
+.title{
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); 
+  text-align: center;
+  margin: 0.5rem;
+}
+.headerTitle{
+  grid-area: title;
+  justify-self: center;
+  letter-spacing: 3px;
+  margin: 0rem;
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); 
+  text-align: center;
+  margin: 0.5rem;
+}
+.icons{
+  display: flex;
+  grid-area: icons;
+  justify-self: end;
+  margin: 0 1.5rem;
+  flex-direction: row;
+}
+
+.header{
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: 30px auto 30px;
+  grid-template-rows: 2;
+  align-items: center;
+  justify-items: center;
+  background-color: rgb(235, 225, 216, 0.8);
+  position: sticky;
+  top: 1px;
+  grid-template-areas:
+  "title title icons"
+  "nav nav nav";
+
+}
+
+/* navigation */
+.navigation{
+  grid-area: nav;
+}
+.menu{
+  margin: 0.2rem;
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+}
+.menuItem{
+  flex-grow: 1;
+  text-align: center;
+  height: 100%;
+  font-size: 10px;
+}
+.menuItem:hover{
+  background-color: hsl(201, 11%, 66%);
+  transition-duration: 0.7s;
+  text-decoration: underline;
+  background-color: rgb(235, 225, 216);
+}
+.menuItem a{
+      text-decoration: none;
+      color: #4A4A4A;
+      text-align: center;
+}
+.socialMedia{
+  grid-area: social-media;
+}
+/* footer */
+.footer{
+  text-align: center;
+  background-color: rgb(235, 225, 216);
+  padding: 0.5rem;
+  place-items: center;
+  grid-area: footer;
+
+}
+
+/*bottom*/
+.pageBottom{
+  justify-content: center;
+  grid-area: page-bottom;
+  font-size: clamp(0.7rem, 1.5vw, 1rem); 
+
+  .ul{
+      text-align:center;
+      list-style-type: none;
+  }
+
+  .li{
+    margin:1rem 0.7rem;
+  }
+}
+
+
+/* -------------------------- Account Info Css -----------------------*/
+.accountInfoContainer{
+  display: grid;
+  grid-template-areas:
+  "page-head"
+  "page-body"
+  "page-bottom"
+  "social-media"
+  "footer";
+  grid-gap: 2rem;
+}
+.accountInfo{
+  padding: 2rem;
+  font-size: 0.8rem;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin-bottom: 4rem;
+}
+
+.AIArtworkItem {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  height: auto; 
+  width: 400px; 
+  margin: auto;
+  font-size: 0.7rem;
+  line-height: 0.9rem;
+  display: flex;
+  align-items: center;
+  padding: 20px; 
+}
+
+.AIartworkItemImg {
+  height: 150px; 
+  width: 150px; 
+  margin-right: 20px;
+}
+
+.AIartworkDetails {
+  flex-grow: 1;
+}
+
+.AIartTitle {
+  font-size: clamp(0.8rem, 2.5vw, 1rem); 
+}
+
+.AIartist, .AIprice, .AIcategory, .AIquantity {
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+/* -------------------------- Basket Css -----------------------*/
+
+.basketContainer{
+  display: grid;
+  grid-template-areas:
+  "page-head"
+  "page-body"
+  "page-bottom"
+  "social-media"
+  "footer";
+  grid-gap: 2rem;
+}
+
+.basketArtworkItem {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  height: 90vh; 
+  width: auto; 
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 0.8rem;
+  line-height: 0.7rem;
+  justify-content: start;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.basketArtworkItemImg {
+  margin: 2rem;
+  height: 200px;
+  width: 200px;
+  object-fit:cover;
+}
+
+.basketArtworkDetails {
+  display: flex;
+  height: 30%; 
+  width: 100%;
+  flex-direction: column;
+}
+
+.basketArtTitle {
+  margin-bottom: 1rem;
+  font-size: clamp(0.7rem, 2vw, 1.5rem); 
+}
+
+.artist, .price, .category, .description, .year, .medium{
+  color: gray;
+  margin: 1rem;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+.description{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.quantity {
+  align-self: center;
+  margin-top: 10px;
+  display: flex; 
+  align-items: center;
+}
+
+.quantityButton {
+  width: 30px;
+  height: 30px;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.quantityButton:hover {
+  background-color: #ccc;
+}
+
+.quantity {
+  margin: 0 10px;
+}
+
+.checkoutBtn {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  color: #4A4A4A;
+  font-family: "brother-1816", sans-serif;
+  font-size: 13px;
+  line-height: 29px;
+  text-align: center;
+  width: 150px; 
+  margin-top: 20px; }
+
+.checkoutBtn:hover {
+  background-color: #f7fafa;
+}
+
+  /* -------------------------- Checkout Css -----------------------*/
+
+
+  .checkoutPageBody {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkoutSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkoutFormContainer {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 2rem;
+    margin: 1rem;
+}
+
+.checkoutFormGroup {
+    margin-bottom: 1.5rem;
+}
+
+.checkoutLabel {
+    font-size: 1rem;
+    color: #555;
+}
+
+.checkoutFormInput {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    outline: none;
+}
+
+.checkoutBtn {
+    background-color: #b9ac92;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    grid-column: 2;
+}
+
+.checkoutBtn:hover {
+    background-color: #d9ceb8;
+}
+  /* -------------------------- Login Css -----------------------*/
+
+  .loginContainer {
+    display: grid;
+    grid-template-areas:
+    "header"
+    "login-form"
+    "page-bottom"
+    "social-media"
+    "footer";
+    grid-gap: 2rem;
+    
+}
+
+.loginHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+.loginForm {
+    grid-area: login-form;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f2ef;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 400px;
+    height: 400px;
+    margin: 3rem auto;
+}
+
+.loginFormTitle {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.loginFormGroup {
+    margin-bottom: 1rem;
+}
+.loginInputContainer {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.loginInputFields { 
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    outline: none;
+}
+
+.loginLabel {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: #777;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.loginButton {
+    background-color: #b9ac92;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.loginButton:hover {
+    background-color: #d9ceb8;
+}
+
+  /* -------------------------- Main Page Css -----------------------*/
+
+.PageHead{
+  grid-area: page-head;
+}
+.mainHovered{
+  background-color: purple;
+}
+/* home section */
+.mainHomeSection{
+  height: 30vh;
+  /*background-image: url(../images/panorama.jpg);*/
+  background-image: url(/images/paintstroke.png);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+}
+.mainTag{
+  color: rgb(70, 42, 24);
+}
+/* body */
+.mainPageBody{
+  grid-area: page-body;
+}
+/* featured artwork section */
+.mainFeaturedCard{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  align-self: center;
+  justify-self: center;
+
+}
+.mainFeaturedText{
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+.mainFeaturedImg{
+  width: 50vh;
+  object-fit: contain;
+  height: 50vh;
+  border:auto;
+}
+
+.mainFtImgContainer{
+  display:flex;
+  flex-direction: column;
+}
+.mainArtworkSelect{
+  height:4vh;
+}
+
+/* all artwork display section */
+.mainArtworkSection{
+  padding: 1rem 0rem;
+}
+
+.mainArtContainer{
+  margin: 0rem 2rem;
+  padding: 2rem 4rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(399px, 1fr));
+  grid-gap: 20px 20px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+
+.mainSearchForm{
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+/* artwork */
+.mainArtTitle{
+
+  font-size: clamp(0.8rem, 2.5vw, 1rem); 
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0.5rem;
+}
+.mainArtworkItem{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  height: 500px;
+  margin: 2rem 0;
+  width: 400px;
+  height:600px;
+  font-size: 0.7rem;
+  line-height: 0.9rem;
+
+}
+.mainImgContainer{
+  position: relative;
+  height:90%;
+  width:100%;
+}
+.mainArtworkImage{
+  height:100%;
+  width:100%;
+  object-fit: cover;
+
+}
+
+.mainImageBtn {
+  position: absolute;
+  top: 500px;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+}
+
+.mainCategory, .mainPrice, .mainQuantity{
+  font-size: smaller;
+  color:grey;
+}
+
+.hidden{
+  display:none
+}
+
+.trashIcon{
+  margin: 1rem;
+}
+
+  /* -------------------------- sell art Css -----------------------*/
+.sellPageBody {
+    display: grid;
+    grid-gap: 2rem;
+}
+
+.sellArtSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sellFormContainer {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 2rem;
+    margin: 1rem;
+    margin-bottom: 5rem;
+}
+
+.sellFormGroup {
+    margin-bottom: 1.5rem;
+}
+
+.sellLabel {
+    font-size: 1rem;
+    color: #555;
+}
+
+.sellFormInput {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    outline: none;
+}
+
+.confirmProductBTN {
+    background-color: #b9ac92;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 80%;
+    grid-column: 2;
+}
+
+.confirmProductBTN:hover {
+    background-color: #d9ceb8;
+}
+
+.sellDisplayTitle{
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); 
+  text-align: center;
+  font-size: smaller;
+  margin: 2rem;
+}
+
+.sellDisplayArtContainer{
+    margin: 2rem;
+    padding: 2rem 4rem;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 5rem 1rem;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+}
+.sellArtCard{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 300px;
+    height: 450px;
+    line-height: 0.8rem;
+
+}
+.sellArtImg{
+  margin-bottom: 0.3rem;
+  align-self: center;
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+}
+.sellArtButton{
+  align-self: center;
+  margin: 0.2rem;
+}
+.sellCardText{
+  font-size: 0.5rem;
+  color:grey;
+  margin: 0rem 0.5rem;
+}
+.sellSmaller{
+  font-size: 0.4rem;
+}
+
+  
+@media screen and (min-width: 700px){
+
+  /* -------------------------- Basket Large Screen Css -----------------------*/
+
+  .basketArtworkItem {
+      height: 55vh; 
+      justify-content: center;
+      flex-direction: row;
+  }
+  .basketArtworkItemImg {
+      height: 300px;
+      width: 300px;
+  }
+  .basketArtworkDetails {
+      height: 80%; 
+      width: 40%;
+      align-items: start;
+  }
+
+  /* -------------------------- Main Page Large Screen Css -----------------------*/
+
+  .mainFeaturedCard{
+    flex-direction: row;
+    .featured-text{
+        width:30%;
+    }
+}
+  /* -------------------------- styles Large Screen Css -----------------------*/
+
+
+  .header{
+    grid-template-columns: 1fr 300px 1fr;
+    grid-gap: 0px 20px;
+    grid-template-areas:
+    "nav title icons"
+  }
+  
+  /* navigation */
+  .navigation{
+    width:100%;
+  }
+  .menu{
+    flex-direction: row;
+  }
+  .menuItem{
+    text-align: start;
+  }
+
+  
+  }
+  

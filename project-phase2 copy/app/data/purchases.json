@@ -1,0 +1,92 @@
+
+[
+    {
+        "purchaseNo": "P001",
+        "quantity": 2,
+        "purchaseDate": "2024-05-08T12:00:00Z",
+        "totalPrice": 1000,
+        "artworkNo": "A001",
+        "customerId": "US01"
+    },
+    {
+        "purchaseNo": "P002",
+        "quantity": 1,
+        "purchaseDate": "2024-05-08T12:30:00Z",
+        "totalPrice": 500,
+        "artworkNo": "A002",
+        "customerId": "US02"
+    },
+    {
+        "purchaseNo": "P003",
+        "quantity": 3,
+        "purchaseDate": "2024-05-08T13:00:00Z",
+        "totalPrice": 600,
+        "artworkNo": "A003",
+        "customerId": "US03"
+    },
+    {
+        "purchaseNo": "P004",
+        "quantity": 1,
+        "purchaseDate": "2024-05-08T13:30:00Z",
+        "totalPrice": 900,
+        "artworkNo": "A004",
+        "customerId": "US04"
+    },
+    {
+        "purchaseNo": "P005",
+        "quantity": 1,
+        "purchaseDate": "2024-05-08T14:00:00Z",
+        "totalPrice": 30000,
+        "artworkNo": "A005",
+        "customerId": "US01"
+    },
+    {
+        "purchaseNo": "P006",
+        "quantity": 1,
+        "purchaseDate": "2024-05-08T14:30:00Z",
+        "totalPrice": 5000,
+        "artworkNo": "A006",
+        "customerId": "US02"
+    },
+    {
+        "purchaseNo": "P007",
+        "quantity": 2,
+        "purchaseDate": "2024-05-08T15:00:00Z",
+        "totalPrice": 60000000,
+        "artworkNo": "A007",
+        "customerId": "US03"
+    },
+    {
+        "purchaseNo": "P008",
+        "quantity": 1,
+        "purchaseDate": "2024-05-08T15:30:00Z",
+        "totalPrice": 30000000,
+        "artworkNo": "A008",
+        "customerId": "US04"
+    },
+    {
+        "purchaseNo": "P009",
+        "quantity": 1,
+        "purchaseDate": "2024-05-08T16:00:00Z",
+        "totalPrice": 30000000,
+        "artworkNo": "A009",
+        "customerId": "US01"
+    },
+    {
+        "purchaseNo": "P010",
+        "quantity": 1,
+        "purchaseDate": "2024-05-08T16:30:00Z",
+        "totalPrice": 120000000,
+        "artworkNo": "A010",
+        "customerId": "US02"
+    },
+    {
+        "purchaseNo": "P011",
+        "quantity": 1,
+        "purchaseDate": "2024-05-08T17:00:00Z",
+        "totalPrice": 180000000,
+        "artworkNo": "A011",
+        "customerId": "US03"
+    }
+]
+

@@ -1,0 +1,50 @@
+[
+    {
+        "userId":"US07",
+        "username": "rene_brown",
+        "password": "123",
+        "email": "rene@example.com",
+        "name": "René Brown",
+        "companyName": "Brown Enterprises"
+    },
+    {
+        "userId":"US08",
+        "username": "dan_fink",
+        "password": "123",
+        "email": "dan@example.com",
+        "name": "Dan Fink",
+        "companyName": "Fink Co."
+    },
+    {
+        "userId":"US09",
+        "username": "claude_monet",
+        "password": "123",
+        "email": "claude@example.com",
+        "name": "Claude Monet",
+        "companyName": "Monet Artworks"
+    },
+    {
+        "userId":"US10",
+        "username": "edvard_munch",
+        "password": "123",
+        "email": "edvard@example.com",
+        "name": "Edvard Munch",
+        "companyName": "Munch Gallery"
+    },
+    {   "userId":"US11",
+        "username": "hokusai",
+        "password": "123",
+        "email": "hokusai@example.com",
+        "name": "Hokusai",
+        "companyName": "Hokusai Art"
+    },
+ 
+    {
+        "userId": "US12",
+        "username": "vangogh",
+        "password": "123",
+        "email": "vangogh@example.com",
+        "name": "Vincent Vangogh",
+        "companyName": "Vangogh Art"
+    }
+]
