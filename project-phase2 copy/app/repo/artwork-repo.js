@@ -171,7 +171,37 @@ class ArtworkRepo {
       throw error;
     }
   }
-  
+
+  //statistics
+  async getMostPopularCategories() {
+    try {
+      const popularCategories = await prisma.artwork.groupBy({
+        by: ['category'],
+        _count: true,
+        orderBy: {
+          _count: 'desc'
+        }
+      });
+      return popularCategories;
+    } catch (error) {
+      console.error("Error fetching most popular categories of artworks:", error);
+      throw error;
+    }
+  }
+
+  //statistics
+  async getAverageQuantitySoldPerArtwork() {
+    try {
+      const averageQuantity = await prisma.purchase.aggregate({
+        _avg: { quantity: true }
+      });
+      return averageQuantity;
+    } catch (error) {
+      console.error("Error fetching average quantity sold per artwork:", error);
+      throw error;
+    }
+  }
+
 }
 
 export default new ArtworkRepo()

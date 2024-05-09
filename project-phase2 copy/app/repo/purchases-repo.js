@@ -17,6 +17,37 @@ class PurchasesRepo {
         }
       }
 
+      //statistics
+      async getAveragePurchaseAmountPerCustomer() {
+        try {
+          const averageAmount = await prisma.purchase.aggregate({
+            _avg: { totalPrice: true }
+          });
+          return averageAmount;
+        } catch (error) {
+          console.error("Error fetching average purchase amount per customer:", error);
+          throw error;
+        }
+      }
+
+      //statistics
+      async getTotalPurchasesPerCustomer() {
+        try {
+          const totalPurchases = await prisma.purchase.groupBy({
+            by: ['customerId'],
+            _count: true
+          });
+          return totalPurchases;
+        } catch (error) {
+          console.error("Error fetching total purchases per customer:", error);
+          throw error;
+        }
+      }
+
+      
+
+
+
 
 
 }
