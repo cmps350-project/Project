@@ -115,6 +115,15 @@ class ArtworkRepo {
             }
         }
     }
+    async getArtworkbyId(id){
+      try {
+        return prisma.artwork.findUnique({
+            where: { id }
+        })
+    } catch (error) {
+        return { error: error.message }
+    }
+  }
 
 
 }
