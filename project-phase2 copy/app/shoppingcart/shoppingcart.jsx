@@ -21,7 +21,8 @@ export default function ShoppingCart ({ artwork }) {
   function handleCheckout(){
     const artworkWithQuantity = {
         artworkNo: artwork.artworkNo,
-        quantity: quantity
+        quantity: quantity,
+        totalPrice: artwork.price*quantity
     };
     localStorage.setItem('artwork', JSON.stringify(artworkWithQuantity));
     router.push(`/checkout`);

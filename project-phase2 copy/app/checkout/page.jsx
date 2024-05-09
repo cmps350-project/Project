@@ -18,22 +18,40 @@ export default function Checkout () {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  async function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault();
   
+    const { street, city, country, ...restFormData } = formData;
+    const shippingAddress = `${street}, ${city}, ${country}`;
+  
     const artworkWithQuantity = JSON.parse(localStorage.getItem('artwork'));
-    const { artworkNo, quantity } = artworkWithQuantity;
+    const { artworkNo, quantity: requestedQuantity, totalPrice } = artworkWithQuantity;
   
     const customerId = localStorage.getItem('userId');
   
-    const purchaseData = {
-      quantity: quantity,
-      totalPrice: '0',
-      artworkNo: artworkNo,
-      customerId: customerId,
-    };
-  
     try {
+      const customerResponse = await fetch(`/api/users/customers/${customerId}`);
+      const customerData = await customerResponse.json();
+      const customerBalance = customerData.moneyBalance;
+      
+      if (totalPrice > customerBalance) {
+        throw new Error('Insufficient balance. Please top up your account.');
+      }
+      
+      const artworkResponse = await fetch(`/api/artworks/${artworkNo}`);
+      const artworkData = await artworkResponse.json();
+      const availableQuantity = artworkData.quantity;
+      if (requestedQuantity > availableQuantity) {
+        throw new Error('Requested quantity exceeds available quantity.');
+      }
+      
+      const purchaseData = {
+        quantity: requestedQuantity,
+        totalPrice: totalPrice.toString(),
+        artworkNo: artworkNo,
+        customerId: customerId,
+      };
+      
       const response = await fetch('/api/purchases', {
         method: 'POST',
         headers: {
@@ -45,6 +63,37 @@ export default function Checkout () {
       if (!response.ok) {
         throw new Error('Failed to confirm order');
       }
+      
+      const updatedCustomer = await fetch(`/api/users/customers/${customerId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          shippingAddress,
+          moneyBalance: (customerBalance - totalPrice).toString(), 
+        }),
+      });
+  
+      if (!updatedCustomer.ok) {
+        throw new Error('Failed to update customer data');
+      }
+      
+      const updatedArtwork = await fetch(`/api/artworks/${artworkNo}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          quantity: (availableQuantity - requestedQuantity)
+        }),
+      });
+  
+      if (!updatedArtwork.ok) {
+        throw new Error('Failed to update artwork quantity');
+      }
+  
+      alert("Your order has been confirmed. Thank you for shopping with us!");
   
       localStorage.removeItem('artwork');
   
@@ -54,6 +103,7 @@ export default function Checkout () {
     }
   }
 
+  
 
   return (
     <div className={styles.container}>
