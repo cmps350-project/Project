@@ -9,6 +9,7 @@ export default function Artwork({ artwork }) {
 
   const imageUrl = isHovering ? artwork.image.alternate_url : artwork.image.image_url;
 
+
   return (
     <>
         <article className = {styles.mainArtworkItem} id = {artwork.id} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} key={artwork.id}>

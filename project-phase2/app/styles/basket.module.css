@@ -1,0 +1,118 @@
+
+.container{
+    display: grid;
+    grid-template-areas:
+    "page-head"
+    "page-body"
+    "page-bottom"
+    "social-media"
+    "footer";
+    grid-gap: 2rem;
+ }
+ 
+ .artworkItem {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    height: 90vh; 
+    width: auto; 
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+    line-height: 0.7rem;
+    justify-content: start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.artworkItemImg {
+    margin: 2rem;
+    height: 200px;
+    width: 200px;
+    object-fit:cover;
+}
+
+.artworkDetails {
+    display: flex;
+    height: 30%; 
+    width: 100%;
+    flex-direction: column;
+}
+
+.artTitle {
+    margin-bottom: 1rem;
+    font-size: clamp(0.7rem, 2vw, 1.5rem); 
+}
+
+.artist, .price, .category, .description, .year, .medium{
+    color: gray;
+    margin: 1rem;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+.description{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.quantity {
+    align-self: center;
+    margin-top: 10px;
+    display: flex; 
+    align-items: center;
+}
+
+.quantityBtn {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+}
+
+.quantityBtn:hover {
+    background-color: #ccc;
+}
+
+.quantity .quantity-value {
+    margin: 0 10px;
+}
+
+.checkoutBtn {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    color: #4A4A4A;
+    font-family: "brother-1816", sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    text-align: center;
+    width: 150px; 
+    margin-top: 20px; }
+
+.checkoutBtn:hover {
+    background-color: #f7fafa;
+}
+
+@media screen and (min-width: 700px){
+
+    .artwork-item {
+        height: 55vh; 
+        justify-content: center;
+        flex-direction: row;
+    }
+    .artwork-item .img {
+        height: 300px;
+        width: 300px;
+    }
+    .artwork-details {
+        height: 80%; 
+        width: 40%;
+        align-items: start;
+    }
+    .description{
+        text-align: start;
+    }
+    
+}
