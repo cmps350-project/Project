@@ -149,6 +149,7 @@ class ArtworkRepo {
     try {
       const sixMonthsAgo = new Date();
       sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+  
       const topPurchases = await prisma.purchase.findMany({
         where: {
           purchaseDate: {
@@ -163,6 +164,7 @@ class ArtworkRepo {
           artwork: true
         }
       });
+
       return topPurchases.map(purchase => purchase.artwork);
     } catch (error) {
       console.error("Error fetching top 3 products over the last 6 months:", error);
@@ -184,17 +186,28 @@ class ArtworkRepo {
       throw error;
     }
   }
-  async updateArtwork(artworkId, updatedFields) {
+
+  async  getMostPopularCategoryByQuantitySold() {
     try {
-      return await prisma.artwork.update({
-        where: { artworkNo: artworkId },
-        data: updatedFields,
+      const mostPopularCategory =  prisma.artwork.groupBy({
+        by: ['category'],
+        _sum: { quantity: true },
+        orderBy: {
+          _sum: {
+            quantity: 'desc'
+          }
+        },
+        take: 3
       });
+      return mostPopularCategory;
     } catch (error) {
-      console.error('Error updating artwork:', error);
+      console.error('Error fetching artwork data:', error);
       throw error;
     }
   }
+
+  
+  
 
 }
 

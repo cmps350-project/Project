@@ -27,21 +27,6 @@ class PurchasesRepo {
           }
         }
 
-
-
-      //statistics
-      async getAveragePurchaseAmountPerCustomer() {
-        try {
-          const averageAmount = prisma.purchase.aggregate({
-            _avg: { totalPrice: true }
-          });
-          return averageAmount;
-        } catch (error) {
-          console.error("Error fetching average purchase amount per customer:", error);
-          throw error;
-        }
-      }
-
       //statistics
       async getTotalPurchasesPerCustomer() {
         try {
@@ -55,6 +40,11 @@ class PurchasesRepo {
           throw error;
         }
       }
+
+      
+      
+      
+
 
 }
 

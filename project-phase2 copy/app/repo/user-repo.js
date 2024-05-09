@@ -178,6 +178,27 @@ class UserRepo {
           throw error;
         }
       }
+
+      //statistics
+      async  getTopNSpendingCustomers(n) {
+        try {
+          const topCustomers =  prisma.purchase.groupBy({
+            by: ['customerId'],
+            orderBy: {
+              _sum: {
+                totalPrice: 'desc', 
+              },
+            },
+            take: n,
+          });
+      
+          return topCustomers;
+        } catch (error) {
+          console.error('Error fetching purchase data:', error);
+          throw error;
+        }
+      }
+      
       
   
 }
