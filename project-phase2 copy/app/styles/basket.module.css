@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: grid;
     grid-template-areas:
         "page-head"
@@ -110,5 +110,108 @@
     margin-top: 20px; }
   
   .checkoutBtn:hover {
+    background-color: #f7fafa;
+  } */
+
+  .basketContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  .basketArtworkItem {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    height: 90%;
+    width: 50%;
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 0.8rem;
+    line-height: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .basketArtworkItemImg {
+    margin: 2rem;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  .basketArtworkDetails {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mainArtTitle {
+    margin-bottom: 1rem;
+    font-size: clamp(0.7rem, 2vw, 1.5rem);
+  }
+  
+  .artist,
+  .price,
+  .category,
+  .description,
+  .year,
+  .medium {
+    color: gray;
+    margin: 0.5rem;
+    font-size: 0.9em;
+    text-align: center;
+  }
+  
+  .quantityWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .quantityContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantityButton {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quantityButton:hover {
+    background-color: #ccc;
+  }
+  
+  .quantity {
+    margin: 0 10px;
+  }
+  
+  .checkoutButton {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, 0.5) 0 2px 5px 0;
+    color: #4a4a4a;
+    font-family: 'brother-1816', sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    text-align: center;
+    width: 150px;
+    margin-top: 20px;
+  }
+  
+  .checkoutButton:hover {
     background-color: #f7fafa;
   }
