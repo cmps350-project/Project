@@ -17,7 +17,8 @@ export default function Artwork({ artwork }) {
     if (userId) {
       router.push(`/shoppingcart/${artwork.artworkNo}`);
     } else {
-      console.warn('User is not logged in. Please log in to purchase.');
+      alert('You are not logged in, please login to purchase artwork');
+      router.push(`/shoppingcart/${artwork.artworkNo}`);
     }
   };
 
