@@ -184,6 +184,17 @@ class ArtworkRepo {
       throw error;
     }
   }
+  async updateArtwork(artworkId, updatedFields) {
+    try {
+      return await prisma.artwork.update({
+        where: { artworkNo: artworkId },
+        data: updatedFields,
+      });
+    } catch (error) {
+      console.error('Error updating artwork:', error);
+      throw error;
+    }
+  }
 
 }
 
