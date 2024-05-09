@@ -23,6 +23,18 @@ class ArtworkRepo {
             }
         }
     }
+
+    async getImages() {
+        try {
+            return prisma.image.findMany()
+        } catch (error) {
+            return {
+                error: error.message
+            }
+        }
+    }
+
+
 }
 
 export default new ArtworkRepo()

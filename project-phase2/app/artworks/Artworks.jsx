@@ -7,7 +7,7 @@ export default function Artworks({initialArtworks}) {
     const artworks = initialArtworks
     const btnClasses = "image-btn hidden button"
   return (
-    <>
+   <>
 
     <section id="all-artwork" class="section artwork-section">
                 <h2 className = {styles.title}>All Artwork</h2>
