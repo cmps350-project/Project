@@ -10,10 +10,13 @@ export default function Artworks({initialArtworks}) {
    <>
     <div className = {styles.mainContainer}>
         <main className = {styles.mainPageBody}>
+
+
             <section id="featured-paintings section">
                 <h1 class = "title">Featured Artwork</h1>
                 <div class = "featured-card" id = "featured-card">    </div>
             </section>
+
             <section id="all-artwork" class="section artwork-section">
                 <h2 className = {styles.title}>All Artwork</h2>
                 <form className = {styles.mainSearchForm} id = "search-form">
