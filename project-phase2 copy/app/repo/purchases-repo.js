@@ -25,7 +25,7 @@ class PurchasesRepo {
               error: error.message
             };
           }
-      
+        }
 
     //for statistics
     async getTotalPurchasesPerProductPerYear() {
@@ -68,12 +68,6 @@ class PurchasesRepo {
         }
       }
 
-      
-
-
-
-
-
 }
-}
+
 export default new PurchasesRepo()

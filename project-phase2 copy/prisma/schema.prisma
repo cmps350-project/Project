@@ -76,7 +76,7 @@ model Purchase {
   quantity     Int
   purchaseDate DateTime  @default(now())
   totalPrice   Decimal
-  artworkNo    String    @unique
+  artworkNo    String    
   artwork      Artwork   @relation(fields: [artworkNo], references: [artworkNo])
   customerId   String
   customer     Customer @relation(fields: [customerId], references: [userId])

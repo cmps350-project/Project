@@ -20,15 +20,38 @@ export default function Checkout () {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    
+  
     const artworkWithQuantity = JSON.parse(localStorage.getItem('artwork'));
     const { artworkNo, quantity } = artworkWithQuantity;
-
-    const customerId = localStorage.getItem('customerId');
-
-    //handle submit not done!!!!!!!!
-
-    
+  
+    const customerId = localStorage.getItem('userId');
+  
+    const purchaseData = {
+      quantity: quantity,
+      totalPrice: '0',
+      artworkNo: artworkNo,
+      customerId: customerId,
+    };
+  
+    try {
+      const response = await fetch('/api/purchases', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(purchaseData),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to confirm order');
+      }
+  
+      localStorage.removeItem('artwork');
+  
+      router.push('/');
+    } catch (error) {
+      console.error('Error confirming order:', error);
+    }
   }
 
 
