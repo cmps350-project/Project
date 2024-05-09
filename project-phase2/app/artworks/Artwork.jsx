@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '@/app/page.module.css';
+import styles from '@/app/styles/page.module.css'
 
 export default function Artwork({ artwork }) {
   const [isHovering, setIsHovering] = useState(false);
