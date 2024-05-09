@@ -24,6 +24,48 @@ export default function NavBar() {
         }
       };
 
+
+        const handleViewAccountClick = async () => {
+            try {
+              const userId = localStorage.getItem('userId');
+              if (!userId) {
+                alert('You are not logged in. Please login to view your account.');
+                router.push(`/users/login`);
+                return;
+              }
+              const customerResponse = await fetch(`/api/users/customers/${userId}`);
+              const customer = await customerResponse.json();
+              if (customer) {
+                //user is customer
+                router.push(`/artworks/${userId}/viewCustomer`);
+                return;
+              }
+              const sellerResponse = await fetch(`/api/users/sellers/${userId}`);
+              const seller = await sellerResponse.json();
+          
+              if (seller) {
+                //user is seller
+                router.push(`/artworks/${userId}/viewSeller`);
+                return;
+              }
+              const adminResponse = await fetch(`/api/users/admins/${userId}`);
+              const admin = await adminResponse.json();
+          
+              if (admin) {
+                //user is admin
+                router.push(`/artworks/${userId}/viewAdmin`);
+                return;
+              }
+          
+              //if user is neither type
+              alert('User not found.');
+            } catch (error) {
+              console.error('Error fetching user:', error);
+              alert('An error occurred while fetching user data.');
+            }
+          };
+          
+
   return (
     <>
     <div className={styles.pageHead}>
@@ -31,7 +73,7 @@ export default function NavBar() {
             <nav className = {styles.navigation}>
                 <ul className = {styles.menu}>
                     <li className = {styles.menuItem}><Link href="/">Home</Link></li>
-                    <li className = {styles.menuItem} id = "acc-page"><a>View Account</a></li>
+                    <li className = {styles.menuItem} id = "acc-page" onClick={handleViewAccountClick}>View Account</li>
                     <li className = {styles.menuItem} id = "sell-page" onClick={handleSellYourArtClick}>Sell Your Art</li>                       
                     <li className = {styles.menuItem}><Link href="#ethical-commitment">About Us</Link></li>
                 </ul>
