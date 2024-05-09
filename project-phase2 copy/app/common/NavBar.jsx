@@ -13,7 +13,7 @@ export default function NavBar() {
                     <li className = {styles.menuItem}><Link href="/">Home</Link></li>
                     <li className = {styles.menuItem} id = "acc-page"><a>View Account</a></li>
                     <li className = {styles.menuItem} id = "sell-page"><a>Sell Your Art</a></li>                       
-                    <li className = {styles.menuItem}><Link href="/">About Us</Link></li>
+                    <li className = {styles.menuItem}><Link href="#ethical-commitment">About Us</Link></li>
                 </ul>
             </nav>
             <h1 className = {styles.headerTitle}>Artfully Yours</h1>
