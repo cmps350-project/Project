@@ -43,25 +43,6 @@ class UserRepo {
         }
       }
 
-      async getUserByUsername(username) {
-        try {
-          //find by username across all user types
-          const user = await prisma.$queryRaw`
-            SELECT * FROM (
-              SELECT * FROM customer WHERE username = ${username}
-              UNION ALL
-              SELECT * FROM seller WHERE username = ${username}
-              UNION ALL 
-              SELECT * FROM admin WHERE username = ${username}
-            ) AS users
-            LIMIT 1;
-          `;
-          return user[0]; 
-        } catch (error) {
-          console.error("Error fetching user by username:", error);
-          throw error;
-        }
-      }
 
         async  getAllUsers() {
         try {
@@ -99,6 +80,58 @@ class UserRepo {
           return await prisma.seller.findMany();
         } catch (error) {
           console.error("Error fetching sellers:", error);
+          throw error;
+        }
+      }
+
+      async getUserByUsernameAndPassword(username, password) {
+        try {
+          // Check if the user exists in the customer model
+          const customer = await prisma.customer.findFirst({
+            where: {
+              AND: [
+                { username: username },
+                { password: password }
+              ]
+            }
+          });
+    
+          if (customer) {
+            return customer;
+          }
+    
+          // Check if the user exists in the seller model
+          const seller = await prisma.seller.findFirst({
+            where: {
+              AND: [
+                { username: username },
+                { password: password }
+              ]
+            }
+          });
+    
+          if (seller) {
+            return seller;
+          }
+    
+          // Check if the user exists in the admin model
+          const admin = await prisma.admin.findFirst({
+            where: {
+              AND: [
+                { username: username },
+                { password: password }
+              ]
+            }
+          });
+    
+          if (admin) {
+            return admin;
+          }
+    
+          // If the user is not found in any model, return null
+          return null;
+        } catch (error) {
+          console.error("Error fetching user:", error);
           throw error;
         }
       }

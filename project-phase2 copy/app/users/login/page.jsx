@@ -11,7 +11,7 @@ export default function page() {
   const handleFormSubmit = (event) => {
     event.preventDefault(); // Prevents the default form submission behavior
     // Do something with formData, like sending it to a server
-    console.log('Form submitted with data:', formData);
+    alert(formData);
     // You can reset the form data if needed
     setFormData({ username: '', password: '' });
   };
