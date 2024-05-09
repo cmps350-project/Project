@@ -2,6 +2,30 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 class PurchasesRepo {
+    async addPurchase(quantity, totalPrice, artworkNo, customerId) {
+        try {
+          const purchase = await prisma.purchase.create({
+            data: {
+              quantity: quantity,
+              totalPrice: totalPrice,
+              artworkNo: artworkNo,
+              customerId: customerId,
+            }
+          })
+          return purchase;
+        } catch (error) {
+          throw new Error(`Error adding purchase: ${error}`);
+        }
+      }
+      async getPurchases(){
+        try {
+            return await prisma.purchase.findMany()
+          } catch (error) {
+            return {
+              error: error.message
+            };
+          }
+      
 
     //for statistics
     async getTotalPurchasesPerProductPerYear() {
@@ -50,5 +74,6 @@ class PurchasesRepo {
 
 
 
+}
 }
 export default new PurchasesRepo()

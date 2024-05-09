@@ -1,8 +1,10 @@
 'use client'
 import React, { useState } from 'react';
 import styles from '@/app/styles/checkout.module.css'
+import { useRouter } from 'next/navigation'
 
 export default function Checkout () {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     street: '',
     city: '',
@@ -24,8 +26,10 @@ export default function Checkout () {
 
     const customerId = localStorage.getItem('customerId');
 
-   //handle submit not done yet
-  };
+    //handle submit not done!!!!!!!!
+
+    
+  }
 
 
   return (
