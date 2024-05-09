@@ -12,15 +12,22 @@ export default function Artwork({ artwork }) {
   const handleMouseOut = () => setIsHovering(false);
 
   const imageUrl = isHovering ? artwork.image.alternate_url : artwork.image.image_url;
-  function handleBuyNow () {
+  async function handleBuyNow () {
     const userId = localStorage.getItem('userId');
     if (userId) {
-      router.push(`/shoppingcart/${artwork.artworkNo}`);
-    } else {
+        const response = await fetch(`/api/users/customers/${userId}`)
+        const user = await response.json(); 
+        if (user) {
+          router.push(`/shoppingcart/${artwork.artworkNo}`);
+        }else{
+          alert("You are not a customer. cannot buy art.")
+        }
+    }else{
       alert('You are not logged in, please login to purchase artwork');
-      router.push(`/shoppingcart/${artwork.artworkNo}`);
+      router.push(`/users/login`);
     }
-  };
+  }
+  
 
 
   return (
