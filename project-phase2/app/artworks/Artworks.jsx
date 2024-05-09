@@ -2,20 +2,18 @@
 import { React, useState } from 'react'
 import styles from '@/app/page.module.css'
 import Artwork from '@/app/artworks/Artwork'
+import FtArtwork from '@/app/artworks/FtArtwork'
 
 export default function Artworks({initialArtworks}) {
     const artworks = initialArtworks
+    const ftart = initialArtworks[8]
     const btnClasses = "image-btn hidden button"
   return (
    <>
     <div className = {styles.mainContainer}>
         <main className = {styles.mainPageBody}>
 
-
-            <section id="featured-paintings section">
-                <h1 class = "title">Featured Artwork</h1>
-                <div class = "featured-card" id = "featured-card">    </div>
-            </section>
+            <FtArtwork ftart = {ftart}></FtArtwork>
 
             <section id="all-artwork" class="section artwork-section">
                 <h2 className = {styles.title}>All Artwork</h2>

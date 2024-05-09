@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <>
-    <Artworks initialArtworks={artworks}> </Artworks>
+    <Artworks initialArtworks={artworks} > </Artworks>
     </>
 
   )

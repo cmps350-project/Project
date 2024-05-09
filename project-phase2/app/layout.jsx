@@ -18,9 +18,11 @@ export default function RootLayout({ children }) {
     < head>
     </head>
     <body className={styles.body}>
-      <NavBar></NavBar>
-      {children}
-      <Footer></Footer>
+      <div className={styles.container}>
+        <NavBar></NavBar>
+        {children}
+        <Footer></Footer>
+      </div>
     </body>
       
     </html>

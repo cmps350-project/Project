@@ -8,7 +8,7 @@ export default function Footer() {
 
         <div className = {styles.pageBottom}>
             <section id="ethical-commitment"> 
-                <h2 class = "title">Ethical Commitment</h2> 
+                <h2 className = {styles.title}>Ethical Commitment</h2> 
                 <p>We believe in the power of art to inspire and its ability to be created responsibly.</p>
                 <div class = "ethical-certif">
                     <img src="/images/natural.png" alt="Natural" width="150" height="200"></img>

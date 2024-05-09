@@ -1,6 +1,16 @@
 
 /* -------------------------- styles Css -----------------------*/
-
+/*general layout*/
+.container{
+  display: grid;
+  grid-template-areas:
+  "page-head"
+  "page-body"
+  "page-bottom"
+  "social-media"
+  "footer";
+  grid-gap: 2rem;
+}
 .body {
   margin: auto;
   font-family: "brother-1816", sans-serif;
@@ -171,7 +181,7 @@ outline: 0;
   grid-area: page-bottom;
   margin: 2rem;
   font-size: clamp(0.7rem, 1.5vw, 1rem); 
-  justify-self: center;
+
   width: 75%;
 
   .ul{
@@ -473,17 +483,7 @@ outline: 0;
 }
 
   /* -------------------------- Main Page Css -----------------------*/
-/*general layout*/
-.mainContainer{
-  display: grid;
-  grid-template-areas:
-  "page-head"
-  "page-body"
-  "page-bottom"
-  "social-media"
-  "footer";
-  grid-gap: 2rem;
-}
+
 .PageHead{
   grid-area: page-head;
 }
