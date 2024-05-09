@@ -32,20 +32,20 @@ const ShoppingCart = ({ artwork }) => {
           <p className={styles.category}>Category: {artwork.category}</p>
           <p className={styles.medium}>Medium: {artwork.medium}</p>
           <p className={styles.year}>Year: {artwork.year}</p>
-
-          
-          <div className={styles.quantityContainer}>
-            <button className={styles.quantityButton} onClick={handleDecrement}>
-              -
-            </button>
-            <span className={styles.quantity}>{quantity}</span>
-            <button className={styles.quantityButton} onClick={handleIncrement}>
-              +
-            </button>
+          <div className={styles.quantityWrapper}>
+            <div className={styles.quantityContainer}>
+              <button className={styles.quantityButton} onClick={handleDecrement}>
+                -
+              </button>
+              <span className={styles.quantity}>{quantity}</span>
+              <button className={styles.quantityButton} onClick={handleIncrement}>
+                +
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <button className={styles.checkoutButton}>Add to Cart</button>
+      <button className={styles.checkoutButton}>Checkout</button>
     </div>
   );
 };
