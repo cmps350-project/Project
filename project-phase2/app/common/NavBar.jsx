@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '@/app/page.module.css'
+import styles from '@/app/styles/page.module.css'
 import Link from 'next/link'
 
 
@@ -18,7 +18,7 @@ export default function NavBar() {
             </nav>
             <h1 className = {styles.headerTitle}>Artfully Yours</h1>
             <div className = {styles.icons}>
-                <Link href = "/" id = "basket-icon"><img src="/images/bag_icon.png" alt="Shopping Cart" width="30" height="30" ></img></Link>
+                <Link href = "/shoppingcart" id = "basket-icon"><img src="/images/bag_icon.png" alt="Shopping Cart" width="30" height="30" ></img></Link>
                 <Link href="/" id = "login-icon"><img src="/images/user.png" alt="User" width="30" height="30" ></img></Link>
             </div>
         </header>

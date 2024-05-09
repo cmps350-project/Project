@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '@/app/page.module.css'
+import styles from '@/app/styles/page.module.css'
 // button classes: class="image-btn hidden button"
 export default function Artwork({artwork}) {
   return (

@@ -1,6 +1,6 @@
 'use client'
 import { React, useState } from 'react'
-import styles from '@/app/page.module.css'
+import styles from '@/app/styles/page.module.css'
 import Artwork from '@/app/artworks/Artwork'
 import FtArtwork from '@/app/artworks/FtArtwork'
 

@@ -1,6 +1,6 @@
 'use client'
 import { React, useState } from 'react'
-import styles from '@/app/page.module.css'
+import styles from '@/app/styles/page.module.css'
 
 export default function FtArtwork({ftart}) {
   return (
