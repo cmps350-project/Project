@@ -115,17 +115,24 @@ class ArtworkRepo {
             }
         }
     }
-    async getArtworkbyId(id){
+    async getArtworkbyId(id) {
       try {
-        return prisma.artwork.findUnique({
-            where: { id }
-        })
-    } catch (error) {
-        return { error: error.message }
-    }
+          return prisma.artwork.findUnique({
+              where: { artworkNo: id },
+              include: {
+                  artist: {
+                      select: { name: true }
+                  },
+                  image: {
+                      select: { image_url: true, alternate_url: true }
+                  }
+              }
+          })
+      } catch (error) {
+          return { error: error.message };
+      }
   }
-
-
+  
 }
 
 export default new ArtworkRepo()
