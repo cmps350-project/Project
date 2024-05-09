@@ -6,7 +6,8 @@ CREATE TABLE "Customer" (
     "email" TEXT NOT NULL,
     "firstName" TEXT NOT NULL,
     "lastName" TEXT,
-    "moneyBalance" DECIMAL DEFAULT 0
+    "moneyBalance" DECIMAL DEFAULT 0,
+    "shippingAddress" TEXT NOT NULL
 );
 
 -- CreateTable
@@ -65,19 +66,9 @@ CREATE TABLE "Purchase" (
     "purchaseDate" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "totalPrice" DECIMAL NOT NULL,
     "artworkNo" TEXT NOT NULL,
-    "customerId" TEXT,
-    CONSTRAINT "Purchase_artworkNo_fkey" FOREIGN KEY ("artworkNo") REFERENCES "Artwork" ("artworkNo") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "Purchase_customerId_fkey" FOREIGN KEY ("customerId") REFERENCES "Customer" ("userId") ON DELETE SET NULL ON UPDATE CASCADE
-);
-
--- CreateTable
-CREATE TABLE "ShippingAddress" (
-    "addressId" TEXT NOT NULL PRIMARY KEY,
-    "street" TEXT NOT NULL,
-    "zone" TEXT NOT NULL,
-    "houseNumber" TEXT NOT NULL,
     "customerId" TEXT NOT NULL,
-    CONSTRAINT "ShippingAddress_customerId_fkey" FOREIGN KEY ("customerId") REFERENCES "Customer" ("userId") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "Purchase_artworkNo_fkey" FOREIGN KEY ("artworkNo") REFERENCES "Artwork" ("artworkNo") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Purchase_customerId_fkey" FOREIGN KEY ("customerId") REFERENCES "Customer" ("userId") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateIndex
@@ -106,6 +97,3 @@ CREATE UNIQUE INDEX "BankAccount_userId_key" ON "BankAccount"("userId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Purchase_artworkNo_key" ON "Purchase"("artworkNo");
-
--- CreateIndex
-CREATE UNIQUE INDEX "ShippingAddress_customerId_key" ON "ShippingAddress"("customerId");

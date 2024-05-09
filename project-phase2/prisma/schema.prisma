@@ -18,7 +18,7 @@ model Customer {
   firstName       String
   lastName        String?
   moneyBalance    Decimal?         @default(0)
-  shippingAddress ShippingAddress?
+  shippingAddress String
   Purchases       Purchase[]
 }
 
@@ -82,11 +82,3 @@ model Purchase {
   customer     Customer @relation(fields: [customerId], references: [userId])
 }
 
-model ShippingAddress {
-  addressId   String   @id @default(cuid())
-  street      String
-  zone        String
-  houseNumber String
-  customerId  String   @unique
-  customer    Customer @relation(fields: [customerId], references: [userId])
-}
