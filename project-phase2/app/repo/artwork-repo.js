@@ -15,6 +15,18 @@ class ArtworkRepo {
         }
     }
 
+    async addArtworkImage(image) {
+        try {
+            return prisma.image.create({
+                data: image
+            })
+        } catch (error) {
+            return {
+                error: error.message
+            }
+        }
+    }
+
     async getArtworks() {
         try {
           return await prisma.artwork.findMany({

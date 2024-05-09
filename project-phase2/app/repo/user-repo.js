@@ -15,7 +15,7 @@ class UserRepo {
             },
           });
         } catch (error) {
-          console.error("Error fetching seller:", error);
+          console.error("error fetching seller:", error);
           throw error;
         }
       }

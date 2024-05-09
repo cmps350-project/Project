@@ -6,23 +6,66 @@ import { useRouter } from 'next/navigation'
 
 export default async function page({ params }) {
 
+
     const router = useRouter()
     async function handleSubmit(e) {
         e.preventDefault()
-        const formData = new FormData(e.target)
-        const newArtwork = Object.fromEntries(formData)
-  
-          const response = await fetch('/api/artworks',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(newArtwork)
-                }
-            )
-            alert(JSON.stringify(response))
+        try{
+            const formData = new FormData(e.target)
+            const newArtwork = Object.fromEntries(formData)
+    
+            // add the artist Id
+            const sellerId = params.userId
+            newArtwork.artistId = sellerId
+    
+            //saving image
+            const image_url = newArtwork.image
+            const alternate_url = newArtwork.alternative
+    
+            delete newArtwork.image; 
+            delete newArtwork.alternative; 
+    
+            //make the year,price,quantity numbers
+            newArtwork.quantity = Number(newArtwork.quantity)
+            newArtwork.year = Number(newArtwork.year)
+            newArtwork.price = Number(newArtwork.price)
+    
+    
+              const response = await fetch('/api/artworks',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(newArtwork)
+                    }
+                )
+            const addedArtwork = await response.json();
+            
+            //add a new image
+            const artworkImg =  {
+                        image_url: image_url,
+                        alternate_url: alternate_url,
+                        artworkNo: addedArtwork.artworkNo
+            }; 
+            const imgresponse = await fetch('/api/artworks/image',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(artworkImg)
+            })
+            alert('Your masterpeice have been added succesfully :)')
+            router.push('/')
+
+    
+        }catch(error){
+            alert('Something went Wrong. Double check your inputs and try again')
         }
+
+}
+
   return (
     <>
     <main className = {styles.sellPageBody}>              
@@ -56,6 +99,10 @@ export default async function page({ params }) {
              <label for="artpiece-price">Price:</label>
              <input type ="number" id="artpiece-price" name="price"  className = {styles.formInput}  placeholder="Enter your price" required></input>
              
+             <label for="artpiece-quantity">Quantity:</label>
+             <input type ="number" id="artpiece-quantity" name="quantity"  className = {styles.formInput}  placeholder="Enter the Quantity" required></input>
+             
+
              <label for="artpiece-image">Image:</label>
              <input type="url" id="artpiece-image" name="image"className = {styles.formInput} placeholder="Enter Image URL" required></input>
 
