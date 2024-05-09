@@ -14,22 +14,19 @@ export default function page() {
   const handleFormSubmit = async(event) => {
     event.preventDefault(); 
 
-    const response = await fetch(`/api/users/${formData.username},${formData.password}`)
-    const userId = await response.json();    
-    if (userId){
-
+    try{
+      const response = await fetch(`/api/users/${formData.username},${formData.password}`)
+      const userId = await response.json();  
       alert("User logged in Successfully");
       //push user to main page and the userId in url
       router.push({
-        pathname: '/',
-        query: { userId: userId }
+        pathname: '/users/',
       });
-    }
-    else{
+    }catch(error){
       alert("Login Failed");
     }
     setFormData({ username: '', password: '' });
-  };
+  }
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
