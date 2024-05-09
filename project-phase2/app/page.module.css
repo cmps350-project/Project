@@ -1,11 +1,6 @@
 
 /* -------------------------- styles Css -----------------------*/
 
-* {
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 160;
-}
 .body {
   margin: auto;
   font-family: "brother-1816", sans-serif;
@@ -101,12 +96,19 @@ outline: 0;
   justify-self: center;
   letter-spacing: 3px;
   margin: 0rem;
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); 
+  text-align: center;
+  margin: 0.5rem;
 }
 .icons{
   display: flex;
   grid-area: icons;
   justify-self: end;
   margin: 0 1.5rem;
+  flex-direction: row;
 }
 
 .header{
@@ -175,9 +177,10 @@ outline: 0;
   .ul{
       text-align:center;
       list-style-type: none;
-      .li{
-          margin:1rem 0.7rem;
-      }
+  }
+
+  .li{
+    margin:1rem 0.7rem;
   }
 }
 
@@ -481,7 +484,7 @@ outline: 0;
   "footer";
   grid-gap: 2rem;
 }
-.mainPageHead{
+.PageHead{
   grid-area: page-head;
 }
 .mainHovered{
@@ -491,7 +494,7 @@ outline: 0;
 .mainHomeSection{
   height: 30vh;
   /*background-image: url(../images/panorama.jpg);*/
-  background-image: url(../images/paintstroke.png);
+  background-image: url(/images/paintstroke.png);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -566,6 +569,11 @@ outline: 0;
 /* artwork */
 .mainArtTitle{
   font-size: clamp(0.8rem, 2.5vw, 1rem); 
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0.5rem;
 }
 .mainArtworkItem{
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -586,6 +594,7 @@ outline: 0;
   height:100%;
   width:100%;
   object-fit: cover;
+
 }
 
 .mainImageBtn {
@@ -761,6 +770,7 @@ outline: 0;
   .menuItem{
     text-align: start;
   }
+
   
   }
   
