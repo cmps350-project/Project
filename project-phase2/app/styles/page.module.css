@@ -79,7 +79,7 @@ background-color: #f7fafa;
   border-radius: 0.2rem;
   background-color: rgb(255, 255, 255);
   border: none;
-  width:60%;
+  width: 80%;
   height: 30px;
   display: block;
   border-bottom: 0.3rem solid transparent;
@@ -669,7 +669,7 @@ outline: 0;
     padding: 0.5rem 1rem;
     cursor: pointer;
     font-size: 1rem;
-    width: 100%;
+    width: 80%;
     grid-column: 2;
 }
 
@@ -678,6 +678,11 @@ outline: 0;
 }
 
 .sellDisplayTitle{
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2.5vw, 1.5rem); 
+  text-align: center;
   font-size: smaller;
   margin: 2rem;
 }
