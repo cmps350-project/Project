@@ -2,19 +2,32 @@
 
 import React, { useState } from 'react';
 import styles from '@/app/styles/basket.module.css';
+import { useRouter } from 'next/navigation'
 
-const ShoppingCart = ({ artwork }) => {
-  const [quantity, setQuantity] = useState(1);
 
-  const handleIncrement = () => {
+export default function ShoppingCart ({ artwork }) {
+    const router = useRouter();
+    const [quantity, setQuantity] = useState(1);
+
+  function handleIncrement () {
     setQuantity(quantity + 1);
   };
 
-  const handleDecrement = () => {
+  function handleDecrement () {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
+  function handleCheckout(){
+    const artworkWithQuantity = {
+        artworkNo: artwork.artworkNo,
+        quantity: quantity
+    };
+    localStorage.setItem('artwork', JSON.stringify(artworkWithQuantity));
+    router.push(`/checkout`);
+  }
+
+
 
   return (
     <div className={styles.basketContainer}>
@@ -45,9 +58,9 @@ const ShoppingCart = ({ artwork }) => {
           </div>
         </div>
       </div>
-      <button className={styles.checkoutButton}>Checkout</button>
+      
+      <button className={styles.checkoutButton} onClick={handleCheckout}>Checkout</button>
     </div>
   );
 };
 
-export default ShoppingCart;
