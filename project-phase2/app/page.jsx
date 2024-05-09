@@ -6,10 +6,11 @@ import Artworks from '@/app/artworks/Artworks'
 
 export default async function Home() {
   const artworks = await artworkRepo.getArtworks()
-
+  const [first, second, third, fourth,  ...rest] = artworks;
+  const rearrangedArtworks = [...rest, first, second, third, fourth];
   return (
     <>
-    <Artworks initialArtworks={artworks} > </Artworks>
+    <Artworks initialArtworks={rearrangedArtworks} > </Artworks>
     </>
 
   )

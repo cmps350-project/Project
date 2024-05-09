@@ -13,9 +13,9 @@ export default function FtArtwork({ftart}) {
         <img className = {styles.mainFeaturedImg} src={ftart.image.image_url} alt="Descriptive Painting Title"></img>
         </div>
         <div className = {styles.mainFeaturedText}>
-            <h3 class = "title art-title">{ftart.title}</h3> 
-            <p class="artist">{ftart.artist.name}</p>
-            <p class="descrciption">{ftart.description}</p>
+            <h3 className = {styles.mainArtTitle}>{ftart.title}</h3> 
+            <p className = {styles.artist}>{ftart.artist.name}</p>
+            <p className = {styles.description}>{ftart.description}</p>
         </div>
     </div>
     </section> 

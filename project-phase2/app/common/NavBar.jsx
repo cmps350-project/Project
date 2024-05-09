@@ -22,9 +22,14 @@ export default function NavBar() {
                 <Link href="/" id = "login-icon"><img src="/images/user.png" alt="User" width="30" height="30" ></img></Link>
             </div>
         </header>
+        <section id="home" className = {styles.mainHomeSection}>
+                <p className = {styles.tag}>Fuel your creative spirit</p>
+        </section>  
     </div>
     
     
     </>
   )
 }
+
+    

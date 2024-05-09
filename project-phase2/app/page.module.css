@@ -135,7 +135,9 @@ outline: 0;
   grid-template-areas:
   "title title icons"
   "nav nav nav";
+
 }
+
 /* navigation */
 .navigation{
   grid-area: nav;
@@ -146,6 +148,7 @@ outline: 0;
   list-style-type: none;
   flex-wrap: wrap;
   flex-direction: column;
+  
 }
 .menuItem{
   flex-grow: 1;
@@ -548,7 +551,7 @@ outline: 0;
 }
 
 .mainArtContainer{
-  margin: 3rem 2rem;
+  margin: 0rem 2rem;
   padding: 2rem 4rem;
   display: grid;
   justify-content: center;
@@ -567,6 +570,7 @@ outline: 0;
 }
 /* artwork */
 .mainArtTitle{
+
   font-size: clamp(0.8rem, 2.5vw, 1rem); 
   letter-spacing: 2px;
   font-weight: lighter;
@@ -604,7 +608,7 @@ outline: 0;
   opacity: 0.9;
 }
 
-.mainCategory, .mainpPice, .mainQuantity{
+.mainCategory, .mainPrice, .mainQuantity{
   font-size: smaller;
   color:grey;
 }
@@ -738,9 +742,7 @@ outline: 0;
       width: 40%;
       align-items: start;
   }
-  .description{
-      text-align: start;
-  }
+
   /* -------------------------- Main Page Large Screen Css -----------------------*/
 
   .mainFeaturedCard{
