@@ -6,10 +6,24 @@ import FtArtwork from '@/app/artworks/FtArtwork'
 
 
 export default function Artworks({initialArtworks}) {
-    const [searchTerm, setSearchTerm] = useState('');
-    const artworks = initialArtworks
+    const [artworks, setArtworks] = useState(initialArtworks)
+
+
+    async function handleLoadArtworks(searchValue) {
+        const promises = [
+          fetch(`/api/artworks?artistname=${searchValue}`),
+          fetch(`/api/artworks?category=${searchValue}`),
+          fetch(`/api/artworks?title=${searchValue}`),
+        ];
+        const responses = await Promise.all(promises);
+        const datasets = await Promise.all(responses.map(response => response.json()));
+      
+        const searchedArtworks = datasets.flat(); 
+        setArtworks(searchedArtworks);
+      }
+      
+
     const ftart = initialArtworks[8]
-    const btnClasses = "image-btn hidden button"
 
 
     
@@ -20,9 +34,8 @@ export default function Artworks({initialArtworks}) {
                 <h2 className = {styles.title}>All Artwork</h2>
                 <form className = {styles.mainSearchForm} id = "search-form">
                     <input type="text" placeholder="Search by Title, Asrtist Name, or Category" 
-                        className = {styles.formInput} id = "search-tf"   onChange={(event) => setSearchTerm(event.target.value)} >
+                        className = {styles.formInput} id = "search-tf"   onChange={e => handleLoadArtworks(e.target.value)} >
                     </input>
-                    <button type="submit" className = {styles.button} id = "search-btn">Search</button>
                 </form>
                 <div className = {styles.mainArtContainer} id = "art-container">
                 {

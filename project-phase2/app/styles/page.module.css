@@ -80,6 +80,7 @@ background-color: #f7fafa;
   background-color: rgb(255, 255, 255);
   border: none;
   width:60%;
+  height: 30px;
   display: block;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;

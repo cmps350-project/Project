@@ -36,12 +36,12 @@ class ArtworkRepo {
 
       async getArtworksByTitle(title) {
         try {
+            const normalizedName = title.toLocaleLowerCase();
           return await prisma.artwork.findMany({
             where: {
-              OR: [
-                { title: { startsWith: title.toLocaleLowerCase() } },
-                { title: { endsWith: title.toLocaleLowerCase()  } },
-              ],
+                title: { 
+                    contains: normalizedName 
+                  },
             },
             include: {
                 artist: {
@@ -83,13 +83,13 @@ class ArtworkRepo {
       }
       
       async getArtworksByCategory(category) {
+        const normalizedName = category.toLocaleLowerCase();
         try {
           return await prisma.artwork.findMany({
             where: {
-              OR: [
-                { category: { startsWith: category.toLocaleLowerCase() } },
-                { category: { endsWith: category.toLocaleLowerCase() } },
-              ],
+                category: { 
+                    contains: normalizedName 
+                  },
             },
             include: {
                 artist: {
