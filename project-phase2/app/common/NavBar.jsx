@@ -6,6 +6,7 @@ import Link from 'next/link'
 export default function NavBar() {
   return (
     <>
+    <div className={styles.pageHead}>
         <header className = {styles.header}>
             <nav className = {styles.navigation}>
                 <ul className = {styles.menu}>
@@ -21,6 +22,7 @@ export default function NavBar() {
                 <Link href="/" id = "login-icon"><img src="/images/user.png" alt="User" width="30" height="30" ></img></Link>
             </div>
         </header>
+    </div>
     
     
     </>
