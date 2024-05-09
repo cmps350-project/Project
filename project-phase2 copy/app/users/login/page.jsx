@@ -1,18 +1,33 @@
 'use client'
 import React, { useState } from 'react';
 import styles from '@/app/styles/page.module.css';
+import { useRouter } from 'next/navigation'
 
 export default function page() {
+  const router = useRouter()
+
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault(); // Prevents the default form submission behavior
-    // Do something with formData, like sending it to a server
-    alert(formData);
-    // You can reset the form data if needed
+  const handleFormSubmit = async(event) => {
+    event.preventDefault(); 
+
+    const response = await fetch(`/api/users/${formData.username},${formData.password}`)
+    const userId = await response.json();    
+    if (userId){
+
+      alert("User logged in Successfully");
+      //push user to main page and the userId in url
+      router.push({
+        pathname: '/',
+        query: { userId: userId }
+      });
+    }
+    else{
+      alert("Login Failed");
+    }
     setFormData({ username: '', password: '' });
   };
 

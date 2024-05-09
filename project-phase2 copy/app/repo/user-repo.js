@@ -93,42 +93,51 @@ class UserRepo {
                 { username: username },
                 { password: password }
               ]
+            },
+            select: {
+              userId: true
             }
           });
-    
+      
           if (customer) {
-            return customer;
+            return customer.userId;
           }
-    
-          // Check if the user exists in the seller model
+      
+          //Check if the user exists in the seller model
           const seller = await prisma.seller.findFirst({
             where: {
               AND: [
                 { username: username },
                 { password: password }
               ]
+            },
+            select: {
+              userId: true
             }
           });
-    
+      
           if (seller) {
-            return seller;
+            return seller.userId;
           }
-    
-          // Check if the user exists in the admin model
+      
+          //Check if the user exists in the admin model
           const admin = await prisma.admin.findFirst({
             where: {
               AND: [
                 { username: username },
                 { password: password }
               ]
+            },
+            select: {
+              userId: true
             }
           });
-    
+      
           if (admin) {
-            return admin;
+            return admin.userId;
           }
-    
-          // If the user is not found in any model, return null
+      
+          //If the user is not found in any model, return null
           return null;
         } catch (error) {
           console.error("Error fetching user:", error);
