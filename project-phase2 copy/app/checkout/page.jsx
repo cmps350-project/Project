@@ -18,22 +18,38 @@ export default function Checkout () {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  async function handleSubmit(e) {
+
+async function handleSubmit(e) {
     e.preventDefault();
   
+    const { street, city, country, ...restFormData } = formData;
+    const shippingAddress = `${street}, ${city}, ${country}`;
+  
     const artworkWithQuantity = JSON.parse(localStorage.getItem('artwork'));
-    const { artworkNo, quantity } = artworkWithQuantity;
+    const { artworkNo, quantity, totalPrice } = artworkWithQuantity;
   
     const customerId = localStorage.getItem('userId');
   
     const purchaseData = {
       quantity: quantity,
-      totalPrice: '0',
+      totalPrice: totalPrice.toString(),
       artworkNo: artworkNo,
       customerId: customerId,
     };
   
     try {
+      const updatedCustomer = await fetch(`/api/users/customers/${customerId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ shippingAddress }),
+      });
+  
+      if (!updatedCustomer.ok) {
+        throw new Error('Failed to update shipping address');
+      }
+  
       const response = await fetch('/api/purchases', {
         method: 'POST',
         headers: {
@@ -46,6 +62,8 @@ export default function Checkout () {
         throw new Error('Failed to confirm order');
       }
   
+      alert("Your order has been confirmed. Thank you for shopping with us!");
+  
       localStorage.removeItem('artwork');
   
       router.push('/');
@@ -53,7 +71,7 @@ export default function Checkout () {
       console.error('Error confirming order:', error);
     }
   }
-
+  
 
   return (
     <div className={styles.container}>

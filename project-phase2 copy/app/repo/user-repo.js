@@ -166,6 +166,18 @@ class UserRepo {
           throw error;
         }
       }
+
+      async updateCustomer(userId, updatedFields) {
+        try {
+          return await prisma.customer.update({
+            where: { userId: userId },
+            data: updatedFields,
+          });
+        } catch (error) {
+          console.error('Error updating customer:', error);
+          throw error;
+        }
+      }
       
   
 }
