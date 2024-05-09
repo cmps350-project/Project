@@ -199,6 +199,27 @@ outline: 0;
 
 
 /* -------------------------- Account Info Css -----------------------*/
+.stat {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.topProducts,
+.popularCategories {
+  margin-top: 20px;
+}
+
+.topProducts ul,
+.popularCategories ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.topProducts h3,
+.popularCategories h3 {
+  margin-bottom: 10px;
+}
+
 .accountInfoContainer{
   display: grid;
   grid-template-areas:
@@ -211,13 +232,14 @@ outline: 0;
 }
 .accountInfo{
   padding: 2rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   align-items: center;
   display:flex;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   margin-bottom: 4rem;
 }
+
 
 .AIArtworkItem {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

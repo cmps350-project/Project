@@ -29,7 +29,7 @@ class ArtworkRepo {
 
     async getArtworks() {
         try {
-          return await prisma.artwork.findMany({
+          return prisma.artwork.findMany({
             include: {
               artist: {
                 select: { name: true } 
@@ -49,7 +49,7 @@ class ArtworkRepo {
       async getArtworksByTitle(title) {
         try {
             const normalizedName = title.toLocaleLowerCase();
-          return await prisma.artwork.findMany({
+          return prisma.artwork.findMany({
             where: {
                 title: { 
                     contains: normalizedName 
@@ -72,7 +72,7 @@ class ArtworkRepo {
       async getArtworksByArtist(artistName) {
         try {
           const normalizedName = artistName.toLocaleLowerCase();
-          return await prisma.artwork.findMany({
+          return prisma.artwork.findMany({
             where: {
               artist: {
                 name: { 
@@ -97,7 +97,7 @@ class ArtworkRepo {
       async getArtworksByCategory(category) {
         const normalizedName = category.toLocaleLowerCase();
         try {
-          return await prisma.artwork.findMany({
+          return prisma.artwork.findMany({
             where: {
                 category: { 
                     contains: normalizedName 
@@ -145,54 +145,37 @@ class ArtworkRepo {
       }
   }
 
-  //for statistics
   async getTop3ProductsLast6Months() {
     try {
       const sixMonthsAgo = new Date();
       sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
-  
-      const topProducts = await prisma.purchase.groupBy({
-        by: ['artworkNo'],
+      const topPurchases = await prisma.purchase.findMany({
         where: {
           purchaseDate: {
             gte: sixMonthsAgo
           }
         },
         orderBy: {
-          _count: {
-            totalPrice: 'desc'
-          }
+          totalPrice: 'desc'
         },
-        take: 3
+        take: 3,
+        include: {
+          artwork: true
+        }
       });
-      return topProducts;
+      return topPurchases.map(purchase => purchase.artwork);
     } catch (error) {
       console.error("Error fetching top 3 products over the last 6 months:", error);
       throw error;
     }
   }
-
-  //statistics
-  async getMostPopularCategories() {
-    try {
-      const popularCategories = await prisma.artwork.groupBy({
-        by: ['category'],
-        _count: true,
-        orderBy: {
-          _count: 'desc'
-        }
-      });
-      return popularCategories;
-    } catch (error) {
-      console.error("Error fetching most popular categories of artworks:", error);
-      throw error;
-    }
-  }
+  
+  
 
   //statistics
   async getAverageQuantitySoldPerArtwork() {
     try {
-      const averageQuantity = await prisma.purchase.aggregate({
+      const averageQuantity = prisma.purchase.aggregate({
         _avg: { quantity: true }
       });
       return averageQuantity;
