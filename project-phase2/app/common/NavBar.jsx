@@ -18,7 +18,7 @@ export default function NavBar() {
             </nav>
             <h1 className = {styles.headerTitle}>Artfully Yours</h1>
             <div className = {styles.icons}>
-                <Link href="/" id = "login-icon"><img src="/images/user.png" alt="User" width="30" height="30" ></img></Link>
+                <Link href="/users/login" id = "login-icon"><img src="/images/user.png" alt="User" width="30" height="30" ></img></Link>
             </div>
         </header>
         <section id="home" className = {styles.mainHomeSection}>
