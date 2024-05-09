@@ -24,6 +24,7 @@ export default function Artworks({initialArtworks}) {
       
 
     const ftart = initialArtworks[8]
+    
 
 
     

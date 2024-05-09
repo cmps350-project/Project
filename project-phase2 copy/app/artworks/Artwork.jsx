@@ -8,14 +8,17 @@ export default function Artwork({ artwork }) {
   const [isHovering, setIsHovering] = useState(false);
   const router = useRouter();
 
-
-
   const handleMouseOver = () => setIsHovering(true);
   const handleMouseOut = () => setIsHovering(false);
 
   const imageUrl = isHovering ? artwork.image.alternate_url : artwork.image.image_url;
   function handleBuyNow () {
-    router.push(`/shoppingcart/${artwork.artworkNo}`);
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      router.push(`/shoppingcart/${artwork.artworkNo}`);
+    } else {
+      console.warn('User is not logged in. Please log in to purchase.');
+    }
   };
 
 
