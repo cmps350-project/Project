@@ -660,6 +660,16 @@ outline: 0;
 .sellSmaller{
   font-size: 0.4rem;
 }
+.bordered {
+  border-collapse: collapse;
+}
+
+.bordered th, .bordered td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
 
   
 @media screen and (min-width: 700px){

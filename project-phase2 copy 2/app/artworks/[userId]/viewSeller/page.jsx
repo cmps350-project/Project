@@ -16,32 +16,46 @@ export default async function SellerPage({ params }) {
       <h2 className={styles.h2}>This is the art you are currently selling</h2>
 
       <div className={styles.cardContainer}>
-        <ul>
+         <ul>   
           {artworks.map((artwork) => (
-            <div className={styles.card} key={artwork.artworkNo}>
-              <p className={styles.title}>{artwork.title}</p>
-              <img src={artwork.image.image_url} alt={artwork.image.alternate_url} height="200" width="150" />
-              <p className={styles.fontUpperC}>Price: {Number(artwork.price)}</p>
+            <div className = {styles.card}>
+            <tr key={artwork.artworkNo}>
+            <p className={styles.title}>{artwork.title}</p>
+            <img src={artwork.image.image_url} alt={artwork.image.alternate_url} height="200" width="150" />
+            <p className={styles.fontUpperC}>Price: {Number(artwork.price)}</p>
+            </tr>
             </div>
-          ))}
-        </ul>
+            ))}
+          </ul>
       </div>
       <hr className={styles.hr} />
       <h2 className={styles.h2}>Sale History</h2>
 
-       <div className={styles.cardContainer}>
-         <ul>
-           {saleHistory.map((purchase) => (
-            <div className={styles.card} key={purchase.purchaseNo}>
-              <p className={styles.fontUpperC}>Artwork: {purchase.artwork.title}</p>
-              <img src={purchase.artwork.image.image_url} alt={purchase.artwork.image.alternate_url} height="200" width="150" />
-              <p className={styles.fontUpperC}>Customer: {purchase.customer.username}</p>
-              <p className={styles.fontUpperC}>Purchase Date: {purchase.purchaseDate.toDateString()}</p>
-              <p className={styles.fontUpperC}>Quantity: {purchase.quantity}</p>
-              <p className={styles.fontUpperC}>Price Paid: {Number(purchase.totalPrice)}</p>
-            </div>
-          ))}
-        </ul>
+      <div className={styles.tableContainer}>
+        <table className={`${styles.table} ${styles.bordered}`}>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Image</th>
+              <th>Customer</th>
+              <th>Purchase Date</th>
+              <th>Quantity</th>
+              <th>Price Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            {saleHistory.map((purchase) => (
+              <tr key={purchase.purchaseNo}>
+                <td>{purchase.artwork.title}</td>
+                <td><img src={purchase.artwork.image.image_url} alt={purchase.artwork.image.alternate_url} height="100" width="75" /></td>
+                <td>{purchase.customer.username}</td>
+                <td>{purchase.purchaseDate.toDateString()}</td>
+                <td>{purchase.quantity}</td>
+                <td>{Number(purchase.totalPrice)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   )
