@@ -257,7 +257,40 @@ class UserRepo {
           throw error;
         }
       }
+      async  getRevenuePerYearForSellers() {
+        try {
+          const purchases = await prisma.purchase.findMany({
+            include: {
+              artwork: {
+                include: {
+                  artist: true,
+                },
+              },
+            },
+          });
       
+          const revenuePerYearForSellers = {};
+          
+          purchases.forEach((purchase) => {
+            const year = new Date(purchase.purchaseDate).getFullYear();
+            const sellerId = purchase.artwork.artist.userId;
+            const totalPrice = purchase.totalPrice;
+      
+            if (!revenuePerYearForSellers[year]) {
+              revenuePerYearForSellers[year] = {};
+            }
+            if (!revenuePerYearForSellers[year][sellerId]) {
+              revenuePerYearForSellers[year][sellerId] = 0;
+            }
+            revenuePerYearForSellers[year][sellerId] += Number(totalPrice);
+          });
+      
+          return revenuePerYearForSellers;
+        } catch (error) {
+          console.error('Error:', error);
+          throw error;
+        }
+      }
       
       
 }
