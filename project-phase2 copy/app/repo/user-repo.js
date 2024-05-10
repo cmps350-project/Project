@@ -198,8 +198,40 @@ class UserRepo {
           throw error;
         }
       }
+
+      async getTopNSpendingCustomersInYear(n, year) {
+        try {
+          const topCustomers = await prisma.purchase.groupBy({
+            by: ['customerId'],
+            where: {
+              AND: [
+                {
+                  purchaseDate: {
+                    gte: new Date(year, 0, 1), // Start of the given year
+                    lt: new Date(year + 1, 0, 1) // Start of the next year
+                  }
+                }
+              ]
+            },
+            orderBy: {
+              _sum: {
+                totalPrice: 'desc'
+              }
+            },
+            take: n
+          });
       
+          return topCustomers;
+        } catch (error) {
+          console.error('Error fetching top spending customers:', error);
+          throw error;
+        }
+      }
       
+
+
+      
+
   
 }
 

@@ -132,7 +132,7 @@ outline: 0;
   justify-items: center;
   background-color: rgb(235, 225, 216, 0.8);
   position: sticky;
-  top: 1px;
+  top: 0;
   grid-template-areas:
   "title title icons"
   "nav nav nav";
@@ -201,7 +201,35 @@ outline: 0;
 /* -------------------------- Account Info Css -----------------------*/
 .stat {
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 3rem;
+}
+
+.cardContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.statCard{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    margin: 2rem;
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff;
+    transition: 0.2s ease-in-out;  
+}
+.statCard:hover {
+  cursor: pointer;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
 }
 
 .topProducts,
@@ -220,16 +248,7 @@ outline: 0;
   margin-bottom: 10px;
 }
 
-.accountInfoContainer{
-  display: grid;
-  grid-template-areas:
-  "page-head"
-  "page-body"
-  "page-bottom"
-  "social-media"
-  "footer";
-  grid-gap: 2rem;
-}
+
 .accountInfo{
   padding: 2rem;
   font-size: 1rem;
@@ -239,6 +258,7 @@ outline: 0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   margin-bottom: 4rem;
 }
+
 
 
 .AIArtworkItem {
@@ -482,9 +502,20 @@ outline: 0;
     background-color: transparent;
     outline: none;
 }
+.loginInputFields:focus + .loginLabel {
+  top: -1rem;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.loginInputFields:focus:not(:placeholder-shown) + .loginLabel {
+  top: -1rem;
+  font-size: 0.8rem;
+  color: #555;
+}
 
 .loginLabel {
-    position: absolute;
+    position:static;
     top: 0.5rem;
     left: 0.5rem;
     color: #777;
@@ -511,13 +542,15 @@ outline: 0;
 
 .PageHead{
   grid-area: page-head;
+  height: 30vh;
+  overflow-y: auto; 
 }
 .mainHovered{
   background-color: purple;
 }
 /* home section */
 .mainHomeSection{
-  height: 30vh;
+  height: 20vh;
   /*background-image: url(../images/panorama.jpg);*/
   background-image: url(/images/paintstroke.png);
   background-size: cover;

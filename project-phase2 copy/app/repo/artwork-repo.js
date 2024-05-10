@@ -201,11 +201,25 @@ class ArtworkRepo {
       });
       return mostPopularCategory;
     } catch (error) {
-      console.error('Error fetching artwork data:', error);
+      console.error(error);
       throw error;
     }
   }
 
+  async getTotalArtworksSold() {
+    try {
+      const totalArtworksSold = await prisma.purchase.aggregate({
+        _sum: {
+          quantity: true // Sum of quantity for all purchases
+        }
+      });
+  
+      return totalArtworksSold._sum.quantity || 0; // Return total quantity or 0 if undefined
+    } catch (error) {
+      console.error('Error fetching total artworks sold:', error);
+      throw error;
+    }
+  }
   
   
 

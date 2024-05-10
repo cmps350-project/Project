@@ -24,9 +24,9 @@ export default function Footer() {
             </section>
         </div>
         <section className = {styles.socialMedia}>
-            <Link href = "https://www.instagram.com/?hl=ar"><img src="./images/instagram.png" alt="Instagram" width="30" height="30"></img></Link>
-            <Link href = "https://www.tiktok.com/login"><img src="./images/tiktok.png" alt="tiktok" width="30" height="30"></img></Link>
-            <Link href = "https://www.google.com/gmail/about/"><img src="./images/email.png" alt="email" width="30" height="30"></img></Link>
+            <Link href = "https://www.instagram.com/?hl=ar"><img src="/images/instagram.png" alt="Instagram" width="30" height="30"></img></Link>
+            <Link href = "https://www.tiktok.com/login"><img src="/images/tiktok.png" alt="tiktok" width="30" height="30"></img></Link>
+            <Link href = "https://www.google.com/gmail/about/"><img src="/images/email.png" alt="email" width="30" height="30"></img></Link>
         </section>
         <footer className = {styles.footer}>
             <p class = "copy">&copy; 2024 Artfully Yours</p>
