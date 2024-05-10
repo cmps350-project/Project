@@ -15,6 +15,19 @@ class ArtworkRepo {
         }
     }
 
+    updateArtwork(artworkNo, artwork){
+      try {
+          return prisma.artwork.update(
+              {
+                  data: artwork,
+                  where: { artworkNo }
+              }
+          )
+      } catch (error) {
+          return { error: error.message }
+      }
+  }
+
     async addArtworkImage(image) {
         try {
             return prisma.image.create({
