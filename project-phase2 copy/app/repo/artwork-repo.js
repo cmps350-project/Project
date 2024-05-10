@@ -240,6 +240,37 @@ class ArtworkRepo {
       throw error;
     }
   }
+  async getSaleHistoryForArtist(artistId) {
+    try {
+      const saleHistory = await prisma.purchase.findMany({
+        where: {
+          artwork: {
+            artistId: artistId
+          }
+        },
+        include: {
+          artwork: {
+            include: {
+              image: {
+                select: { image_url: true, alternate_url: true }
+              }
+            }
+          },
+          customer: true
+        },
+        orderBy: {
+          purchaseDate: 'desc'
+        }
+      });
+  
+      return saleHistory;
+    } catch (error) {
+      console.error('Error fetching sale history:', error);
+      throw error;
+    }
+  }
+  
+  
   
  
   
