@@ -35,14 +35,16 @@ async function handleSubmit(e) {
       const customerBalance = customerData.moneyBalance;
       
       if (totalPrice > customerBalance) {
-        throw new Error('Insufficient balance. Please top up your account.');
+        alert('Insufficient balance. Please top up your account.');
+        return;
       }
       
       const artworkResponse = await fetch(`/api/artworks/${artworkNo}`);
       const artworkData = await artworkResponse.json();
       const availableQuantity = artworkData.quantity;
       if (requestedQuantity > availableQuantity) {
-        throw new Error('Requested quantity exceeds available quantity.');
+       alert('Requested quantity exceeds available quantity.');
+       return;
       }
       
       const purchaseData = {
