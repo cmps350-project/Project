@@ -7,7 +7,7 @@ import FtArtwork from '@/app/artworks/FtArtwork'
 
 export default function Artworks({initialArtworks}) {
     const [artworks, setArtworks] = useState(initialArtworks)
-    const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(0);
+    const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(8);
 
 
     async function handleLoadArtworks(searchValue) {
