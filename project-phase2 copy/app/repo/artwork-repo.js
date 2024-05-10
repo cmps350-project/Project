@@ -220,9 +220,29 @@ class ArtworkRepo {
       throw error;
     }
   }
+  async getArtworksBySellerId(sellerId) {
+    try {
+      return prisma.artwork.findMany({
+        where: {
+          artistId: sellerId
+        },
+        include: {
+          artist: {
+            select: { name: true }
+          },
+          image: {
+            select: { image_url: true, alternate_url: true }
+          }
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching artworks for seller:", error);
+      throw error;
+    }
+  }
   
+ 
   
-
 }
 
 export default new ArtworkRepo()
