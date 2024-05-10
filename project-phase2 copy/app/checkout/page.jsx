@@ -107,7 +107,8 @@ async function handleSubmit(e) {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Checkout</h2>
+      <h2 className={styles.h2}>Checkout</h2>
+      <hr className = {styles.hr}></hr>
       <form onSubmit={handleSubmit} className={styles.checkoutForm}>
         <div className={styles.formContainer}>
           <label htmlFor="street">Street:</label>

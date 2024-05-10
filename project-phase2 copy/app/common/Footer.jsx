@@ -5,8 +5,8 @@ import Link from 'next/link'
 export default function Footer() {
   return (
    <>
-
         <div className = {styles.pageBottom}>
+        <hr className = {styles.hr}></hr>
             <section id="ethical-commitment"> 
                 <h2 className = {styles.title}>Ethical Commitment</h2> 
                 <p>We believe in the power of art to inspire and its ability to be created responsibly.</p>

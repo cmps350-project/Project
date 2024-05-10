@@ -38,7 +38,8 @@ export default async function page({params}) {
   return (
     <div className={styles.pageBody}>
       {user && <User user={user} {...customerDetails} />}
-      <h2 className = {styles.Vtitle}>Purchase History</h2>
+      <h2 className = {styles.h2}>Purchase History</h2>
+      <hr className = {styles.hr}></hr>
       {customerPurchases.purchases && customerPurchases.purchases.length > 0 && (
         <div className={styles.cardContainer}>
           <ul>   

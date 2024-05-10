@@ -1,4 +1,12 @@
-
+.h2{
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2vw, 1rem); 
+  text-align: center;
+  margin: 0.5rem;
+  color:rgb(77, 48, 30);
+}
 .container {
     max-width: 600px;
     margin: 0 auto;
@@ -9,6 +17,13 @@
     text-align: center;
     margin-bottom: 20px;
   }
+  .hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 1rem;
+}
   
   .checkoutForm {
     display: flex;
