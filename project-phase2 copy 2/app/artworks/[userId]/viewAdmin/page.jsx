@@ -137,6 +137,7 @@ export default async function page({ params }) {
           </div>
 
           {/* Display total purchases per customer */}
+          <div className={styles.card}>
           {totalPurchases.length > 0 && (
             <div className={styles.tableContainer}>
               <h3 className={styles.Vtitle}> Total Purchases Per Customer:</h3>
@@ -158,6 +159,7 @@ export default async function page({ params }) {
               </table>
             </div>
           )}
+          </div>
 
           {/* Display revenue per year for every seller */}
           <div className={styles.card}>
