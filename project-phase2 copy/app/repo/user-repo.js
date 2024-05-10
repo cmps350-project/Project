@@ -43,6 +43,24 @@ class UserRepo {
         }
       }
 
+      async getArtworkBySellerIdAndTitle(sellerId, artworkTitle) {
+        try {
+          const artwork = await prisma.artwork.findFirst({
+            where: {
+              AND: [
+                { artistId: sellerId },
+                { title: artworkTitle },
+              ],
+            },
+          });
+    
+          return artwork;
+        } catch (error) {
+          console.error('Error fetching artwork:', error);
+          throw error;
+        }
+      }
+
 
         async  getAllUsers() {
         try {

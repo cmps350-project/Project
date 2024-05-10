@@ -11,11 +11,32 @@ export default async function page({ params }) {
     async function handleSubmit(e) {
         e.preventDefault()
         try{
+            const sellerId = params.userId
             const formData = new FormData(e.target)
             const newArtwork = Object.fromEntries(formData)
-    
+
+            //first check if artwork by this seller exists
+            const fetchArtBySeller = await fetch(`/api/users/sellers/${sellerId}/${newArtwork.title}`)
+            const artBySeller = await fetchArtBySeller.json();
+            if (artBySeller){
+                artBySeller.quantity = artBySeller.quantity+1
+                alert(`This peice already exists. will update Quantity by 1`)
+                const response = await fetch(`/api/artworks/${artBySeller.artworkNo}`,
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(artBySeller)
+                }
+            )
+            const existingArt = await response.json();
+            alert(`current Quantity: ${existingArt.quantity}`)
+
+            }
+            else{
+            // if the seller doesnt have artwork by that title, add it
             // add the artist Id
-            const sellerId = params.userId
             newArtwork.artistId = sellerId
     
             //saving image
@@ -59,6 +80,7 @@ export default async function page({ params }) {
             alert('Your masterpeice have been added succesfully :)')
             router.push('/')
 
+            }
     
         }catch(error){
             alert('Something went Wrong. Double check your inputs and try again')
