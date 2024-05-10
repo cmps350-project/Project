@@ -7,6 +7,7 @@ import FtArtwork from '@/app/artworks/FtArtwork'
 
 export default function Artworks({initialArtworks}) {
     const [artworks, setArtworks] = useState(initialArtworks)
+    const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(0);
 
 
     async function handleLoadArtworks(searchValue) {
@@ -21,16 +22,31 @@ export default function Artworks({initialArtworks}) {
         const searchedArtworks = datasets.flat(); 
         setArtworks(searchedArtworks);
       }
-      
 
-    const ftart = initialArtworks[8]
+      function handleScrollLeft() {
+        setSelectedArtworkIndex(prevIndex =>
+          prevIndex === 0 ? initialArtworks.length - 1 : prevIndex - 1
+        );
+      }
     
-
-
+      function handleScrollRight() {
+        setSelectedArtworkIndex(prevIndex =>
+          prevIndex === initialArtworks.length - 1 ? 0 : prevIndex + 1
+        );
+      }
+    
+      
     
   return (
    <>
         <main className = {styles.mainPageBody}>
+        <section id="featured-paintings section" className = {styles.ftArtworkSection}>
+        <h1 className = {styles.title}>Featured Artwork</h1>
+          <img src = "https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-gauche-gris.png" onClick={handleScrollLeft} height = "30" width = "30"></img>
+          <img src = "https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-droite-grise.png" onClick={handleScrollRight} height = "30" width = "30"></img>
+          <FtArtwork ftart={initialArtworks[selectedArtworkIndex]}></FtArtwork>
+        </section> 
+
             <section id="all-artwork" class="section artwork-section">
                 <h2 className = {styles.title}>All Artwork</h2>
                 <form className = {styles.mainSearchForm} id = "search-form">

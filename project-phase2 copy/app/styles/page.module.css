@@ -440,13 +440,14 @@ outline: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2rem;
+  margin-bottom: 2rem;
   align-self: center;
   justify-self: center;
+  height: 60vh;
 
 }
 .mainFeaturedText{
-  margin: 2rem;
+  margin: 0rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -454,10 +455,15 @@ outline: 0;
   width: 80%;
 }
 .mainFeaturedImg{
-  width: 50vh;
-  object-fit: contain;
-  height: 50vh;
+  width: 250px;
+  margin: 0rem;
+  height: 150px;
   border:auto;
+  object-fit: cover;
+
+}
+.ftArtworkSection{
+  margin: 1rem;
 }
 
 .mainFtImgContainer{
@@ -472,6 +478,7 @@ outline: 0;
 .mainArtworkSection{
   padding: 1rem 0rem;
 }
+
 
 .mainArtContainer{
   margin: 0rem 2rem;
@@ -511,16 +518,17 @@ outline: 0;
   line-height: 0.9rem;
 
 }
+
+.mainArtworkImage{
+  height:90%;
+  width:100%;
+  object-fit: cover;
+
+}
 .mainImgContainer{
   position: relative;
   height:90%;
   width:100%;
-}
-.mainArtworkImage{
-  height:100%;
-  width:100%;
-  object-fit: cover;
-
 }
 
 .mainImageBtn {
@@ -659,9 +667,17 @@ outline: 0;
 
   .mainFeaturedCard{
     flex-direction: row;
-    .featured-text{
-        width:30%;
+    height: 40vh;
+
+    .mainFeaturedText{
+      margin: 2rem 1rem;
     }
+    .mainFeaturedImg{
+      width: 350px;
+      height: 250px;
+      margin: 2rem;
+    }
+
 }
   /* -------------------------- styles Large Screen Css -----------------------*/
 
