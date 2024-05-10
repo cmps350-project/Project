@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import styles from '@/app/styles/page.module.css'
 import { useRouter } from 'next/navigation'
@@ -16,8 +17,7 @@ export default function Artwork({ artwork }) {
     if (userId) {
         const response = await fetch(`/api/users/customers/${userId}`)
         const user = await response.json(); 
-        alert(user)
-        if (user.moneyBalance) {
+        if (user) {
           router.push(`/shoppingcart/${artwork.artworkNo}`);
         }else{
           alert("You are not a customer. cannot buy art.")
