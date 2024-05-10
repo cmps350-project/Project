@@ -42,8 +42,8 @@ export default function Artworks({initialArtworks}) {
         <main className = {styles.mainPageBody}>
         <section id="featured-paintings section" className = {styles.ftArtworkSection}>
         <h1 className = {styles.title}>Featured Artwork</h1>
-          <img src = "https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-gauche-gris.png" onClick={handleScrollLeft} height = "30" width = "30"></img>
-          <img src = "https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-droite-grise.png" onClick={handleScrollRight} height = "30" width = "30"></img>
+          <img src = "https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-gauche-gris.png" onClick={handleScrollLeft} height = "30" width = "30" className = {styles.ftArrows}></img>
+          <img src = "https://icones.pro/wp-content/uploads/2021/06/symbole-fleche-droite-grise.png" onClick={handleScrollRight} height = "30" width = "30"  className = {styles.ftArrows}></img>
           <FtArtwork ftart={initialArtworks[selectedArtworkIndex]}></FtArtwork>
         </section> 
 

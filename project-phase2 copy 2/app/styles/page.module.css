@@ -446,6 +446,9 @@ outline: 0;
   height: 60vh;
 
 }
+.ftArrows:hover{
+  cursor:pointer;
+}
 .mainFeaturedText{
   margin: 0rem;
   display: flex;
