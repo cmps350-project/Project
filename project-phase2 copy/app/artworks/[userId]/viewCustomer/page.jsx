@@ -38,18 +38,19 @@ export default async function page({params}) {
   return (
     <div className={styles.pageBody}>
       {user && <User user={user} {...customerDetails} />}
-      
+      <h2 className = {styles.Vtitle}>Purchase History</h2>
       {customerPurchases.purchases && customerPurchases.purchases.length > 0 && (
-        <div className={styles.purchasedArtworks}>
-          <h2>Purchased Artworks</h2>
+        <div className={styles.cardContainer}>
           <ul>   
           {customerPurchases.purchases.map((purchase) => (
+            <div className = {styles.card}>
             <li key={purchase.artwork.artworkNo}>
-            <p>Title: {purchase.artwork.title}</p>
-            <img src={purchase.artwork.image.image_url} alt={purchase.artwork.image.alternate_url} />
-            <p>Quantity: {purchase.quantity}</p>
-            <p>Price Paid: {Number(purchase.totalPrice)}</p>
+            <p className={styles.fontUpperC}>Title: {purchase.artwork.title}</p>
+            <img src={purchase.artwork.image.image_url} alt={purchase.artwork.image.alternate_url} height= "200" width = "150"/>
+            <p className={styles.fontUpperC}>Quantity: {purchase.quantity}</p>
+            <p className={styles.fontUpperC}>Price Paid: {Number(purchase.totalPrice)}</p>
             </li>
+            </div>
             ))}
           </ul>
         </div>

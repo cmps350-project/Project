@@ -39,39 +39,38 @@ export default async function page({ params }) {
     <>
       <div className={styles.pageBody}>
         <User user={user}></User>
-        <h3 className = {styles.stat}>Here are some interesting insights about your platform!</h3>
+        <h3 className = {styles.Vtitle}>Here are some interesting insights about your platform!</h3>
 
     <div className = {styles.cardContainer}>
         {/*display total customers */}
-        <div className = {styles.statCard}>
-        <h3 className = {styles.stat}>No of Users:</h3>
+        <div className = {styles.card}>
+        <h3 className = {styles.Vtitle}>No of Users:</h3>
         {customers && (
-          <p className={styles.tableTitle}>
+          <p className={styles.fontUpperC}>
             Total Customers: {customers}
           </p>
         )}
         {sellers && (
-          <p className={styles.tableTitle}>
+          <p className={styles.fontUpperC}>
             Total Sellers: {sellers}
           </p>
         )}
-            <p className={styles.tableTitle}>
+            <p className={styles.fontUpperC}>
             Total Users: {sellers + customers}
           </p>
         </div>
 
 
-
         {/*display average quantity sold per artwork */}
-        <div className = {styles.statCard}>
-        <h3 className = {styles.stat}>Artwork Sales</h3>
+        <div className = {styles.card}>
+        <h3 className = {styles.Vtitle}>Artwork Sales</h3>
         {averageQuantity && (
-          <p className={styles.tableTitle}>Average Quantity of Artwork Sales:
+          <p className={styles.fontUpperC}>Average Quantity of Artwork Sales:
             {averageQuantity._avg.quantity.toFixed(2)}
           </p>
         )}
         {totalSold && (
-          <p className={styles.tableTitle}>Total Number of Artworks Sold:
+          <p className={styles.fontUpperC}>Total Number of Artworks Sold:
             {totalSold.toFixed(2)}
           </p>
         )}
@@ -79,27 +78,27 @@ export default async function page({ params }) {
         </div>
 
         {/*display most popular artwork categories*/}
-        <div className = {styles.statCard}>
+        <div className = {styles.card}>
         {popularCategory.length > 0 && (
           <div className={styles.topProducts}>
-            <h3 className = {styles.stat}>Top 3 Most Popular Artwork Categories:</h3>
+            <h3 className = {styles.Vtitle}>Top 3 Most Popular Artwork Categories:</h3>
             <ul>
-            <li key="1" className={styles.tableTitle}>1. {popularCategory[0].category}</li>
-            <li key="2" className={styles.tableTitle}>2. {popularCategory[1].category}</li>
-            <li key="3" className={styles.tableTitle}>3. {popularCategory[2].category}</li>
+            <li key="1" className={styles.fontUpperC}>1. {popularCategory[0].category}</li>
+            <li key="2" className={styles.fontUpperC}>2. {popularCategory[1].category}</li>
+            <li key="3" className={styles.fontUpperC}>3. {popularCategory[2].category}</li>
             </ul>
             </div>
         )}
         </div>
 
         {/*display top 3 products sold over the last 6 months */}
-        <div className = {styles.statCard}>
+        <div className = {styles.card}>
         {topProductsResult.length > 0 && (
           <div className={styles.topProducts}>
-            <h3 className = {styles.stat}>Top 3 Products Sold Over the Last 6 Months:</h3>
+            <h3 className = {styles.Vtitle}>Top 3 Products Sold Over the Last 6 Months:</h3>
             <ul>
                 {topProductsResult.map((product, index) => (
-                <li key={index} className={styles.tableTitle}>
+                <li key={index} className={styles.fontUpperC}>
                     {index + 1}. ArtworkId: {product.artworkNo}, Artwork Title: {product.title}
                 </li>
                 ))}
@@ -108,13 +107,13 @@ export default async function page({ params }) {
         )}
         </div>
         {/*display top 3 spending customers in 2024*/}
-        <div className = {styles.statCard}>
+        <div className = {styles.card}>
         {topSpendingCustomers2024.length > 0 && (
           <div className={styles.topProducts}>
-            <h3 className = {styles.stat}>Top 3 Spending Customers in 2024:</h3>
+            <h3 className = {styles.Vtitle}>Top 3 Spending Customers in 2024:</h3>
             <ul>
                 {topSpendingCustomers2024.map((customer, index) => (
-                <li key={index} className={styles.tableTitle}>
+                <li key={index} className={styles.fontUpperC}>
                     {index + 1}. CustomerId: {customer?.customerId || 'N/A'}
                 </li>
                 ))}
@@ -125,13 +124,13 @@ export default async function page({ params }) {
 
 
         {/*display top 3 spending customers of all time */}
-        <div className = {styles.statCard}>
+        <div className = {styles.card}>
         {topSpendingCustomers.length > 0 && (
           <div className={styles.topProducts}>
-            <h3 className = {styles.stat}>Top 3 Spending Customers of all time:</h3>
+            <h3 className = {styles.Vtitle}>Top 3 Spending Customers of all time:</h3>
             <ul>
                 {topSpendingCustomers.map((customer, index) => (
-                <li key={index} className={styles.tableTitle}>
+                <li key={index} className={styles.fontUpperC}>
                     {index + 1}. CustomerId: {customer?.customerId || 'N/A'}
                 </li>
                 ))}
@@ -144,7 +143,7 @@ export default async function page({ params }) {
         {/*display total purchases per customer */}
         {totalPurchases.length > 0 && (
           <div className={styles.tableContainer}>
-            <h3 className = {styles.stat}> Total Purchases Per Customer:</h3>
+            <h3 className = {styles.Vtitle}> Total Purchases Per Customer:</h3>
             <table className={styles.table}>
               <thead>
                 <tr>
