@@ -500,7 +500,6 @@ outline: 0;
 }
 /* artwork */
 .mainArtTitle{
-
   font-size: clamp(0.8rem, 2.5vw, 1rem); 
   letter-spacing: 2px;
   font-weight: lighter;
@@ -520,7 +519,7 @@ outline: 0;
 }
 
 .mainArtworkImage{
-  height:90%;
+  height:100%;
   width:100%;
   object-fit: cover;
 
@@ -667,14 +666,14 @@ outline: 0;
 
   .mainFeaturedCard{
     flex-direction: row;
-    height: 40vh;
+    height: 50vh;
 
     .mainFeaturedText{
       margin: 2rem 1rem;
     }
     .mainFeaturedImg{
-      width: 350px;
-      height: 250px;
+      width: 450px;
+      height: 300px;
       margin: 2rem;
     }
 
