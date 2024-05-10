@@ -40,6 +40,27 @@ class PurchasesRepo {
           throw error;
         }
       }
+      async getPurchasesByCustomerId(customerId) {
+        try {
+          const customerPurchases = await prisma.purchase.findMany({
+            where: {
+              customerId: customerId
+            },
+            include: {
+              artwork: {
+                include: {
+                  image: true 
+                }
+              }
+            }
+          });
+          return customerPurchases;
+        } catch (error) {
+          console.error('Error fetching purchases for customer:', error);
+          throw error;
+        }
+      }
+      
 
       
       

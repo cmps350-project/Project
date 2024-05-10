@@ -227,12 +227,21 @@ class UserRepo {
           throw error;
         }
       }
+      async getCustomerDetails(userId) {
+        try {
+          const customerDetails = await prisma.customer.findUnique({
+            where: { userId },
+            select: { moneyBalance: true, shippingAddress: true }
+          });
+          return customerDetails;
+        } catch (error) {
+          console.error("Error fetching customer details:", error);
+          throw error;
+        }
+      }
       
-
-
       
-
-  
+      
 }
 
 export default new UserRepo()
