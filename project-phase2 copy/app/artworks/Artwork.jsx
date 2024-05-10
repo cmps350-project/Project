@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import styles from '@/app/styles/page.module.css'
 import { useRouter } from 'next/navigation'
@@ -8,15 +7,27 @@ export default function Artwork({ artwork }) {
   const [isHovering, setIsHovering] = useState(false);
   const router = useRouter();
 
-
-
   const handleMouseOver = () => setIsHovering(true);
   const handleMouseOut = () => setIsHovering(false);
 
   const imageUrl = isHovering ? artwork.image.alternate_url : artwork.image.image_url;
-  function handleBuyNow () {
-    router.push(`/shoppingcart/${artwork.artworkNo}`);
-  };
+  async function handleBuyNow () {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+        const response = await fetch(`/api/users/customers/${userId}`)
+        const user = await response.json(); 
+        alert(user)
+        if (user.moneyBalance) {
+          router.push(`/shoppingcart/${artwork.artworkNo}`);
+        }else{
+          alert("You are not a customer. cannot buy art.")
+        }
+    }else{
+      alert('You are not logged in, please login to purchase artwork');
+      router.push(`/users/login`);
+    }
+  }
+  
 
 
   return (
