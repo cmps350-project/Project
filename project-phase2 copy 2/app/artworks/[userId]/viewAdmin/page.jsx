@@ -112,7 +112,7 @@ export default async function page({ params }) {
                 <ul>
                   {topSpendingCustomers2024.map((customer, index) => (
                     <li key={index} className={styles.fontUpperC}>
-                      {index + 1}. CustomerId: {customer?.customerId || 'N/A'}
+                      {index + 1}. CustomerId: {customer?.customerId || 'N/A'} 
                     </li>
                   ))}
                 </ul>
@@ -167,9 +167,9 @@ export default async function page({ params }) {
                 <h4>{year}</h4>
                 <ul>
                   {Object.entries(sellerRevenue).map(([sellerId, revenue]) => (
-                    <tr key={sellerId}>
-                      Seller ID: {sellerId}, Revenue: {Number(revenue).toLocaleString()}
-                    </tr>
+                    <li key={sellerId}>
+                      Seller ID: {sellerId}, Revenue: {Number(revenue).toLocaleString()}$
+                    </li>
                   ))}
                 </ul>
               </div>
