@@ -27,6 +27,7 @@ export default function page() {
       router.push('/')
     }catch(error){
       alert("Login Failed");
+      router.refresh()
     }
     setFormData({ username: '', password: '' });
   }

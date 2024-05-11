@@ -78,6 +78,7 @@ export default async function page({ params }) {
                 body: JSON.stringify(artworkImg)
             })
             alert('Your masterpeice have been added succesfully :)')
+            router.refresh()
             router.push('/')
 
             }
